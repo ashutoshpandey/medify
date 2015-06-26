@@ -9,28 +9,32 @@ class AuthenticationController extends BaseController {
         });
     }
 	
-	public function userLogin(){
-		return View::make('authentication.userlogin');
+	public function customerLogin(){
+		return View::make('authentication.customer-login');
 	}
 	
 	public function expertLogin(){
-		return View::make('authentication.expertlogin');
+		return View::make('authentication.expert-login');
 	}
 	
-	public function adminlogin(){
-		return View::make('authentication.adminlogin');
+	public function adminLogin(){
+		return View::make('authentication.admin-login');
 	}
-	
-	public function register(){
-		return View::make('authentication.register');
+
+    public function registerExpert(){
+        return View::make('authentication.register-expert');
+    }
+
+	public function registerCustomer(){
+		return View::make('authentication.register-customer');
 	}
 	
 	public function passwordRecovery(){
-		return View::make('authentication.passwordrecovery');
+		return View::make('authentication.password-recovery');
 	}
 	
 	public function passwordSent(){
-		return View::make('authentication.passwordsent');
+		return View::make('authentication.password-sent');
 	}
 
     public function isValidAdmin()
@@ -44,79 +48,90 @@ class AuthenticationController extends BaseController {
         if(is_null($admin))
             return "invalid";
         else{
-            Session::put('admin_id', $admin->id);
+            Session::put('adminId', $admin->id);
 
             return "correct";
         }
     }
 
-	public function isValidUser()
+	public function isValidCustomer()
 	{
         $email = Input::get('email');
         $password = Input::get('password');
 
-        $user = User::where('email', '=', $email)
+        $customer = Customer::where('email', '=', $email)
                     ->where('password','=',$password)->first();
 
-        if(is_null($user)){
+        if(is_null($customer)){
 
             $ar = array("message"=>"invalid");
 
             return $ar;
         }
         else{
-            Session::put('user_id', $user->id);
-            Session::put('timezone', $user->timezone);
+            Session::put('customerId', $customer->id);
 
             $ar = array(
                 "message"       =>  "correct",
-                "id"            =>  $user->id,
-                "first_name"    =>  $user->first_name,
-                "last_name"     =>  $user->last_name,
-                "email"         =>  $email
+                "id"            =>  $customer->id,
+                "first_name"    =>  $customer->first_name,
+                "last_name"     =>  $customer->last_name
             );
 
             return $ar;
         }
 	}
 
-    public function isDuplicateUser($email)
+    public function isValidExpert()
     {
-        $user = User::where('email', '=', $email)->first();
+        $email = Input::get('email');
+        $password = Input::get('password');
 
-        return is_null($user) ? "no" : "yes";
+        $expert = Expert::where('email', '=', $email)->where('password','=', $password)->first();
+
+        if(is_null($expert))
+            return "invalid";
+        else{
+            Session::put('expert_id', $expert->id);
+
+            return "correct";
+        }
     }
 
-    public function saveUser(){
+    public function isDuplicateCustomer($email)
+    {
+        $customer = Customer::where('email', '=', $email)->first();
+
+        return is_null($customer) ? "no" : "yes";
+    }
+
+    public function saveCustomer(){
 
         $email = Input::get('email');
 
-        if($this->isDuplicateUser($email)==="no"){
+        if($this->isDuplicatecustomer($email)==="no"){
 
-            $user = new User;
+            $customer = new Customer();
 
-            $country = Input::get('country');
-            $timezone = Input::get('timezone');
-            $country = Input::get('country');       // from payment create user
-            $user->email = Input::get('email');
-            $user->password = Input::get('password');
-            $user->first_name = Input::get('first_name');
-            $user->last_name = Input::get('last_name');
-            $user->country = $country;
-            $user->status = "active";
-            $user->created_at = date("Y-m-d h:i:s");
-            $user->updated_at = date("Y-m-d h:i:s");
+            $country = Input::get('country');       // from payment create customer
+            $customer->email = Input::get('email');
+            $customer->password = Input::get('password');
+            $customer->first_name = Input::get('first_name');
+            $customer->last_name = Input::get('last_name');
+            $customer->country = $country;
+            $customer->status = "active";
+            $customer->created_at = date("Y-m-d h:i:s");
+            $customer->updated_at = date("Y-m-d h:i:s");
 
-            $user->save();
+            $customer->save();
 
-            Session::put('user_id', $user->id);
-            Session::put('logged', true);
+            Session::put('customerId', $customer->id);
 
-            $this->sendUserEmail();
+            $this->sendcustomerEmail();
 
             $ar = array(
                 "message"   =>  "done",
-                "id"        =>  $user->id
+                "id"        =>  $customer->id
             );
         }
         else
@@ -127,9 +142,19 @@ class AuthenticationController extends BaseController {
         return $ar;
     }
 
-    public function expertSaved(){
-        Session::put('status','pending');
-        return View::make('authentication.expertsaved');
+    public function customerSaved(){
+
+        if(is_null(Session::get('name')))
+            return View::make('static.index');
+        else{
+            $id=Session::get('customer_id');
+
+            $customer=customer::find($id);
+
+            return View::make('authentication.customer-saved')
+                            ->with('customer_email',$customer->email)
+                            ->with('name',$customer->first_name . ' ' . $customer->last_name);
+        }
     }
 
     public function expertRegister(){
@@ -166,6 +191,12 @@ class AuthenticationController extends BaseController {
             return "duplicate";
     }
 
+    public function expertSaved(){
+        Session::put('status','pending');
+
+        return View::make('authentication.expert-saved');
+    }
+
     public function isDuplicateExpert($email)
     {
         $expert = Expert::where('email', '=', $email)->first();
@@ -173,65 +204,59 @@ class AuthenticationController extends BaseController {
         return is_null($expert) ? "no" : "yes";
     }
 
-    public function userSaved(){
-
-        if(is_null(Session::get('name')))
-            return View::make('static.index');
-        else{
-            $id=Session::get('user_id');
-            $user=User::find($id);
-            return View::make('authentication.usersaved')->with('user_email',$user->email);
-        }
-    }
-
-    public function sendPassword(){
+    public function sendCustomerPassword(){
 
         $email = Input::get('email');
 
-        $user = User::where('User.email','=',$email)->first();
+        $customer = customer::where('customer.email','=',$email)->first();
 
-        $data = array('name'=>$user->name);
+        $data = array('name'=>$customer->name);
 
-        Mail::send('emails.resetpassword', $data, function($message)use ($user){
+        Mail::send('emails.customer-reset-password', $data, function($message)use ($customer){
 
-            $message->to($user->email, $user->name)->subject('You requested your password');
+            $message->to($customer->email, $customer->name)->subject('You requested your password');
         });
     }
-    public function sendUserEmail(){
+
+    public function sendCustomerEmail(){
+
         ini_set('max_execution_time',3600);
+
         if(is_null(Session::get('name')))
             return View::make('static.index');
         else{
-            $id=Session::get('user_id');
-            $user=User::find($id);
+            $id=Session::get('customer_id');
+            $customer=customer::find($id);
 
-            $data = array('name' => $user->email);
+            $data = array('name' => $customer->email);
 
-            Mail::send('emails.usermail', $data, function($message)use ($user){
+            Mail::send('emails.customer-register-mail', $data, function($message)use ($customer){
 
-                $message->to($user->email, $user->name)->subject('Welcome to zantama.com');
+                $message->to($customer->email, $customer->name)->subject('Welcome to ..');
             });
         }
-        return View::make('authentication.usersaved')->with('user_email',$user->email);
+        return View::make('authentication.customer-saved')->with('customer_email',$customer->email);
     }
 
     public function sendExpertEmail(){
 
         ini_set('max_execution_time',3600);
+
         if(is_null(Session::get('expert_id')))
             return View::make('static.index');
         else{
             $id=Session::get('expert_id');
+
             $expert=Expert::find($id);
 
             $data = array('name'=>$expert->email);
 
-            Mail::send('emails.expertmail', $data, function($message)use ($expert){
+            Mail::send('emails.expert-register-mail', $data, function($message)use ($expert){
 
-                $message->to($expert->email, $expert->first_name.' '.$expert->last_name)->subject('Welcome to zantama.com');
+                $message->to($expert->email, $expert->first_name.' '.$expert->last_name)->subject('Welcome to ..');
             });
         }
-        return View::make('authentication.expertsaved')->with('expert_email',$expert->email);
+        return View::make('authentication.expert-saved')->with('expert_email',$expert->email);
     }
 
     public function sendExpertPassword(){
@@ -242,27 +267,10 @@ class AuthenticationController extends BaseController {
 
         $data = array('name'=>$expert->name);
 
-        Mail::send('emails.resetpassword', $data, function($message)use ($expert){
+        Mail::send('emails.expert-reset-password', $data, function($message)use ($expert){
 
             $message->to($expert->email, $expert->name)->subject('You requested your password');
         });
-    }
-
-    public function isValidExpert()
-    {
-        $email = Input::get('email');
-        $password = Input::get('password');
-
-        $expert = Expert::where('email', '=', $email)->where('password','=', $password)->first();
-
-        if(is_null($expert))
-            return "invalid";
-        else{
-            Session::put('expert_id', $expert->id);
-            Session::put('timezone', $expert->timezone);
-            Session::put('country', $expert->country);
-            return "correct";
-        }
     }
     /************************ expert methods ************************/
 }
