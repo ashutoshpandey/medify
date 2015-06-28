@@ -9,9 +9,6 @@ class ExpertController extends BaseController {
 
             date_default_timezone_set("UTC");
 
-            if(is_null($id))
-                return Redirect::to('expert-login');
-
             View::share('root', URL::to('/'));
         });
     }
@@ -19,6 +16,11 @@ class ExpertController extends BaseController {
     public function dashboard(){
 
         $id = Session::get('expert_id');
+
+        if(!isset($userId))
+            return Redirect::to('/');
+
+        $expert = Expert::find($id);
 
         $appointment_count = Appointment::where('expert_id', '=', $id)
                                         ->where('status','=','booked')
@@ -28,34 +30,13 @@ class ExpertController extends BaseController {
             ->where('status','=','pending')
             ->where('appointment_date','>=', date('Y-m-d H:i:s'))->count();
 
-        return View::make('expert.dashboard')->with('appointment_count', $appointment_count)->with('availability_count', $availability_count);
+        return View::make('expert.dashboard')
+                    ->with('appointment_count', $appointment_count)
+                    ->with('availability_count', $availability_count)
+                    ->with('expert_name', $expert->first_name . " " . $expert->last_name);
     }
 
-    public function expertSection(){
-
-        $id = Session::get('expert_id');
-        $status=Session::get('status');
-
-        $expert = Expert::find($id);
-
-        return View::make('expert.expertsection')->with('expert_name', $expert->first_name . " " . $expert->last_name)->with('status',$status);
-    }
-
-    public function loadAvailabilities(){
-
-        $id = Session::get('expert_id');
-
-        $appointments = Appointment::where('expert_id','=',$id)
-                                   ->where('status','=','pending')
-                                   ->where('appointment_date','>=',date('Y-m-d H:i:s'))->get();
-
-        foreach($appointments as $appointment)
-            $appointment->appointment_date=$this->toLocalDate($appointment->appointment_date,$id);
-
-        return View::make('expert.load-availabilities')->with('appointments', $appointments);
-    }
-
-    public function availabilities(){
+    public function appointments(){
 
         return View::make('expert.availabilities');
     }
@@ -69,23 +50,6 @@ class ExpertController extends BaseController {
         return View::make('expert.appointment')->with("appointment",$appointment);
     }
 
-    public function appointments(){
-
-        $id = Session::get('expert_id');
-
-        $currentDate = date("Y-m-d H:i:s", strtotime("-1 hours"));
-
-
-        $appointments = Appointment::where('expert_id','=',$id)->
-                                     where('status','=','booked')->
-                                     where('appointment_date','>=',$currentDate)->get();
-
-        foreach($appointments as $appointment)
-            $appointment->appointment_date=$this->toLocalDate($appointment->appointment_date,$appointment->expert_id);
-
-        return View::make('expert.appointments')->with('appointments', $appointments);
-    }
-
     public function history(){
 
         $currentDate = date("Y-m-d H:i:s");
@@ -94,18 +58,15 @@ class ExpertController extends BaseController {
 
         $appointments = Appointment::where('expert_id','=',$id)
                                     ->where(function($q) use($currentDate){
-                                        $q->where('status','=','patientcancelled')
-                                            ->orWhere('status','=','expertcancelled')
+                                        $q->where('status','=','user-cancelled')
+                                            ->orWhere('status','=','expert-cancelled')
                                             ->orWhere('appointment_date','<',$currentDate);
                                     })->get();
-
-        foreach($appointments as $appointment)
-            $appointment->appointment_date=$this->toLocalDate($appointment->appointment_date,$appointment->expert_id);
 
         return View::make('expert.history')->with('appointments', $appointments);
     }
 
-    public function cancelAvailability($id){
+    public function cancelAvailableAppointment($id){
 
         $appointment = Appointment::find($id);
 
@@ -137,16 +98,6 @@ class ExpertController extends BaseController {
 
             return "done";
         }
-    }
-
-    public function cancelledAppointments(){
-
-        $id = Session::get('expert_id');
-
-        $appointments = Appointment::where('expert_id','=',$id)->
-                                     where('status','=','cancelled')->get();
-
-        return $appointments;
     }
 
     public function setAvailabilities(){
@@ -479,5 +430,90 @@ class ExpertController extends BaseController {
         }
 
         return $categoryData;
+    }
+    /************** json methods ***************/
+
+    function dataGetExpert($id){
+
+        $expert = Expert::find($id);
+
+        return $expert;
+    }
+
+    function dataExpertAppointments($id, $startDate=null, $endDate=null){
+
+        if(isset($id)){
+
+            if(isset($startDate) && isset($endDate)){
+
+                $startDate = date('Y-m-d', strtotime($startDate));
+                $endDate = date('Y-m-d', strtotime($endDate));
+
+                $appointments = Appointment::where('expert_id', '=', $id)
+                    ->where('start_date', '>=', $startDate)
+                    ->where('end_date', '<=', $endDate)->get();
+            }
+            else if(isset($startDate)){
+
+                $startDate = date('Y-m-d', strtotime($startDate));
+
+                $appointments = Appointment::where('expert_id', '=', $id)
+                    ->where('start_date', '>=', $startDate)->get();
+            }
+            else
+                $appointments = Appointment::where('expert_id', '=', $id)->get();
+
+            if(isset($appointments))
+                return json_encode(array('message'=>'found', 'appointments' => $appointments->toArray()));
+            else
+                return json_encode(array('message'=>'empty'));
+        }
+        else
+            return json_encode(array('message'=>'invalid'));
+    }
+
+    function dataExpertAppointmentsByType($id, $appointmentType, $startDate=null, $endDate=null){
+
+        if(isset($id) && isset($appointmentType)){
+
+            if(isset($startDate) && isset($endDate)){
+
+                $startDate = date('Y-m-d', strtotime($startDate));
+                $endDate = date('Y-m-d', strtotime($endDate));
+
+                $appointments = Appointment::where('expert_id', '=', $id)
+                    ->where('appointment_type', '>=', $appointmentType)
+                    ->where('start_date', '>=', $startDate)
+                    ->where('end_date', '<=', $endDate)->get();
+            }
+            else if(isset($startDate)){
+
+                $startDate = date('Y-m-d', strtotime($startDate));
+
+                $appointments = Appointment::where('expert_id', '=', $id)
+                    ->where('appointment_type', '>=', $appointmentType)
+                    ->where('start_date', '>=', $startDate)->get();
+            }
+            else
+                $appointments = Appointment::where('expert_id', '=', $id)
+                    ->where('appointment_type', '>=', $appointmentType);
+
+            if(isset($appointments))
+                return json_encode(array('message'=>'found', 'appointments' => $appointments->toArray()));
+            else
+                return json_encode(array('message'=>'empty'));
+        }
+        else
+            return json_encode(array('message'=>'invalid'));
+    }
+
+    public function dataCancelledAppointments(){
+
+        $id = Session::get('expert_id');
+
+        $appointments = Appointment::where('expert_id','=',$id)->
+            where('status','=','cancelled')->get();
+
+        return $appointments;
     }
 }
