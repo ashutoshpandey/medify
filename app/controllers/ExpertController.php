@@ -84,22 +84,6 @@ class ExpertController extends BaseController {
         }
     }
 
-    public function cancelAppointment($id){
-
-        $appointment = Appointment::find($id);
-
-        if(is_null($appointment))
-            return "invalid";
-        else{
-            $appointment->status = "expert-cancelled";
-            $appointment->updated_at = date('Y-m-d H:i:s');
-
-            $appointment->save();
-
-            return "done";
-        }
-    }
-
     public function setAvailabilities(){
         return View::make('expert.set-availability');
     }
@@ -172,7 +156,7 @@ class ExpertController extends BaseController {
         return $appointments;
     }
 
-    public function profile(){
+    public function edit(){
 
         $id = Session::get('expert_id');
         $status = Session::get('status');
@@ -432,6 +416,22 @@ class ExpertController extends BaseController {
         return $categoryData;
     }
     /************** json methods ***************/
+
+    public function dataCancelAppointment($id){
+
+        $appointment = Appointment::find($id);
+
+        if(is_null($appointment))
+            return "invalid";
+        else{
+            $appointment->status = "expert-cancelled";
+            $appointment->updated_at = date('Y-m-d H:i:s');
+
+            $appointment->save();
+
+            return "done";
+        }
+    }
 
     function dataGetExpert($id){
 
