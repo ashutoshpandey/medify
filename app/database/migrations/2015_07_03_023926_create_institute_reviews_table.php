@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserPasswordChangesTable extends Migration {
+class CreateInstituteReviewsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,12 +12,13 @@ class CreateUserPasswordChangesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('user_password_changes', function(Blueprint $table)
+		Schema::create('institute_reviews', function(Blueprint $table)
 		{
             $table->increments('id');
 
             $table->string('status', 50);
 
+            $table->foreign('institute_id')->references('id')->on('institutes');
             $table->foreign('user_id')->references('id')->on('users');
 
             $table->timestamps();
@@ -31,7 +32,7 @@ class CreateUserPasswordChangesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('user_password_changes', function(Blueprint $table)
+		Schema::table('institute_reviews', function(Blueprint $table)
 		{
 			//
 		});

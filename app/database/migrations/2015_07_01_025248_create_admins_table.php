@@ -12,9 +12,13 @@ class CreateAdminsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('admins', function(Blueprint $table)
+		Schema::create('admins', function(Blueprint $table)
 		{
-			//
+            $table->increments('id');
+
+            $table->string('status', 50);
+
+            $table->timestamps();
 		});
 	}
 

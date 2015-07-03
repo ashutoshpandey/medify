@@ -12,9 +12,16 @@ class CreateEventsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('events', function(Blueprint $table)
+		Schema::create('events', function(Blueprint $table)
 		{
-			//
+            $table->increments('id');
+
+            $table->string('status', 50);
+
+            $table->foreign('expert_id')->references('id')->on('experts');
+            $table->foreign('institute_id')->references('id')->on('institutes');
+
+            $table->timestamps();
 		});
 	}
 

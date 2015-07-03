@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserPrescriptionsChangesTable extends Migration {
+class CreateEntityPicturesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,9 +12,13 @@ class CreateUserPrescriptionsChangesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('user_prescriptions', function(Blueprint $table)
+		Schema::create('entity_pictures', function(Blueprint $table)
 		{
-			//
+            $table->increments('id');
+
+            $table->string('status', 50);
+
+            $table->timestamps();
 		});
 	}
 
@@ -25,7 +29,7 @@ class CreateUserPrescriptionsChangesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('user_prescriptions', function(Blueprint $table)
+		Schema::table('entity_pictures', function(Blueprint $table)
 		{
 			//
 		});

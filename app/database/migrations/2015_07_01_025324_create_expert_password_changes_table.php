@@ -12,9 +12,15 @@ class CreateExpertPasswordChangesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('expert_password_changes', function(Blueprint $table)
+		Schema::create('expert_password_changes', function(Blueprint $table)
 		{
-			//
+            $table->increments('id');
+
+            $table->string('status', 50);
+
+            $table->foreign('expert_id')->references('id')->on('experts');
+
+            $table->timestamps();
 		});
 	}
 

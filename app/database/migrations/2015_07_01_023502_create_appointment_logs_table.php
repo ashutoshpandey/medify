@@ -12,9 +12,15 @@ class CreateAppointmentLogsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('appointment_logs', function(Blueprint $table)
+		Schema::create('appointment_logs', function(Blueprint $table)
 		{
-			//
+            $table->increments('id');
+
+            $table->string('status', 50);
+
+            $table->foreign('appointment_id')->references('id')->on('appointments');
+
+            $table->timestamps();
 		});
 	}
 

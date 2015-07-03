@@ -12,9 +12,15 @@ class CreateEventRegistrationsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('event_registrations', function(Blueprint $table)
+		Schema::create('event_registrations', function(Blueprint $table)
 		{
-			//
+            $table->increments('id');
+
+            $table->string('status', 50);
+
+            $table->foreign('event_id')->references('id')->on('events');
+
+            $table->timestamps();
 		});
 	}
 

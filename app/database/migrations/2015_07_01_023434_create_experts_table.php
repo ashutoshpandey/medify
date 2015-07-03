@@ -12,9 +12,13 @@ class CreateExpertsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('experts', function(Blueprint $table)
+		Schema::create('experts', function(Blueprint $table)
 		{
-			//
+            $table->increments('id');
+
+            $table->string('status', 50);
+
+            $table->timestamps();
 		});
 	}
 

@@ -12,9 +12,13 @@ class CreateDiseasesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('diseases', function(Blueprint $table)
+		Schema::create('diseases', function(Blueprint $table)
 		{
-			//
+            $table->increments('id');
+
+            $table->string('status', 50);
+
+            $table->timestamps();
 		});
 	}
 

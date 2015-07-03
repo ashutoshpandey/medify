@@ -12,9 +12,16 @@ class CreateAppointmentsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('appointments', function(Blueprint $table)
+		Schema::create('appointments', function(Blueprint $table)
 		{
-			//
+            $table->increments('id');
+
+            $table->string('status', 50);
+
+            $table->foreign('expert_id')->references('id')->on('experts');
+            $table->foreign('user_id')->references('id')->on('users');
+
+            $table->timestamps();
 		});
 	}
 

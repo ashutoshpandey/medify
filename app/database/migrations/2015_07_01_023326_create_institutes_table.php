@@ -12,9 +12,13 @@ class CreateInstitutesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('institutes', function(Blueprint $table)
+		Schema::create('institutes', function(Blueprint $table)
 		{
-			//
+            $table->increments('id');
+
+            $table->string('status', 50);
+
+            $table->timestamps();
 		});
 	}
 

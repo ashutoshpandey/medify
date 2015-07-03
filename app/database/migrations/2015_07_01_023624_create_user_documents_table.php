@@ -12,9 +12,15 @@ class CreateUserDocumentsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('user_documents', function(Blueprint $table)
+		Schema::create('user_documents', function(Blueprint $table)
 		{
-			//
+            $table->increments('id');
+
+            $table->string('status', 50);
+
+            $table->foreign('user_id')->references('id')->on('users');
+
+            $table->timestamps();
 		});
 	}
 

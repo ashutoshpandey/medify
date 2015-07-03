@@ -12,9 +12,15 @@ class CreateExpertAchievementsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('expert_achievements', function(Blueprint $table)
+		Schema::create('expert_achievements', function(Blueprint $table)
 		{
-			//
+            $table->increments('id');
+
+            $table->string('status', 50);
+
+            $table->foreign('expert_id')->references('id')->on('experts');
+
+            $table->timestamps();
 		});
 	}
 

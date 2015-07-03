@@ -12,9 +12,15 @@ class CreateInstituteSpecialtiesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('institute_specialties', function(Blueprint $table)
+		Schema::create('institute_specialties', function(Blueprint $table)
 		{
-			//
+            $table->increments('id');
+
+            $table->string('status', 50);
+
+            $table->foreign('institute_id')->references('id')->on('institutes');
+
+            $table->timestamps();
 		});
 	}
 
