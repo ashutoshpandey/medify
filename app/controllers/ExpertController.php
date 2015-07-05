@@ -177,91 +177,86 @@ class ExpertController extends BaseController {
             return "invalid";
         else{
 
-            if (Input::hasFile('file') && Input::file('file')->isValid())
-            {
-                $pic = Input::file('file')->getClientOriginalName();
-                $destinationPath = public_path() . "/img/experts/";
-
-                Input::file('file')->move($destinationPath, $pic);
-
-                list($width, $height) = getimagesize($destinationPath.$pic);
-
-                if($height>500){
-                    $height=100;
-                    $width=100;
-                }
-            }
-            else if(Input::get('remove_pic'))
-                $expert->pic="";
-            else
-                $pic=$expert->pic;
-
             $expert->category_id = Input::get('category_id');
 
             $expert->email = Input::get('email');
             $expert->password = Input::get('password');
             $expert->first_name = Input::get('first_name');
             $expert->last_name = Input::get('last_name');
-            $expert->country = Input::get('country');
-            $expert->timezone = Input::get('timezone');
-            $expert->session_type = Input::get('session_type');
-            $expert->pic = $pic;
-            $expert->fees_rupee = Input::get('fees-rupee');
-            $expert->fees_dollar = Input::get('fees-dollar');
             $expert->about = Input::get('about');
-            $expert->status = "active";
             $expert->updated_at = date("Y-m-d H:i:s");
 
             $expert->save();
-
-            Session::put('status','updated');
-
-            $categories = Input::get('chksubcategory');
-
-            if($categories && count($categories)>0){
-
-                DB::statement("delete FROM expert_categories WHERE expert_id=$id and category_id=" . $expert->category_id);
-
-                foreach($categories as $subcategory_id){
-
-                    $expert_category = new ExpertCategory();
-
-                    $expert_category->expert_id = $id;
-                    $expert_category->category_id = $expert->category_id;
-                    $expert_category->subcategory_id = $subcategory_id;
-                    $expert_category->status = 'active';
-
-                    $expert_category->save();
-                }
-            }
 
             return "done";
         }
     }
 
-    public function videoChat($id){
+    function updatePassword(){
 
-        $expert_id = Session::get('expert_id');
+        $expertId = Session::get('expertId');
 
-        $appointment = Appointment::find($id);
+        if(!isset($expertId))
+            return 'not logged';
 
-        if($expert_id===$appointment->expert_id){
+        $expert = Expert::find($expertId);
 
-            $time1 = strtotime(date("Y-m-d H:i:s"));
-            $time2 = strtotime($appointment->appointment_date);
-            $tm = ($time1 - $time2) / 60;
+        if(isset($expert)){
 
-            if($tm>0){
+            $expert->password = Input::get('password');
 
-                return Redirect::to('/video-chat')->with("appointment_id", $appointment->id)->with('start',true)->with('usertype','expert');
-            }
-            else{
-                return Redirect::to('/video-chat')->with("start", false);
-            }
+            $expert->save();
+
+            echo 'done';
         }
-        else{
-            return Redirect::to('static/videochat')->with("start", false);
+        else
+            echo 'invalid';
+    }
+
+    function updatePicture(){
+
+        $expertId = Session::get('expertId');
+
+        if(!isset($userId))
+            return 'not logged';
+
+        $expert = user::find($expertId);
+
+        if(isset($expert)){
+
+            if (Input::hasFile('image')){
+
+                $file = array('image' => Input::file('image'));
+
+                $rules = array('image' => 'required|max:10000|mimes:png,jpg,jpeg,bmp,gif');
+                $validator = Validator::make($file, $rules);
+                if ($validator->fails()) {
+                    echo 'wrong';
+                }
+                else {
+                    $imageNameSaved = date('Ymdhis');
+
+                    $imageName = Input::file('image')->getClientOriginalName();
+                    $extension = Input::file('image')->getClientOriginalExtension();
+
+                    $fileName = $imageNameSaved . '.' . $extension;
+                    $destinationPath = "user-images/";
+
+                    Input::file('image')->move($destinationPath, $fileName);
+
+                    $expert->image_name = $imageName;
+                    $expert->image_name_saved = $fileName;
+
+                    $expert->save();
+
+                    echo 'done';
+                }
+            }
+            else
+                echo 'wrong';
         }
+        else
+            echo 'invalid';
     }
 
     public function user($id){
@@ -281,142 +276,8 @@ class ExpertController extends BaseController {
 
         return Redirect::to('index');
     }
-	
-    public function subCategories($id){
 
-        $subCategories = SubCategory::where('category_id', '=', $id)
-                                    ->where('status','=','active')->get();
-
-        return $subCategories;
-    }
-
-/******************** time zone methods ************************************/
-    public static function toUTCDate($dt, $expert_id){
-
-        $expert = Expert::find($expert_id);
-
-        $country = $expert->country;
-
-        $timezone = Timezone::where('country','=',$country)->first();
-
-        if($timezone){
-            $offset = floatval($timezone->gmt);
-
-            $time_original = strtotime($dt);
-
-            $time = $time_original - $offset*3600;
-
-            return date("Y-m-d H:i:s", $time);
-        }
-        else
-            return null;
-    }
-
-    public static function toLocalDate($dt, $expert_id){
-
-        $expert = Expert::find($expert_id);
-
-        $timezone = Timezone::where('country','=',$expert->country)->where('name','=',$expert->timezone)->first();
-
-        if($timezone){
-            $offset = floatval($timezone->gmt);
-
-            $time = strtotime($dt);
-
-            $time = $time + $offset*3600;
-
-            if($offset>0)
-                return date("Y-m-d H:i:s", $time);
-            else
-                return date("Y-m-d H:i:s", $time);
-        }
-        else
-            return null;
-    }
-
-    public static function toUTCDateByTimezone($dt, $timezone){
-
-        $timezone = Timezone::where('name','=',$timezone)->first();
-
-        if($timezone){
-            $offset = floatval($timezone->gmt);
-
-            $time = strtotime($dt);
-
-            if($offset>0)
-                $time = $time - $offset*3600;
-            else
-                $time = $time + $offset*3600;
-
-            if($offset>0)
-                return date("Y-m-d H:i:s", $time);
-            else
-                return date("Y-m-d H:i:s", $time);
-        }
-        else
-            return null;
-    }
-
-    public static function toLocalDateByTimezone($dt, $v_timezone){
-
-        if($v_timezone==="UTC")
-            return $dt;
-
-        $timezone = Timezone::where('name','=',$v_timezone)->first();
-
-        if($timezone){
-
-            $offset = floatval($timezone->gmt);
-
-            $time = strtotime($dt);
-
-            $time = $time + $offset*3600;           // $offset could be +ve or -ve
-
-            if($offset>0)
-                return date("Y-m-d H:i:s", $time);
-            else
-                return date("Y-m-d H:i:s", $time);
-        }
-        else
-            return null;
-    }
-
-    public function timeZone($country){
-
-        $timezones = Timezone::where('country','=',$country)->get();
-
-        return $timezones;
-    }
-
-    public function selectedCategories(){
-        $expert_id = Session::get('expert_id');
-
-        $expertCategories = ExpertCategory::where('expert_id', '=', $expert_id)->get();
-
-        $categoryData = array();
-
-        if($expertCategories && count($expertCategories)>0){
-
-            foreach($expertCategories as $expertCategory){
-
-                $category_id = $expertCategory->category->id;
-                $category_name = $expertCategory->category->name;
-                $subcategory_id = $expertCategory->subcategory->id;
-                $subcategory_name = $expertCategory->subcategory->name;
-
-                $categoryData[] = array(
-                    'category_id' => $category_id,
-                    'category_name' => $category_name,
-                    'subcategory_id' => $subcategory_id,
-                    'subcategory_name' => $subcategory_name
-                );
-            }
-        }
-
-        return $categoryData;
-    }
     /************** json methods ***************/
-
     public function dataCancelAppointment($id){
 
         $appointment = Appointment::find($id);

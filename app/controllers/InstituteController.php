@@ -41,7 +41,7 @@ class InstituteController extends BaseController {
         if(!isset($institute_id))
             return Redirect::to('/');
 
-        return View::make('institute.experts');
+        return View::make('institute.create-expert');
     }
 
     public function saveExpert(){
@@ -70,9 +70,6 @@ class InstituteController extends BaseController {
 
             $expert->save();
 
-            Session::put('name', $expert->name);
-            Session::put('expert_id', $expert->id);
-
             return 'done';
         }
         else
@@ -90,7 +87,7 @@ class InstituteController extends BaseController {
             $expert = Expert::find($id);
 
             if(isset($expert))
-                return View::make('expert.profile')->with("expert", $expert);
+                return View::make('institute.edit-expert')->with("expert", $expert);
             else
                 return Redirect::to('/');
         }
@@ -133,7 +130,7 @@ class InstituteController extends BaseController {
         return View::make('institute.set-appointments');
     }
 
-    public function saveExpertAppointments(){
+    public function saveInstituteExpertAppointments(){
 
         $institute_id = Session::get('institute_id');
 
@@ -226,10 +223,13 @@ class InstituteController extends BaseController {
 
     public function dataCancelAppointment($id){
 
-        $id = Session::get('institute_id');
+        $instituteId = Session::get('institute_id');
+
+        if(!isset($instituteId))
+            return 'not logged';
 
         if(!isset($id))
-            return 'not logged';
+            return 'invalid';
 
         $appointment = Appointment::find($id);
 

@@ -65,6 +65,73 @@ class UserController extends BaseController {
             echo 'invalid';
     }
 
+    function updatePassword(){
+
+        $userId = Session::get('userId');
+
+        if(!isset($userId))
+            return 'not logged';
+
+        $user = user::find($userId);
+
+        if(isset($user)){
+
+            $user->password = Input::get('password');
+
+            $user->save();
+
+            echo 'done';
+        }
+        else
+            echo 'invalid';
+    }
+
+    function updatePicture(){
+
+        $userId = Session::get('userId');
+
+        if(!isset($userId))
+            return 'not logged';
+
+        $user = user::find($userId);
+
+        if(isset($user)){
+
+            if (Input::hasFile('image')){
+
+                $file = array('image' => Input::file('image'));
+
+                $rules = array('image' => 'required|max:10000|mimes:png,jpg,jpeg,bmp,gif');
+                $validator = Validator::make($file, $rules);
+                if ($validator->fails()) {
+                    echo 'wrong';
+                }
+                else {
+                    $imageNameSaved = date('Ymdhis');
+
+                    $imageName = Input::file('image')->getClientOriginalName();
+                    $extension = Input::file('image')->getClientOriginalExtension();
+
+                    $fileName = $imageNameSaved . '.' . $extension;
+                    $destinationPath = "user-images/";
+
+                    Input::file('image')->move($destinationPath, $fileName);
+
+                    $user->image_name = $imageName;
+                    $user->image_name_saved = $fileName;
+
+                    $user->save();
+
+                    echo 'done';
+                }
+            }
+            else
+                echo 'wrong';
+        }
+        else
+            echo 'invalid';
+    }
+
     function removeAccount(){
 
         $userId = Session::get('userId');
