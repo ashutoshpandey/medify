@@ -31,17 +31,21 @@ Route::post('/is-valid-admin', 'AuthenticationController@');
 
 /*-------------------- user methods --------------------*/
 Route::get('/user-dashboard', 'UserController@dashboard');
+
 Route::get('/edit-user', 'UserController@editUser');
 Route::post('/update-user', 'UserController@updateUser');
 Route::post('/update-picture', 'UserController@updatePicture');
 Route::post('/update-password', 'UserController@updatePassword');
-Route::get('/user-appointments/{id}/{start-date?}/{end-date?}', 'UserController@userAppointments');
-Route::get('/cancel-appointment/{id}', 'UserController@cancelAppointment');
-Route::get('/book-appointment/{id}', 'UserController@bookAppointment');
+
 Route::post('/upload-document', 'UserController@uploadDocument');
 Route::get('/remove-document/{id}', 'UserController@removeDocument');
 Route::post('/update-picture', 'UserController@updatePicture');
 
+Route::get('/user-appointments/{id}/{start-date?}/{end-date?}', 'UserController@userAppointments');
+Route::get('/cancel-appointment/{id}', 'UserController@cancelAppointment');
+Route::get('/book-appointment/{id}', 'UserController@bookAppointment');
+Route::get('/get-user-appointments/{id}/{start-date?}/{end-date?}', 'UserController@getUserAppointments');
+Route::get('/get-user-appointments-by-type/{id}/{appointment-type}/{start-date?}/{end-date?}', 'UserController@getUserAppointmentsByType');
 
 /*-------------------- expert methods --------------------*/
 Route::get('/expert-dashboard', 'ExpertController@dashboard');

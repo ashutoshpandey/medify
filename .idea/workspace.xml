@@ -13,7 +13,7 @@
     <file path="$PROJECT_DIR$/../bugs/app/controllers/BugController.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1435288535811" ignored="false" />
     <file path="/ExpertController.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1436154531925" ignored="false" />
     <file path="/routes.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1436152835212" ignored="false" />
-    <file path="/UserController.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1436145721982" ignored="false" />
+    <file path="/UserController.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1436156716653" ignored="false" />
     <file path="/InstituteController.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1436095302231" ignored="false" />
     <file path="/2015_07_01_023326_create_institutes_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1435891519819" ignored="false" />
     <file path="/2015_07_01_023411_create_users_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1435891522305" ignored="false" />
@@ -91,26 +91,7 @@
     <favorites_list name="med" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="ExpertController.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controllers/ExpertController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="415" column="9" selection-start="12147" selection-end="12147" vertical-scroll-proportion="-1.1198547">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/routes.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="0" selection-start="2547" selection-end="2547" vertical-scroll-proportion="-11.7">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -120,7 +101,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/models/EventRegistration.php" />
         <option value="$PROJECT_DIR$/app/models/ExpertAchievement.php" />
         <option value="$PROJECT_DIR$/app/models/ExpertLocation.php" />
         <option value="$PROJECT_DIR$/app/models/ExpertMembership.php" />
@@ -134,8 +114,9 @@
         <option value="$PROJECT_DIR$/app/models/UserHealth.php" />
         <option value="$PROJECT_DIR$/app/models/UserPasswordChange.php" />
         <option value="$PROJECT_DIR$/app/models/UserPrescription.php" />
-        <option value="$PROJECT_DIR$/app/routes.php" />
         <option value="$PROJECT_DIR$/app/controllers/ExpertController.php" />
+        <option value="$PROJECT_DIR$/app/routes.php" />
+        <option value="$PROJECT_DIR$/app/controllers/UserController.php" />
       </list>
     </option>
   </component>
@@ -246,24 +227,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="medify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="medify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -328,13 +291,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2542735" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2542735" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -410,13 +373,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/ExpertAchievement.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="186" selection-end="186" vertical-scroll-proportion="-6.3">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/ExpertLocation.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="0" selection-start="180" selection-end="180" vertical-scroll-proportion="-6.3">
@@ -508,16 +464,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes.php">
+    <entry file="file://$PROJECT_DIR$/app/controllers/ExpertController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="0" selection-start="2547" selection-end="2547" vertical-scroll-proportion="-11.7">
+        <state line="327" column="20" selection-start="9942" selection-end="9942" vertical-scroll-proportion="-14.666667">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ExpertController.php">
+    <entry file="file://$PROJECT_DIR$/app/controllers/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="415" column="9" selection-start="12147" selection-end="12147" vertical-scroll-proportion="-1.1198547">
+        <state line="280" column="0" selection-start="7876" selection-end="7876" vertical-scroll-proportion="5.4333334">
+          <folding>
+            <element signature="n#editUser#0;n#UserController#0;n#!!top" expanded="false" />
+            <element signature="n#updateUser#0;n#UserController#0;n#!!top" expanded="false" />
+            <element signature="n#updatePassword#0;n#UserController#0;n#!!top" expanded="false" />
+            <element signature="n#updatePicture#0;n#UserController#0;n#!!top" expanded="false" />
+            <element signature="n#uploadDocument#0;n#UserController#0;n#!!top" expanded="false" />
+            <element signature="n#removeDocument#0;n#UserController#0;n#!!top" expanded="false" />
+            <element signature="n#removeAccount#0;n#UserController#0;n#!!top" expanded="false" />
+            <element signature="n#userAppointments#0;n#UserController#0;n#!!top" expanded="false" />
+            <element signature="n#cancelAppointment#0;n#UserController#0;n#!!top" expanded="false" />
+            <element signature="n#bookAppointment#0;n#UserController#0;n#!!top" expanded="false" />
+            <element signature="n#dataGetUser#0;n#UserController#0;n#!!top" expanded="false" />
+            <element signature="n#dataUserAppointments#0;n#UserController#0;n#!!top" expanded="false" />
+            <element signature="n#dataUserAppointmentsByType#0;n#UserController#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="0" selection-start="1540" selection-end="1540" vertical-scroll-proportion="0.77490777">
           <folding />
         </state>
       </provider>

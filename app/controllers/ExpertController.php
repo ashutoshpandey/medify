@@ -208,7 +208,7 @@ class ExpertController extends BaseController {
 
         $expertMembership->save();
 
-        echo 'done';
+        return json_encode(array('message'=>'done'));
     }
 
     public function getMemberships(){
@@ -245,13 +245,13 @@ class ExpertController extends BaseController {
                 $expertMembership->status = 'removed';
                 $expertMembership->save();
 
-                echo 'done';
+                return json_encode(array('message'=>'done'));
             }
             else
-                echo 'invalid';
+                return json_encode(array('message'=>'invalid'));
         }
         else
-            echo 'invalid';
+            return json_encode(array('message'=>'invalid'));
     }
 
     public function getAvailabilities(){
@@ -338,10 +338,10 @@ class ExpertController extends BaseController {
 
             $expert->save();
 
-            echo 'done';
+            return json_encode(array('message'=>'done'));
         }
         else
-            echo 'invalid';
+            return json_encode(array('message'=>'invalid'));
     }
 
     function updatePicture(){
@@ -380,14 +380,14 @@ class ExpertController extends BaseController {
 
                     $expert->save();
 
-                    echo 'done';
+                    return json_encode(array('message'=>'done'));
                 }
             }
             else
-                echo 'wrong';
+                return json_encode(array('message'=>'empty'));
         }
         else
-            echo 'invalid';
+            return json_encode(array('message'=>'invalid'));
     }
 
     public function expertLogout(){

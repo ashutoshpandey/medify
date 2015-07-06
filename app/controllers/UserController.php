@@ -9,7 +9,7 @@ class UserController extends BaseController {
 
     function dashboard(){
 
-        $userId = Session::get('userId');
+        $userId = Session::get('user_id');
 
         if(!isset($userId))
             return Redirect::to('/');
@@ -19,12 +19,12 @@ class UserController extends BaseController {
 
     function editUser(){
 
-        $userId = Session::get('userId');
+        $userId = Session::get('user_id');
 
         if(!isset($userId))
             return Redirect::to('/');
 
-        $user = user::find($userId);
+        $user = User::find($userId);
 
         if(isset($user))
             return View::make('users.edit')->with('user', $user);
@@ -34,10 +34,10 @@ class UserController extends BaseController {
 
     function updateUser(){
 
-        $userId = Session::get('userId');
+        $userId = Session::get('user_id');
 
         if(!isset($userId))
-            return 'not logged';
+            return json_encode(array('message'=>'not logged'));
 
         $user = user::find($userId);
 
@@ -58,19 +58,19 @@ class UserController extends BaseController {
 
                 $user->save();
 
-                echo 'done';
+                return json_encode(array('message'=>'done'));
             }
         }
         else
-            echo 'invalid';
+            return json_encode(array('message'=>'invalid'));
     }
 
     function updatePassword(){
 
-        $userId = Session::get('userId');
+        $userId = Session::get('user_id');
 
         if(!isset($userId))
-            return 'not logged';
+            return json_encode(array('message'=>'not logged'));
 
         $user = user::find($userId);
 
@@ -80,18 +80,18 @@ class UserController extends BaseController {
 
             $user->save();
 
-            echo 'done';
+            return json_encode(array('message'=>'done'));
         }
         else
-            echo 'invalid';
+            return json_encode(array('message'=>'invalid'));
     }
 
     function updatePicture(){
 
-        $userId = Session::get('userId');
+        $userId = Session::get('user_id');
 
         if(!isset($userId))
-            return 'not logged';
+            return json_encode(array('message'=>'not logged'));
 
         $user = user::find($userId);
 
@@ -122,22 +122,22 @@ class UserController extends BaseController {
 
                     $user->save();
 
-                    echo 'done';
+                    return json_encode(array('message'=>'done'));
                 }
             }
             else
-                echo 'wrong';
+                return json_encode(array('message'=>'empty'));
         }
         else
-            echo 'invalid';
+            return json_encode(array('message'=>'invalid'));
     }
 
     function uploadDocument(){
 
-        $userId = Session::get('userId');
+        $userId = Session::get('user_id');
 
         if(!isset($userId))
-            return 'not logged';
+            return json_encode(array('message'=>'not logged'));
 
         $user = user::find($userId);
 
@@ -153,7 +153,7 @@ class UserController extends BaseController {
 
                     $validator = Validator::make($file, $rules);
                     if ($validator->fails()) {
-                        echo 'wrong';
+                        ;
                     }
                     else {
                         $documentNameSaved = date('Ymdhis');
@@ -173,25 +173,24 @@ class UserController extends BaseController {
 
                         $userDocument->save();
 
-                        echo 'done';
                     }
                 }
+
+                return json_encode(array('message'=>'done'));
             }
             else
-                echo 'wrong';
+                return json_encode(array('message'=>'empty'));
         }
         else
-            echo 'invalid';
+            return json_encode(array('message'=>'invalid'));
     }
 
     function removeDocument($id){
 
-        $userId = Session::get('userId');
+        $userId = Session::get('user_id');
 
-        if(!isset($userId)){
-            echo 'not logged';
-            return;
-        }
+        if(!isset($userId))
+            return json_encode(array('message'=>'not logged'));
 
         if(isset($id)) {
             $userDocument = UserDocument::find($id);
@@ -202,17 +201,15 @@ class UserController extends BaseController {
             }
         }
         else
-            echo 'invalid';
+            return json_encode(array('message'=>'invalid'));
     }
 
     function removeAccount(){
 
-        $userId = Session::get('userId');
+        $userId = Session::get('user_id');
 
-        if(!isset($userId)){
-            echo 'not logged';
-            return;
-        }
+        if(!isset($userId))
+            return json_encode(array('message'=>'not logged'));
 
         if(isset($userId)) {
 
@@ -223,18 +220,18 @@ class UserController extends BaseController {
 
                 $user->save();
 
-                echo 'done';
+                return json_encode(array('message'=>'done'));
             }
             else
-                echo 'invalid';
+                return json_encode(array('message'=>'invalid'));
         }
         else
-            echo 'invalid';
+            return json_encode(array('message'=>'invalid'));
     }
 
     function userAppointments(){
 
-        $userId = Session::get('userId');
+        $userId = Session::get('user_id');
 
         if(!isset($userId))
             return Redirect::to('/');
@@ -242,14 +239,83 @@ class UserController extends BaseController {
         return View::make('user.appointments');
     }
 
+    function getUserAppointments($startDate=null, $endDate=null){
+
+        $userId = Session::get('user_id');
+
+        if(isset($userId)){
+
+            if(isset($startDate) && isset($endDate)){
+
+                $startDate = date('Y-m-d', strtotime($startDate));
+                $endDate = date('Y-m-d', strtotime($endDate));
+
+                $appointments = Appointment::where('user_id', '=', $userId)
+                    ->where('start_date', '>=', $startDate)
+                    ->where('end_date', '<=', $endDate)->get();
+            }
+            else if(isset($startDate)){
+
+                $startDate = date('Y-m-d', strtotime($startDate));
+
+                $appointments = Appointment::where('user_id', '=', $userId)
+                    ->where('start_date', '>=', $startDate)->get();
+            }
+            else
+                $appointments = Appointment::where('user_id', '=', $userId)->get();
+
+            if(isset($appointments))
+                return json_encode(array('message'=>'found', 'appointments' => $appointments->toArray()));
+            else
+                return json_encode(array('message'=>'empty'));
+        }
+        else
+            return json_encode(array('message'=>'invalid'));
+    }
+
+    function getUserAppointmentsByType($appointmentType, $startDate=null, $endDate=null){
+
+        $userId = Session::get('user_id');
+
+        if(isset($userId) && isset($appointmentType)){
+
+            if(isset($startDate) && isset($endDate)){
+
+                $startDate = date('Y-m-d', strtotime($startDate));
+                $endDate = date('Y-m-d', strtotime($endDate));
+
+                $appointments = Appointment::where('user_id', '=', $userId)
+                    ->where('appointment_type', '>=', $appointmentType)
+                    ->where('start_date', '>=', $startDate)
+                    ->where('end_date', '<=', $endDate)->get();
+            }
+            else if(isset($startDate)){
+
+                $startDate = date('Y-m-d', strtotime($startDate));
+
+                $appointments = Appointment::where('user_id', '=', $userId)
+                    ->where('appointment_type', '>=', $appointmentType)
+                    ->where('start_date', '>=', $startDate)->get();
+            }
+            else
+                $appointments = Appointment::where('user_id', '=', $userId)
+                    ->where('appointment_type', '>=', $appointmentType);
+
+            if(isset($appointments))
+                return json_encode(array('message'=>'found', 'appointments' => $appointments->toArray()));
+            else
+                return json_encode(array('message'=>'empty'));
+        }
+        else
+            return json_encode(array('message'=>'invalid'));
+    }
+
     function cancelAppointment($id){
 
-        $userId = Session::get('userId');
+        $userId = Session::get('user_id');
 
-        if(!isset($userId)){
-            echo 'not logged';
-            return;
-        }
+        if(!isset($userId))
+            return json_encode(array('message'=>'not logged'));
 
         $appointment = Appointment::find($id);
 
@@ -258,42 +324,43 @@ class UserController extends BaseController {
             $appointment->cancel_date = date('Y-m-d h:i:s');
             $appointment->save();
 
-            echo 'done';
+            return json_encode(array('message'=>'done'));
         }
         else
-            echo 'invalid';
+            return json_encode(array('message'=>'invalid'));
     }
 
     function bookAppointment($id){
 
-        $userId = Session::get('userId');
+        $userId = Session::get('user_id');
 
-        if(!isset($userId)){
-            echo 'not logged';
-            return;
-        }
+        if(!isset($userId))
+            return json_encode(array('message'=>'not logged'));
 
         $appointment = Appointment::find($id);
 
         if(isset($appointment)){
-            $appointment->status = 'cancelled';
-            $appointment->booked_by = Session::get('userId');
+            $appointment->status = 'active';
+            $appointment->booked_by = Session::get('user_id');
             $appointment->booking_date = date('Y-m-d h:i:s');
+
             $appointment->save();
 
-            echo 'done';
+            return json_encode(array('message'=>'done'));
         }
         else
-            echo 'invalid';
+            return json_encode(array('message'=>'invalid'));
     }
 
     /************** json methods ***************/
-
     function dataGetUser($id){
 
         $user = User::find($id);
 
-        return $user;
+        if(isset($user))
+            return json_encode(array('message'=>'found', 'user' => $user));
+        else
+            return json_encode(array('message'=>'empty'));
     }
 
     function dataUserAppointments($id, $startDate=null, $endDate=null){
@@ -370,6 +437,6 @@ class UserController extends BaseController {
         $appointments = Appointment::where('user_id','=',$id)->
             where('status','=','cancelled')->get();
 
-        return $appointments;
+        return json_encode(array('message'=>'found', 'appointments' => $appointments->toArray()));
     }
 }
