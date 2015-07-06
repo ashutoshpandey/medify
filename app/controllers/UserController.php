@@ -132,6 +132,79 @@ class UserController extends BaseController {
             echo 'invalid';
     }
 
+    function uploadDocument(){
+
+        $userId = Session::get('userId');
+
+        if(!isset($userId))
+            return 'not logged';
+
+        $user = user::find($userId);
+
+        if(isset($user)){
+
+            if (Input::hasFile('documents')){
+
+                $files = Input::file('documents');
+
+                $rules = array('image' => 'required|max:10000|mimes:png,jpg,jpeg,bmp,gif,pdf,doc,docx,xls,csv');
+
+                foreach($files as $file) {
+
+                    $validator = Validator::make($file, $rules);
+                    if ($validator->fails()) {
+                        echo 'wrong';
+                    }
+                    else {
+                        $documentNameSaved = date('Ymdhis');
+
+                        $documentName = $file->getClientOriginalName();
+                        $extension = $file->getClientOriginalExtension();
+
+                        $fileName = $documentNameSaved . '.' . $extension;
+                        $destinationPath = "user-documents/$userId/";
+
+                        $file->move($destinationPath, $fileName);
+
+                        $userDocument = new UserDocument();
+
+                        $userDocument->document_name = $documentName;
+                        $userDocument->document_name_saved = $fileName;
+
+                        $userDocument->save();
+
+                        echo 'done';
+                    }
+                }
+            }
+            else
+                echo 'wrong';
+        }
+        else
+            echo 'invalid';
+    }
+
+    function removeDocument($id){
+
+        $userId = Session::get('userId');
+
+        if(!isset($userId)){
+            echo 'not logged';
+            return;
+        }
+
+        if(isset($id)) {
+            $userDocument = UserDocument::find($id);
+
+            if(isset($userDocument)){
+                $userDocument->status = 'removed';
+                $userDocument->save();
+            }
+        }
+        else
+            echo 'invalid';
+    }
+
     function removeAccount(){
 
         $userId = Session::get('userId');

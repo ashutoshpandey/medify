@@ -38,6 +38,9 @@ Route::post('/update-password', 'UserController@updatePassword');
 Route::get('/user-appointments/{id}/{start-date?}/{end-date?}', 'UserController@userAppointments');
 Route::get('/cancel-appointment/{id}', 'UserController@cancelAppointment');
 Route::get('/book-appointment/{id}', 'UserController@bookAppointment');
+Route::post('/upload-document', 'UserController@uploadDocument');
+Route::get('/remove-document/{id}', 'UserController@removeDocument');
+Route::post('/update-picture', 'UserController@updatePicture');
 
 
 /*-------------------- expert methods --------------------*/
@@ -50,7 +53,10 @@ Route::post('/update-password', 'ExpertController@updatePassword');
 Route::get('/expert-appointments/{id}/{start-date?}/{end-date?}', 'ExpertController@expertAppointments');
 Route::get('/cancel-expert-appointment/{id}', 'ExpertController@cancelAppointment');
 Route::get('/cancel-expert-available-appointment/{id}', 'ExpertController@cancelAvailableAppointment');
-
+Route::get('/memberships', 'ExpertController@memberships');
+Route::get('/get-memberships', 'ExpertController@getMemberships');
+Route::post('/add-membership', 'ExpertController@addMembership');
+Route::get('/remove-membership/{id}', 'ExpertController@removeMembership');
 
 /*-------------------- institute methods --------------------*/
 Route::get('/institute-dashboard', 'InstituteController@dashboard');
