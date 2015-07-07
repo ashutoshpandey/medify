@@ -16,7 +16,9 @@ class CreateExpertSpecialtiesTable extends Migration {
 		{
             $table->increments('id');
 
-            $table->string('status', 50);
+            $table->integer('expert_id')->unsigned();
+            $table->string('name', 255);
+            $table->string('description', 1000);
 
             $table->foreign('expert_id')->references('id')->on('experts');
 

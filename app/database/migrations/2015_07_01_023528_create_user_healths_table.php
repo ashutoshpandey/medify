@@ -16,6 +16,8 @@ class CreateUserHealthsTable extends Migration {
 		{
             $table->increments('id');
 
+            $table->string('title');                // blood group, weight etc.
+            $table->string('data');
             $table->string('status', 50);
 
             $table->foreign('user_id')->references('id')->on('users');

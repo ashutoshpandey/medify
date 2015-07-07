@@ -47,6 +47,9 @@ Route::get('/book-appointment/{id}', 'UserController@bookAppointment');
 Route::get('/get-user-appointments/{id}/{start-date?}/{end-date?}', 'UserController@getUserAppointments');
 Route::get('/get-user-appointments-by-type/{id}/{appointment-type}/{start-date?}/{end-date?}', 'UserController@getUserAppointmentsByType');
 
+Route::get('/user-documents/{id}', 'UserController@userDocuments');
+
+
 /*-------------------- expert methods --------------------*/
 Route::get('/expert-dashboard', 'ExpertController@dashboard');
 Route::get('/expert-profile', 'ExpertController@expertProfile');
@@ -54,13 +57,21 @@ Route::get('/edit-expert', 'ExpertController@editExpert');
 Route::post('/update-expert', 'ExpertController@updateExpert');
 Route::post('/update-expert-picture', 'ExpertController@updatePicture');
 Route::post('/update-password', 'ExpertController@updatePassword');
+Route::post('/update-about', 'ExpertController@updateAbout');
+
 Route::get('/expert-appointments/{id}/{start-date?}/{end-date?}', 'ExpertController@expertAppointments');
 Route::get('/cancel-expert-appointment/{id}', 'ExpertController@cancelAppointment');
 Route::get('/cancel-expert-available-appointment/{id}', 'ExpertController@cancelAvailableAppointment');
+
 Route::get('/memberships', 'ExpertController@memberships');
 Route::get('/get-memberships', 'ExpertController@getMemberships');
 Route::post('/add-membership', 'ExpertController@addMembership');
 Route::get('/remove-membership/{id}', 'ExpertController@removeMembership');
+
+Route::get('/achievements', 'ExpertController@achievements');
+Route::get('/get-achievements', 'ExpertController@getAchievements');
+Route::post('/add-achievement', 'ExpertController@addAchievements');
+Route::get('/remove-achievement/{id}', 'ExpertController@removeAchievements');
 
 /*-------------------- institute methods --------------------*/
 Route::get('/institute-dashboard', 'InstituteController@dashboard');
@@ -84,11 +95,14 @@ Route::get('/data-get-user/{id}', 'UserController@getUser');
 Route::get('/data-user-appointments/{id}/{start-date?}/{end-date?}', 'UserController@dataUserAppointments');
 Route::get('/data-user-appointments-by-type/{id}/{appointment-type}/{start-date?}/{end-date?}', 'UserController@dataUserAppointmentsByType');
 Route::get('/data-user-cancelled-appointments/{id}', 'UserController@dataCancelledAppointments');
+Route::get('/data-user-documents/{id}', 'UserController@dataUserDocuments');
 
 Route::get('/data-get-expert/{id}', 'ExpertController@getExpert');
 Route::get('/data-expert-appointments/{id}/{start-date?}/{end-date?}', 'ExpertController@dataExpertAppointments');
 Route::get('/data-expert-appointments-by-type/{id}/{appointment-type}/{start-date?}/{end-date?}', 'ExpertController@dataExpertAppointmentsByType');
 Route::get('/data-expert-cancelled-appointments/{id}', 'ExpertController@dataCancelledAppointments');
+Route::get('/data-get-memberships', 'ExpertController@dataGetMemberships');
+Route::get('/data-get-achievements', 'ExpertController@dataGetAchievements');
 
 Route::get('/data-get-institution/{id}', 'InstituteController@getInstitute');
 Route::get('/data-institutes', 'InstituteController@dataInstitutes');

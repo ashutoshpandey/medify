@@ -16,6 +16,10 @@ class CreateUserDocumentsTable extends Migration {
 		{
             $table->increments('id');
 
+            $table->integer('user_id')->unsigned();
+            $table->string('title', 255);
+            $table->string('document_name', 255);
+            $table->string('document_saved_name', 255);
             $table->string('status', 50);
 
             $table->foreign('user_id')->references('id')->on('users');

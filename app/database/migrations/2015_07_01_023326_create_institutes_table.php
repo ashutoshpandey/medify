@@ -16,6 +16,18 @@ class CreateInstitutesTable extends Migration {
 		{
             $table->increments('id');
 
+            $table->string('name', 255);
+            $table->string('address', 1000);
+            $table->dateTime('established_date');
+            $table->text('about');
+            $table->string('city', 255);
+            $table->string('state', 255);
+            $table->string('country', 255);
+            $table->string('zip', 20);
+
+            $table->float('latitude');
+            $table->float('longitude');
+
             $table->string('status', 50);
 
             $table->timestamps();

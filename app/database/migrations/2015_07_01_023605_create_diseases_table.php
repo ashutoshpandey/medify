@@ -16,6 +16,10 @@ class CreateDiseasesTable extends Migration {
 		{
             $table->increments('id');
 
+            $table->string('name', 255);
+            $table->string('medical_name', 255);
+            $table->text('symptoms');
+            $table->text('description');
             $table->string('status', 50);
 
             $table->timestamps();

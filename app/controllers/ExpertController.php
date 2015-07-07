@@ -254,6 +254,77 @@ class ExpertController extends BaseController {
             return json_encode(array('message'=>'invalid'));
     }
 
+    public function achievements(){
+
+        $expertId = Session::get('expert_id');
+
+        if(!isset($expertId))
+            return Redirect::to('/');
+
+        return View::make('expert.achievements');
+    }
+
+    public function addAchievement(){
+
+        $expertId = Session::get('expert_id');
+
+        if(!isset($expertId))
+            return json_encode(array('message'=>'not logged'));
+
+        $expertMembership = new ExpertMembership();
+
+        $expertMembership->created_at = date('Y-m-d h:i:s');
+        $expertMembership->title = Input::get('title');
+        $expertMembership->content = Input::get('content');
+
+        $expertMembership->save();
+
+        return json_encode(array('message'=>'done'));
+    }
+
+    public function getAchievements(){
+
+        $expertId = Session::get('expert_id');
+
+        if(!isset($expertId))
+            return json_encode(array('message'=>'not logged'));
+
+        if(isset($expertId)){
+
+            $memberships = ExpertMembership::where('expert_id','=',$expertId)->
+                where('status','=','active')->get();
+
+            return json_encode(array('message'=>'found', 'memberships' =>$memberships));
+        }
+        else
+            return json_encode(array('message'=>'empty'));
+    }
+
+    public function removeAchievement($id){
+
+        $expertId = Session::get('expert_id');
+
+        if(!isset($expertId))
+            return json_encode(array('message'=>'not logged'));
+
+        if(isset($id)){
+
+            $expertMembership = ExpertMembership::find($id);
+
+            if(isset($expertMembership)){
+
+                $expertMembership->status = 'removed';
+                $expertMembership->save();
+
+                return json_encode(array('message'=>'done'));
+            }
+            else
+                return json_encode(array('message'=>'invalid'));
+        }
+        else
+            return json_encode(array('message'=>'invalid'));
+    }
+
     public function getAvailabilities(){
 
         $expertId = Session::get('expert_id');
@@ -314,6 +385,27 @@ class ExpertController extends BaseController {
             $expert->password = Input::get('password');
             $expert->first_name = Input::get('first_name');
             $expert->last_name = Input::get('last_name');
+            $expert->about = Input::get('about');
+            $expert->updated_at = date("Y-m-d H:i:s");
+
+            $expert->save();
+
+            return json_encode(array('message'=>'done'));
+        }
+    }
+
+    public function updateAbout(){
+
+        $expertId = Session::get('expert_id');
+
+        if(!isset($expertId))
+            return json_encode(array('message'=>'not logged'));
+
+        $expert = Expert::find($expertId);
+
+        if(is_null($expert))
+            return json_encode(array('message'=>'invalid'));
+        else{
             $expert->about = Input::get('about');
             $expert->updated_at = date("Y-m-d H:i:s");
 
@@ -499,20 +591,33 @@ class ExpertController extends BaseController {
             $appointments = Appointment::where('expert_id','=',$id)->
                 where('status','=','cancelled')->get();
 
-            return json_encode(array('message'=>'found', 'appointments' =>$appointments));
+            return json_encode(array('message'=>'found', 'appointments' => $appointments->toArray()));
         }
         else
             return json_encode(array('message'=>'empty'));
     }
 
-    public function dataListMemberships($id){
+    public function dataGetMemberships($expertId){
 
-        if(isset($id)){
+        if(isset($expertId)){
 
-            $memberships = ExpertMembership::where('expert_id','=',$id)->
+            $memberships = ExpertMembership::where('expert_id','=',$expertId)->
                 where('status','=','active')->get();
 
-            return json_encode(array('message'=>'found', 'memberships' =>$memberships));
+            return json_encode(array('message'=>'found', 'memberships' =>$memberships->toArray()));
+        }
+        else
+            return json_encode(array('message'=>'empty'));
+    }
+
+    public function dataGetAchievements($expertId){
+
+        if(isset($expertId)){
+
+            $achievements = ExpertAchievement::where('expert_id','=',$expertId)->
+                where('status','=','active')->get();
+
+            return json_encode(array('message'=>'found', 'achievements' =>$achievements->toArray()));
         }
         else
             return json_encode(array('message'=>'empty'));

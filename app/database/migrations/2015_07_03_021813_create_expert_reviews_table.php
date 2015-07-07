@@ -16,6 +16,9 @@ class CreateExpertReviewsTable extends Migration {
 		{
             $table->increments('id');
 
+            $table->integer('expert_id')->unsigned();
+            $table->integer('user_id')->unsigned();
+            $table->string('description');
             $table->string('status', 50);
 
             $table->foreign('expert_id')->references('id')->on('experts');

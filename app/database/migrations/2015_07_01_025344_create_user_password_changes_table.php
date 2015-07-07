@@ -16,6 +16,7 @@ class CreateUserPasswordChangesTable extends Migration {
 		{
             $table->increments('id');
 
+            $table->integer('user_id')->unsigned();
             $table->string('status', 50);
 
             $table->foreign('user_id')->references('id')->on('users');

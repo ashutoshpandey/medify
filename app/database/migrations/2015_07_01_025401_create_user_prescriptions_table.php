@@ -16,6 +16,7 @@ class CreateUserPrescriptionsTable extends Migration {
 		{
             $table->increments('id');
 
+            $table->integer('user_id')->unsigned();
             $table->string('status', 50);
 
             $table->foreign('expert_id')->references('id')->on('experts');

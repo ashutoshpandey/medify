@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserDiagnosisTable extends Migration {
+class CreateExpertRatingsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,13 @@ class CreateUserDiagnosisTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('user_diagnosis', function(Blueprint $table)
+		Schema::create('expert_ratings', function(Blueprint $table)
 		{
             $table->increments('id');
 
+            $table->integer('expert_id')->unsigned();
             $table->integer('user_id')->unsigned();
+            $table->integer('rating_value')->unsigned();
             $table->string('status', 50);
 
             $table->foreign('expert_id')->references('id')->on('experts');
@@ -33,7 +35,7 @@ class CreateUserDiagnosisTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('user_diagnosis', function(Blueprint $table)
+		Schema::table('expert_ratings', function(Blueprint $table)
 		{
 			//
 		});

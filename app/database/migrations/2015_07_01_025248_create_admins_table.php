@@ -16,6 +16,8 @@ class CreateAdminsTable extends Migration {
 		{
             $table->increments('id');
 
+            $table->string('username', 255);
+            $table->string('password', 255);
             $table->string('status', 50);
 
             $table->timestamps();

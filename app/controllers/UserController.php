@@ -352,6 +352,23 @@ class UserController extends BaseController {
             return json_encode(array('message'=>'invalid'));
     }
 
+    public function userDocuments(){
+
+        $userId = Session::get('user_id');
+
+        if(isset($userId)){
+            $documents = UserDocument::where('user_id','=',$userId)->
+                where('status','=','active')->get();
+
+            if(isset($documents) && count($documents)>0)
+                return json_encode(array('message'=>'found', 'documents' => $documents->toArray()));
+            else
+                return json_encode(array('message'=>'empty'));
+        }
+        else
+            return json_encode(array('message'=>'not logged'));
+    }
+
     /************** json methods ***************/
     function dataGetUser($id){
 
@@ -363,16 +380,16 @@ class UserController extends BaseController {
             return json_encode(array('message'=>'empty'));
     }
 
-    function dataUserAppointments($id, $startDate=null, $endDate=null){
+    function dataUserAppointments($userId, $startDate=null, $endDate=null){
 
-        if(isset($id)){
+        if(isset($userId)){
 
             if(isset($startDate) && isset($endDate)){
 
                 $startDate = date('Y-m-d', strtotime($startDate));
                 $endDate = date('Y-m-d', strtotime($endDate));
 
-                $appointments = Appointment::where('user_id', '=', $id)
+                $appointments = Appointment::where('user_id', '=', $userId)
                                            ->where('start_date', '>=', $startDate)
                                            ->where('end_date', '<=', $endDate)->get();
             }
@@ -380,13 +397,13 @@ class UserController extends BaseController {
 
                 $startDate = date('Y-m-d', strtotime($startDate));
 
-                $appointments = Appointment::where('user_id', '=', $id)
+                $appointments = Appointment::where('user_id', '=', $userId)
                     ->where('start_date', '>=', $startDate)->get();
             }
             else
-                $appointments = Appointment::where('user_id', '=', $id)->get();
+                $appointments = Appointment::where('user_id', '=', $userId)->get();
 
-            if(isset($appointments))
+            if(isset($appointments) && count($appointments)>0)
                 return json_encode(array('message'=>'found', 'appointments' => $appointments->toArray()));
             else
                 return json_encode(array('message'=>'empty'));
@@ -395,16 +412,16 @@ class UserController extends BaseController {
             return json_encode(array('message'=>'invalid'));
     }
 
-    function dataUserAppointmentsByType($id, $appointmentType, $startDate=null, $endDate=null){
+    function dataUserAppointmentsByType($userId, $appointmentType, $startDate=null, $endDate=null){
 
-        if(isset($id) && isset($appointmentType)){
+        if(isset($userId) && isset($appointmentType)){
 
             if(isset($startDate) && isset($endDate)){
 
                 $startDate = date('Y-m-d', strtotime($startDate));
                 $endDate = date('Y-m-d', strtotime($endDate));
 
-                $appointments = Appointment::where('user_id', '=', $id)
+                $appointments = Appointment::where('user_id', '=', $userId)
                     ->where('appointment_type', '>=', $appointmentType)
                     ->where('start_date', '>=', $startDate)
                     ->where('end_date', '<=', $endDate)->get();
@@ -413,15 +430,15 @@ class UserController extends BaseController {
 
                 $startDate = date('Y-m-d', strtotime($startDate));
 
-                $appointments = Appointment::where('user_id', '=', $id)
+                $appointments = Appointment::where('user_id', '=', $userId)
                     ->where('appointment_type', '>=', $appointmentType)
                     ->where('start_date', '>=', $startDate)->get();
             }
             else
-                $appointments = Appointment::where('user_id', '=', $id)
+                $appointments = Appointment::where('user_id', '=', $userId)
                      ->where('appointment_type', '>=', $appointmentType);
 
-            if(isset($appointments))
+            if(isset($appointments) && count($appointments)>0)
                 return json_encode(array('message'=>'found', 'appointments' => $appointments->toArray()));
             else
                 return json_encode(array('message'=>'empty'));
@@ -430,13 +447,33 @@ class UserController extends BaseController {
             return json_encode(array('message'=>'invalid'));
     }
 
-    public function dataCancelledAppointments(){
+    public function dataCancelledAppointments($userId){
 
-        $id = Session::get('user_id');
+        if(isset($userId)){
+            $appointments = Appointment::where('user_id','=',$userId)->
+                where('status','=','cancelled')->get();
 
-        $appointments = Appointment::where('user_id','=',$id)->
-            where('status','=','cancelled')->get();
+            if(isset($appointments) && count($appointments)>0)
+                return json_encode(array('message'=>'found', 'appointments' => $appointments->toArray()));
+            else
+                return json_encode(array('message'=>'empty'));
+        }
+        else
+            return json_encode(array('message'=>'invalid'));
+    }
 
-        return json_encode(array('message'=>'found', 'appointments' => $appointments->toArray()));
+    public function dataUserDocuments($userId){
+
+        if(isset($userId)){
+            $documents = UserDocument::where('user_id','=',$userId)->
+                where('status','=','active')->get();
+
+            if(isset($documents) && count($documents)>0)
+                return json_encode(array('message'=>'found', 'documents' => $documents->toArray()));
+            else
+                return json_encode(array('message'=>'empty'));
+        }
+        else
+            return json_encode(array('message'=>'invalid'));
     }
 }

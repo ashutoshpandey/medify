@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserDiagnosisTable extends Migration {
+class CreateExpertSocialProfilesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,15 +12,16 @@ class CreateUserDiagnosisTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('user_diagnosis', function(Blueprint $table)
+		Schema::create('expert_social_profiles', function(Blueprint $table)
 		{
             $table->increments('id');
 
-            $table->integer('user_id')->unsigned();
+            $table->integer('expert_id')->unsigned();
+            $table->string('profile_type', 255);                // facebook, twitter etc.
+            $table->string('url', 255);
             $table->string('status', 50);
 
             $table->foreign('expert_id')->references('id')->on('experts');
-            $table->foreign('user_id')->references('id')->on('users');
 
             $table->timestamps();
 		});
@@ -33,7 +34,7 @@ class CreateUserDiagnosisTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('user_diagnosis', function(Blueprint $table)
+		Schema::table('expert_achievements', function(Blueprint $table)
 		{
 			//
 		});
