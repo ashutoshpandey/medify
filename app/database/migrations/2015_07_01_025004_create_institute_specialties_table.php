@@ -16,6 +16,10 @@ class CreateInstituteSpecialtiesTable extends Migration {
 		{
             $table->increments('id');
 
+            $table->integer('institute_id')->unsigned();
+
+            $table->string('title', 255);
+            $table->text('description');
             $table->string('status', 50);
 
             $table->foreign('institute_id')->references('id')->on('institutes');

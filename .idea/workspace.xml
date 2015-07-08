@@ -4,7 +4,7 @@
     <list default="true" id="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" name="Default" comment="" />
     <ignored path="med.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/a.dummy" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1436241495868" ignored="false" />
+    <file path="/a.dummy" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1436317000351" ignored="false" />
     <file path="/AuthenticationController.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1435287913020" ignored="false" />
     <file path="/Dummy.txt" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1435894520822" ignored="false" />
     <file path="/CustomerController.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1435286917700" ignored="false" />
@@ -19,27 +19,27 @@
     <file path="/2015_07_01_023411_create_users_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1435891522305" ignored="false" />
     <file path="/2015_07_01_023434_create_experts_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1436240534083" ignored="false" />
     <file path="/2015_07_01_023451_create_appointments_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1436237916116" ignored="false" />
-    <file path="/2015_07_01_023502_create_appointment_logs_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1435891528948" ignored="false" />
-    <file path="/2015_07_01_023528_create_user_healths_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1436242190121" ignored="false" />
+    <file path="/2015_07_01_023502_create_appointment_logs_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1436317643716" ignored="false" />
+    <file path="/2015_07_01_023528_create_user_healths_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1436317698179" ignored="false" />
     <file path="/2015_07_01_023605_create_diseases_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1436242586655" ignored="false" />
     <file path="/2015_07_01_023624_create_user_documents_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1436242623973" ignored="false" />
-    <file path="/2015_07_01_023650_create_events_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1436242728702" ignored="false" />
+    <file path="/2015_07_01_023650_create_events_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1436317915079" ignored="false" />
     <file path="/2015_07_01_023706_create_event_registrations_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1436242783526" ignored="false" />
-    <file path="/2015_07_01_024940_create_expert_qualifications_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1435891543068" ignored="false" />
-    <file path="/2015_07_01_025004_create_institute_specialties_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1435891545666" ignored="false" />
+    <file path="/2015_07_01_024940_create_expert_qualifications_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1436318557852" ignored="false" />
+    <file path="/2015_07_01_025004_create_institute_specialties_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1436318550412" ignored="false" />
     <file path="/2015_07_01_025154_create_institute_achievements_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1435891548354" ignored="false" />
     <file path="/2015_07_01_025209_create_expert_achievements_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1435891550994" ignored="false" />
     <file path="/2015_07_01_025248_create_admins_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1435891553329" ignored="false" />
-    <file path="/2015_07_01_025324_create_expert_password_changes_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1435891556399" ignored="false" />
+    <file path="/2015_07_01_025324_create_expert_password_changes_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1436318887907" ignored="false" />
     <file path="/2015_07_01_025344_create_user_password_changes_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1435891558680" ignored="false" />
-    <file path="/2015_07_01_025401_create_user_prescriptions_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1435891561250" ignored="false" />
-    <file path="/2015_07_01_025419_create_user_diagnosis_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1435891563498" ignored="false" />
-    <file path="/2015_07_02_063732_create_insurance_companies_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1435891565948" ignored="false" />
-    <file path="/2015_07_02_063759_create_insurance_connections_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1435891568106" ignored="false" />
+    <file path="/2015_07_01_025401_create_user_prescriptions_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1436318943759" ignored="false" />
+    <file path="/2015_07_01_025419_create_user_diagnosis_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1436318988132" ignored="false" />
+    <file path="/2015_07_02_063732_create_insurance_companies_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1436319201747" ignored="false" />
+    <file path="/2015_07_02_063759_create_insurance_connections_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1436319301200" ignored="false" />
     <file path="/2015_07_03_020902_create_expert_locations_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1436241107833" ignored="false" />
     <file path="/2015_07_03_021813_create_expert_reviews_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1435891573265" ignored="false" />
     <file path="/2015_07_03_021831_create_expert_recommendations_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1435891576178" ignored="false" />
-    <file path="/2015_07_03_022401_create_entity_pictures_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1435891578668" ignored="false" />
+    <file path="/2015_07_03_022401_create_entity_pictures_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1436322237442" ignored="false" />
     <file path="/2015_07_03_023855_create_institute_recommendations_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1435891581003" ignored="false" />
     <file path="/2015_07_03_023926_create_institute_reviews_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1435891583496" ignored="false" />
     <file path="/DataController.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1436063452302" ignored="false" />
@@ -80,6 +80,8 @@
     <file path="/2015_07_03_020904_create_expert_locations_contacts_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1436241237406" ignored="false" />
     <file path="/2015_07_03_023855_create_institute_ratings_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1436241460948" ignored="false" />
     <file path="/2015_07_03_023855_create_expert_ratings_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1436241526547" ignored="false" />
+    <file path="/2015_07_03_020905_create_institute_contacts_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1436315238836" ignored="false" />
+    <file path="/2015_07_01_023412_create_users_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1436316898241" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,22 +110,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/database/migrations/2015_07_01_025220_create_expert_specialties_table.php" />
-        <option value="$PROJECT_DIR$/app/database/migrations/2015_07_01_025221_create_expert_services_table.php" />
-        <option value="$PROJECT_DIR$/app/database/migrations/2015_07_01_025219_create_expert_memberships_table.php" />
-        <option value="$PROJECT_DIR$/app/database/migrations/2015_07_03_020902_create_expert_locations_table.php" />
-        <option value="$PROJECT_DIR$/app/database/migrations/2015_07_01_023326_create_institutes_table.php" />
-        <option value="$PROJECT_DIR$/app/database/migrations/2015_07_03_021813_create_expert_reviews_table.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2015_07_01_025249_create_software_users_table.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2015_07_01_025324_create_expert_password_changes_table.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2015_07_01_025344_create_user_password_changes_table.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2015_07_01_025419_create_user_diagnosis_table.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2015_07_01_025401_create_user_prescriptions_table.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2015_07_02_063732_create_insurance_companies_table.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2015_07_02_063759_create_insurance_connections_table.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2015_07_03_020903_create_expert_locations_timings_table.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2015_07_03_020904_create_expert_locations_contacts_table.php" />
-        <option value="$PROJECT_DIR$/app/database/migrations/2015_07_03_023855_create_institute_recommendations_table.php" />
-        <option value="$PROJECT_DIR$/app/database/migrations/2015_07_03_023855_create_ratings_table.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2015_07_03_020905_create_institute_contacts_table.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2015_07_03_021813_create_expert_reviews_table.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2015_07_03_022401_create_entity_pictures_table.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2015_07_03_023855_create_expert_ratings_table.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2015_07_03_023855_create_institute_ratings_table.php" />
-        <option value="$PROJECT_DIR$/app/database/migrations/2015_07_01_023528_create_user_healths_table.php" />
-        <option value="$PROJECT_DIR$/app/database/migrations/2015_07_01_023605_create_diseases_table.php" />
-        <option value="$PROJECT_DIR$/app/database/migrations/2015_07_01_023624_create_user_documents_table.php" />
-        <option value="$PROJECT_DIR$/app/database/migrations/2015_07_01_023650_create_events_table.php" />
-        <option value="$PROJECT_DIR$/app/database/migrations/2015_07_01_023706_create_event_registrations_table.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2015_07_03_023855_create_institute_recommendations_table.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2015_07_03_023926_create_institute_reviews_table.php" />
       </list>
     </option>
   </component>
@@ -288,8 +290,8 @@
     <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../larayoga" />
     <property name="FullScreen" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -344,7 +346,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25747862" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26068377" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -420,116 +422,114 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_03_023855_create_expert_ratings_table.php">
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_01_025401_create_user_prescriptions_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="37" selection-start="847" selection-end="847" vertical-scroll-proportion="0.8630137">
-          <folding>
-            <element signature="e#7#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_03_023855_create_institute_ratings_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="51" selection-start="447" selection-end="447" vertical-scroll-proportion="0.38135594">
+        <state line="18" column="35" selection-start="376" selection-end="376" vertical-scroll-proportion="-11.9">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_03_023855_create_institute_recommendations_table.php">
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_01_025344_create_user_password_changes_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="0" selection-start="659" selection-end="659" vertical-scroll-proportion="0.58474576">
+        <state line="20" column="0" selection-start="399" selection-end="399" vertical-scroll-proportion="0.48305085">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_01_025249_create_software_users_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="44" selection-start="422" selection-end="422" vertical-scroll-proportion="0.2881356">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_02_063732_create_insurance_companies_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="49" selection-start="433" selection-end="433" vertical-scroll-proportion="-12.6">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_02_063759_create_insurance_connections_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="40" selection-start="627" selection-end="627" vertical-scroll-proportion="-14.7">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_03_020902_create_expert_locations_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="39" selection-start="716" selection-end="716" vertical-scroll-proportion="0.43220338">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_03_020903_create_expert_locations_timings_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="41" selection-start="590" selection-end="590" vertical-scroll-proportion="0.55932206">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_03_020904_create_expert_locations_contacts_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="12" selection-start="420" selection-end="420" vertical-scroll-proportion="0.45762712">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_03_020905_create_institute_contacts_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="0" selection-start="566" selection-end="566" vertical-scroll-proportion="0.58474576">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_03_021813_create_expert_reviews_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="41" selection-start="536" selection-end="536" vertical-scroll-proportion="0.5338983">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_03_021831_create_expert_recommendations_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="497" selection-end="497" vertical-scroll-proportion="0.3244552">
+        <state line="26" column="11" selection-start="684" selection-end="684" vertical-scroll-proportion="0.63559324">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_01_023326_create_institutes_table.php">
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_03_022401_create_entity_pictures_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="0" selection-start="664" selection-end="664" vertical-scroll-proportion="0.527845">
+        <state line="22" column="0" selection-start="571" selection-end="571" vertical-scroll-proportion="0.5338983">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_01_023411_create_users_table.php">
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_03_023855_create_expert_ratings_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="315" selection-end="315" vertical-scroll-proportion="0.40677965">
+        <state line="20" column="12" selection-start="451" selection-end="451" vertical-scroll-proportion="0.24818403">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_01_023434_create_experts_table.php">
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_03_023855_create_institute_ratings_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="32" selection-start="622" selection-end="622" vertical-scroll-proportion="0.3559322">
+        <state line="22" column="41" selection-start="547" selection-end="547" vertical-scroll-proportion="0.5338983">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_01_023451_create_appointments_table.php">
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_03_023926_create_institute_reviews_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="51" selection-start="435" selection-end="435" vertical-scroll-proportion="0.19733655">
+        <state line="20" column="0" selection-start="448" selection-end="448" vertical-scroll-proportion="0.48305085">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_01_025229_create_expert_social_profiles_table.php">
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_03_023855_create_institute_recommendations_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_01_023502_create_appointment_logs_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="336" selection-end="336" vertical-scroll-proportion="0.40677965">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_01_023528_create_user_healths_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="41" selection-start="486" selection-end="486" vertical-scroll-proportion="0.37530267">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_01_023605_create_diseases_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="37" selection-start="528" selection-end="528" vertical-scroll-proportion="0.5338983">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_01_023624_create_user_documents_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="575" selection-end="575" vertical-scroll-proportion="0.55932206">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_01_023650_create_events_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="74" selection-start="882" selection-end="882" vertical-scroll-proportion="0.7372881">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_01_023706_create_event_registrations_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="41" selection-start="519" selection-end="519" vertical-scroll-proportion="0.5084746">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_01_024940_create_expert_qualifications_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="21" column="0" selection-start="465" selection-end="465" vertical-scroll-proportion="0.5084746">
           <folding />
         </state>
       </provider>

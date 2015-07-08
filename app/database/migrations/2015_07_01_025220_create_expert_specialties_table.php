@@ -12,13 +12,15 @@ class CreateExpertSpecialtiesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('expert_achievements', function(Blueprint $table)
+		Schema::create('expert_specialties', function(Blueprint $table)
 		{
             $table->increments('id');
 
             $table->integer('expert_id')->unsigned();
-            $table->string('name', 255);
-            $table->string('description', 1000);
+
+            $table->string('title', 255);
+            $table->text('description');
+            $table->string('status', 50);
 
             $table->foreign('expert_id')->references('id')->on('experts');
 
@@ -33,7 +35,7 @@ class CreateExpertSpecialtiesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('expert_achievements', function(Blueprint $table)
+		Schema::table('expert_specialties', function(Blueprint $table)
 		{
 			//
 		});

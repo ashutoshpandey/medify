@@ -18,6 +18,7 @@ class CreateInstituteRecommendationsTable extends Migration {
 
             $table->integer('institute_id')->unsigned();
             $table->integer('user_id')->unsigned();
+
             $table->string('status', 50);
 
             $table->foreign('institute_id')->references('id')->on('institutes');

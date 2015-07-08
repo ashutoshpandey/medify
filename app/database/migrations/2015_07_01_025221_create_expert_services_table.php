@@ -17,7 +17,8 @@ class CreateExpertServicesTable extends Migration {
             $table->increments('id');
 
             $table->integer('expert_id')->unsigned();
-            $table->string('name');
+
+            $table->string('title');
             $table->text('description');
             $table->string('status', 50);
 
@@ -34,7 +35,7 @@ class CreateExpertServicesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('expert_achievements', function(Blueprint $table)
+		Schema::table('expert_services', function(Blueprint $table)
 		{
 			//
 		});

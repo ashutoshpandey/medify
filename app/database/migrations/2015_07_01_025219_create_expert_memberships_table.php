@@ -12,11 +12,12 @@ class CreateExpertMembershipsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('expert_achievements', function(Blueprint $table)
+		Schema::create('expert_memberships', function(Blueprint $table)
 		{
             $table->increments('id');
 
             $table->integer('expert_id')->unsigned();
+
             $table->string('name', 1000);
             $table->string('status', 50);
 
@@ -33,7 +34,7 @@ class CreateExpertMembershipsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('expert_achievements', function(Blueprint $table)
+		Schema::table('expert_memberships', function(Blueprint $table)
 		{
 			//
 		});

@@ -18,6 +18,7 @@ class CreateExpertRatingsTable extends Migration {
 
             $table->integer('expert_id')->unsigned();
             $table->integer('user_id')->unsigned();
+
             $table->integer('rating_value')->unsigned();
             $table->string('status', 50);
 

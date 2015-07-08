@@ -16,6 +16,8 @@ class CreateUserHealthsTable extends Migration {
 		{
             $table->increments('id');
 
+            $table->integer('user_id')->unsigned();
+
             $table->string('title');                // blood group, weight etc.
             $table->string('data');
             $table->string('status', 50);

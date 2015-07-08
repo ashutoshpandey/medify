@@ -17,6 +17,7 @@ class CreateExpertLocationContactsTable extends Migration {
             $table->increments('id');
 
             $table->integer('location_id')->unsigned();
+
             $table->string('contact', 20);
             $table->string('status', 50);
 
@@ -33,7 +34,7 @@ class CreateExpertLocationContactsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('expert_locations', function(Blueprint $table)
+		Schema::table('expert_location_contacts', function(Blueprint $table)
 		{
 			//
 		});

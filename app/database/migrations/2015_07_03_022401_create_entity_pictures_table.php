@@ -16,6 +16,11 @@ class CreateEntityPicturesTable extends Migration {
 		{
             $table->increments('id');
 
+            $table->integer('type_id')->unsigned();
+            $table->string('entity_type', 255);             // expert, institute etc.
+            $table->string('file_name', 255);
+            $table->string('file_saved_name', 255);
+
             $table->string('status', 50);
 
             $table->timestamps();

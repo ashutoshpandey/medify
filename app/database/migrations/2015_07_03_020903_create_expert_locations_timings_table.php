@@ -17,6 +17,7 @@ class CreateExpertLocationTimingsTable extends Migration {
             $table->increments('id');
 
             $table->integer('location_id')->unsigned();
+
             $table->dateTime('start_time');
             $table->dateTime('end_time');
             $table->string('day_name', 20);
@@ -35,7 +36,7 @@ class CreateExpertLocationTimingsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('expert_locations', function(Blueprint $table)
+		Schema::table('expert_location_timings', function(Blueprint $table)
 		{
 			//
 		});

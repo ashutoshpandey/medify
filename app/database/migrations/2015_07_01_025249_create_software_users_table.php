@@ -32,7 +32,7 @@ class CreateSoftwareUsersTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('admins', function(Blueprint $table)
+		Schema::table('software_users', function(Blueprint $table)
 		{
 			//
 		});

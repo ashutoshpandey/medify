@@ -17,6 +17,7 @@ class CreateExpertLocationsTable extends Migration {
             $table->increments('id');
 
             $table->integer('expert_id')->unsigned();
+
             $table->string('address', 1000);
             $table->string('city', 255);
             $table->string('state', 255);

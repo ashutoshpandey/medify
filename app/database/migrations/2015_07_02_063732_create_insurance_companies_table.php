@@ -16,6 +16,9 @@ class CreateInsuranceCompaniesTable extends Migration {
 		{
             $table->increments('id');
 
+            $table->string('name', 255);
+            $table->dateTime('established_data');
+
             $table->string('status', 50);
 
             $table->timestamps();

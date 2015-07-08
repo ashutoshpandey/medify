@@ -17,6 +17,7 @@ class CreateExpertSocialProfilesTable extends Migration {
             $table->increments('id');
 
             $table->integer('expert_id')->unsigned();
+
             $table->string('profile_type', 255);                // facebook, twitter etc.
             $table->string('url', 255);
             $table->string('status', 50);
@@ -34,7 +35,7 @@ class CreateExpertSocialProfilesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('expert_achievements', function(Blueprint $table)
+		Schema::table('expert_social_profiles', function(Blueprint $table)
 		{
 			//
 		});
