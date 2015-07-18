@@ -7,10 +7,12 @@ class AdminController extends BaseController {
         $this->beforeFilter(function(){
             $id = Session::get('admin_id');
 
-            View::share('path', URL::to('/'));
+            if(isset($id)){
+                $admin = Admin::find($id);
 
-            if(is_null($id))
-                return Redirect::to('admin');
+                View::share('root', URL::to('/'));
+                View::share('name', $admin->name);
+            }
         });
     }
 
@@ -20,10 +22,26 @@ class AdminController extends BaseController {
 
     public function adminSection(){
 
-        return View::make('admin.adminsection');
+        $adminId = Session::get('admin_id');
+        if(!isset($adminId))
+            return Redirect::to('/');
+
+        $expertCount = Expert::where('status','=','pending')->count();
+        $userCount = User::where('status','=','active')->count();
+        $appointmentCount = Appointment::where('status','=','booked')->count();
+
+        return View::make('admin.admin-section')
+            ->with('expertCount', $expertCount)
+            ->with('userCount', $userCount)
+            ->with('appointmentCount', $appointmentCount);
     }
 
     public function appointments(){
+
+        return View::make('admin.appointments');
+    }
+
+    public function listAppointments($status, $page){
 
         $appointments = null;
 
@@ -33,7 +51,7 @@ class AdminController extends BaseController {
 
             $expert_id = Input::get('expert_id');
 
-            $appointments = Appointment::where('status','=','booked')->where('Appointment.expert_id','=',$expert_id)->get();
+            $appointments = Appointment::where('status','=','booked')->where('Appointment.expert_id','=',$expert_id)->with('user')->with('expert')->get();
 
         }
         else if($filter=="date"){
@@ -43,7 +61,7 @@ class AdminController extends BaseController {
 
             $appointments = Appointment::where('Appointment.appointment_date','>=',$startDate)->
 										 where('Appointment.appointment_date','<=',$endDate)->
-										 where('status','=','booked')->get();
+										 where('status','=','booked')->with('user')->with('expert')->get();
 
         }
         else if($filter=="expertdate"){
@@ -56,17 +74,17 @@ class AdminController extends BaseController {
             $appointments = Appointment::where('Appointment.appointment_date','>=',$startDate)->
                                          where('Appointment.appointment_date','<=',$endDate)->
 										 where('status','=','booked')->
-                                         where('Appointment.expert_id','=',$expert_id)->get();
+                                         where('Appointment.expert_id','=',$expert_id)->with('user')->with('expert')->get();
 
         }
         else{
-            $appointments = Appointment::where('status','=','booked')->where('appointment_date','>=',date("Y-m-d H:i:s"))->get();
+            $appointments = Appointment::where('status','=','booked')->where('appointment_date','>=',date("Y-m-d H:i:s"))->with('user')->with('expert')->get();
         }
 
-		if(isset($appointments))
-			return View::make('admin.appointments')->with('appointments', $appointments)->with('found', true);
+		if(isset($appointments) && count($appointments)>0)
+			return json_encode(array('message' => 'found', 'appointments' => $appointments->toArray()));
 		else
-			return View::make('admin.appointments')->with('found', false);
+            return json_encode(array('message' => 'empty'));
     }
 
     public function editUser($id){
@@ -348,19 +366,6 @@ class AdminController extends BaseController {
         }
     }
 
-    public function users(){
-
-        $users = User::all();
-
-        return View::make('admin.users')->with("users", $users);
-    }
-
-    public function experts(){
-
-        $experts = Expert::all();
-
-        return View::make('admin.experts')->with("experts", $experts);
-    }
     public function timezones(){
 
         $timezones = Timezone::all();
@@ -543,17 +548,22 @@ class AdminController extends BaseController {
 
     public function cancelAppointment($id){
 
+        $adminId = Session::get('admin_id');
+        if(!isset($adminId))
+            return json_encode(array('message'=>'not logged'));
+
         $appointment = Appointment::find($id);
 
         if(is_null($appointment))
-            return "invalid";
+            return json_encode(array('message'=>'invalid'));
         else{
-            $appointment->status = "admincancelled";
+            $appointment->status = "admin-cancelled";
+            $appointment->cancel_id = $adminId;
             $appointment->updated_at = date('Y-m-d h:i:s');
 
             $appointment->save();
 
-            return "done";
+            return json_encode(array('message'=>'done'));
         }
     }
 
@@ -601,4 +611,185 @@ class AdminController extends BaseController {
 
         return View::make('admin.history')->with('appointments',$appointments);
     }
+
+    /************************** experts *************************/
+    public function experts(){
+
+        $adminId = Session::get('admin_id');
+        if(!isset($adminId))
+            return Redirect::to('/');
+
+        return View::make('admin.experts');
+    }
+
+    public function viewExpert($id){
+
+        $adminId = Session::get('admin_id');
+        if(!isset($adminId))
+            return Redirect::to('/');
+
+        if(isset($id)){
+            $expert = Expert::find($id);
+
+            if(isset($expert)){
+
+                Session::put('expert_id', $id);
+
+                if($expert->gender=='male'){
+                    $male_checked = 'checked="checked"';
+                    $female_checked = '';
+                }
+                else{
+                    $female_checked = 'checked="checked"';
+                    $male_checked = '';
+                }
+
+                return View::make('admin.view-expert')
+                    ->with('expert', $expert)
+                    ->with('male_checked', $male_checked)
+                    ->with('female_checked', $female_checked);
+            }
+            else
+                return Redirect::to('/');
+        }
+        else
+            return Redirect::to('/');
+    }
+
+    public function listExperts($status, $page){
+
+        $adminId = Session::get('admin_id');
+        if(!isset($adminId))
+            return json_encode(array('message'=>'not logged'));
+
+        $experts = Expert::where('status','=',$status)->get();
+
+        if(isset($experts) && count($experts)>0){
+
+            return json_encode(array('message'=>'found', 'experts' => $experts->toArray()));
+        }
+        else
+            return json_encode(array('message'=>'empty'));
+    }
+
+/************************** software users *************************/
+    public function softwareUsers(){
+
+        $adminId = Session::get('admin_id');
+        if(!isset($adminId))
+            return Redirect::to('/');
+
+        return View::make('admin.software-users');
+    }
+
+    public function viewSoftwareUser($id){
+
+        $adminId = Session::get('admin_id');
+        if(!isset($adminId))
+            return Redirect::to('/');
+
+        if(isset($id)){
+            $softwareUser = SoftwareUser::find($id);
+
+            if(isset($softwareUser)){
+
+                Session::put('software_user_id', $id);
+
+                if($softwareUser->gender=='male'){
+                    $male_checked = 'checked="checked"';
+                    $female_checked = '';
+                }
+                else{
+                    $female_checked = 'checked="checked"';
+                    $male_checked = '';
+                }
+
+                return View::make('admin.view-software-user')
+                    ->with('softwareUser', $softwareUser)
+                    ->with('male_checked', $male_checked)
+                    ->with('female_checked', $female_checked);
+            }
+            else
+                return Redirect::to('/');
+        }
+        else
+            return Redirect::to('/');
+    }
+
+    public function listSoftwareUsers($status, $page){
+
+        $adminId = Session::get('admin_id');
+        if(!isset($adminId))
+            return json_encode(array('message'=>'not logged'));
+
+        $softwareUsers = SoftwareUser::where('status','=',$status)->get();
+
+        if(isset($softwareUsers) && count($softwareUsers)>0){
+
+            return json_encode(array('message'=>'found', 'software_users' => $softwareUsers->toArray()));
+        }
+        else
+            return json_encode(array('message'=>'empty'));
+    }
+
+/************************** software users *************************/
+    public function users(){
+
+        $adminId = Session::get('admin_id');
+        if(!isset($adminId))
+            return Redirect::to('/');
+
+        return View::make('admin.users');
+    }
+
+    public function viewUser($id){
+
+        $adminId = Session::get('admin_id');
+        if(!isset($adminId))
+            return Redirect::to('/');
+
+        if(isset($id)){
+            $user = User::find($id);
+
+            if(isset($user)){
+
+                Session::put('user_id', $id);
+
+                if($user->gender=='male'){
+                    $male_checked = 'checked="checked"';
+                    $female_checked = '';
+                }
+                else{
+                    $female_checked = 'checked="checked"';
+                    $male_checked = '';
+                }
+
+                return View::make('admin.view-user')
+                    ->with('user', $user)
+                    ->with('male_checked', $male_checked)
+                    ->with('female_checked', $female_checked);
+            }
+            else
+                return Redirect::to('/');
+        }
+        else
+            return Redirect::to('/');
+    }
+
+    public function listUsers($status, $page){
+
+        $adminId = Session::get('admin_id');
+        if(!isset($adminId))
+            return json_encode(array('message'=>'not logged'));
+
+        $users = User::where('status','=',$status)->get();
+
+        if(isset($users) && count($users)>0){
+
+            return json_encode(array('message'=>'found', 'users' => $users->toArray()));
+        }
+        else
+            return json_encode(array('message'=>'empty'));
+    }
+
 }

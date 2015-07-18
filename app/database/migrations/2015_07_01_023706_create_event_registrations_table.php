@@ -16,6 +16,8 @@ class CreateEventRegistrationsTable extends Migration {
 		{
             $table->increments('id');
 
+            $table->integer('event_id')->unsigned();
+
             $table->string('email', 255);
             $table->string('first_name', 255);
             $table->string('last_name', 255);

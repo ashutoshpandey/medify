@@ -18,7 +18,7 @@ class AuthenticationController extends BaseController {
 	}
 	
 	public function adminLogin(){
-		return View::make('authentication.admin-login');
+		return View::make('admin.login');
 	}
 
     public function registerExpert(){
@@ -46,11 +46,11 @@ class AuthenticationController extends BaseController {
                         ->where('password','=',$password)->first();
 
         if(is_null($admin))
-            return "invalid";
+            return json_encode(array("message"=>"invalid"));
         else{
-            Session::put('adminId', $admin->id);
+            Session::put('admin_id', $admin->id);
 
-            return "correct";
+            return json_encode(array("message"=>"correct"));
         }
     }
 

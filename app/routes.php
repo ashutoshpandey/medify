@@ -113,3 +113,28 @@ Route::get('/data-institute-cancelled-appointments/{id}', 'InstituteController@d
 Route::get('/data-institute-experts/{id}', 'InstituteController@dataInstituteExperts');
 
 Route::get('/data-get-event/{id}', 'EventController@getEvent');
+
+/*-------------------- admin methods --------------------*/
+Route::get('/admin-login', 'AuthenticationController@adminLogin');
+Route::post('/is-valid-admin', 'AuthenticationController@isValidAdmin');
+Route::get('/admin-section', 'AdminController@adminSection');
+
+Route::get('/admin-appointments', 'AdminController@appointments');
+Route::get('/admin-list-appointments/{status}/{page}', 'AdminController@listAppointments');
+Route::get('/cancel-admin-appointment/{id}', 'AdminController@cancelAppointment');
+
+Route::get('/admin-institutes', 'AdminController@institutes');
+Route::get('/admin-view-institute/{id}', 'AdminController@viewInstitute');
+Route::get('/admin-list-institutes/{status}/{page}', 'AdminController@listInstitutes');
+
+Route::get('/admin-experts', 'AdminController@experts');
+Route::get('/admin-view-expert/{id}', 'AdminController@viewExpert');
+Route::get('/admin-list-experts/{status}/{page}', 'AdminController@listExperts');
+
+Route::get('/admin-users', 'AdminController@users');
+Route::get('/admin-view-user/{id}', 'AdminController@viewUser');
+Route::get('/admin-list-users/{status}/{page}', 'AdminController@listUsers');
+
+Route::get('/admin-software-users', 'AdminController@softwareUsers');
+Route::get('/admin-list-software-users/{status}/{page}', 'AdminController@listSoftwareUsers');
+Route::get('/admin-view-software-user/{id}', 'AdminController@viewSoftwareUser');
