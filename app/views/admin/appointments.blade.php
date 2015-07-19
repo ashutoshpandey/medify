@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Administration | Couriers</title>
+    <title>Administration | Appointments</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
@@ -27,10 +27,6 @@
             <h1>
                 Manage Appointments
             </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li class="active">Dashboard</li>
-            </ol>
         </section>
 
         <!-- Main content -->
@@ -51,7 +47,7 @@
 {{HTML::script(asset("/public/js/site/admin/appointments.js"))}}
 <script type="text/javascript">
     $(function () {
-        $(".users").addClass('active');
+        $(".appointments").addClass('active');
     });
 </script>
 </body>

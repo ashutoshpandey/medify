@@ -60,7 +60,6 @@ function showGrid(data){
                 <tr> \
                     <th data-column-id="id" data-type="numeric">ID</th> \
                     <th data-column-id="name">Name</th> \
-                    <th data-column-id="gender">Gender</th> \
                     <th data-column-id="email">Email</th> \
                     <th data-column-id="contact">Contact</th> \
                     <th data-formatter="link">Action</th> \
@@ -75,7 +74,6 @@ function showGrid(data){
                 str = str + '<tr> \
                     <td>' + user.id + '</td> \
                     <td>' + user.first_name + ' ' + user.last_name + '</td> \
-                    <td>' + user.gender + '</td> \
                     <td>' + user.email + '</td> \
                     <td>' + user.contact_number + '</td> \
                     <td></td> \

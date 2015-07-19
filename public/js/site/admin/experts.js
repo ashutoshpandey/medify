@@ -1,8 +1,20 @@
 $(function(){
-    $("input[name='btn-create']").click(createExpert);
-
     listExperts(1);
 });
+
+function startCreatingExpert(){
+
+    $("#ifr").load(function(){
+        expertCreated();
+    });
+}
+
+function expertCreated(){
+
+    $(".message").html("Expert created successfully");
+
+    listExperts(1);
+}
 
 function createExpert(){
 
@@ -76,7 +88,7 @@ function showGrid(data){
 
             str = str + '<tr> \
                     <td>' + expert.id + '</td> \
-                    <td>' + expert.name + '</td> \
+                    <td>' + expert.first_name + ' ' + expert.last_name + '</td> \
                     <td>' + expert.email + '</td> \
                     <td></td> \
                 </tr>';

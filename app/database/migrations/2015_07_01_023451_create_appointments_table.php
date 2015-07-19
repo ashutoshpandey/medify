@@ -21,6 +21,7 @@ class CreateAppointmentsTable extends Migration {
             $table->string('appointment_type', 50);
             $table->dateTime('appointment_date');
             $table->string('cancel_type', 50);
+            $table->integer('cancel_id')->unsigned();
             $table->string('status', 50);
 
             $table->foreign('expert_id')->references('id')->on('experts');

@@ -79,7 +79,7 @@ function showGrid(data){
             $(".remove").click(function(){
                 var id = $(this).attr("rel");
 
-                if(!confirm("Are you sure to remove this appointment?"))
+                if(!confirm("Are you sure to cancel this appointment?"))
                     return;
 
                 $.getJSON(root + '/cancel-admin-appointment/' + id,

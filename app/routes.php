@@ -12,7 +12,7 @@
 */
 
 /*-------------------- static methods --------------------*/
-Route::get('/', 'StaticController@');
+Route::get('/', 'StaticController@home');
 Route::get('/register-user', 'StaticController@');
 Route::get('/register-expert', 'StaticController@');
 Route::get('/forgot-user-password', 'StaticController@');
@@ -23,7 +23,6 @@ Route::get('/about-us', 'StaticController@');
 
 /*-------------------- authentication methods --------------------*/
 Route::post('/save-user', 'AuthenticationController@');
-Route::post('/save-expert', 'AuthenticationController@');
 Route::post('/is-valid-expert', 'AuthenticationController@');
 Route::post('/is-valid-user', 'AuthenticationController@');
 Route::post('/is-valid-admin', 'AuthenticationController@');
@@ -121,6 +120,7 @@ Route::get('/admin-section', 'AdminController@adminSection');
 
 Route::get('/admin-appointments', 'AdminController@appointments');
 Route::get('/admin-list-appointments/{status}/{page}', 'AdminController@listAppointments');
+Route::get('/admin-view-appointment/{id}', 'AdminController@viewAppointment');
 Route::get('/cancel-admin-appointment/{id}', 'AdminController@cancelAppointment');
 
 Route::get('/admin-institutes', 'AdminController@institutes');
@@ -130,6 +130,8 @@ Route::get('/admin-list-institutes/{status}/{page}', 'AdminController@listInstit
 Route::get('/admin-experts', 'AdminController@experts');
 Route::get('/admin-view-expert/{id}', 'AdminController@viewExpert');
 Route::get('/admin-list-experts/{status}/{page}', 'AdminController@listExperts');
+Route::post('/save-admin-expert', 'AdminController@saveExpert');
+Route::post('/update-admin-expert', 'AdminController@updateExpert');
 
 Route::get('/admin-users', 'AdminController@users');
 Route::get('/admin-view-user/{id}', 'AdminController@viewUser');
@@ -138,3 +140,5 @@ Route::get('/admin-list-users/{status}/{page}', 'AdminController@listUsers');
 Route::get('/admin-software-users', 'AdminController@softwareUsers');
 Route::get('/admin-list-software-users/{status}/{page}', 'AdminController@listSoftwareUsers');
 Route::get('/admin-view-software-user/{id}', 'AdminController@viewSoftwareUser');
+
+

@@ -8,7 +8,7 @@
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a>
             </li>
-            <li class="orders">
+            <li class="appointments">
                 <a href="{{$root}}/admin-appointments">
                     <i class="fa fa-th"></i> <span>Appointments</span>
                 </a>

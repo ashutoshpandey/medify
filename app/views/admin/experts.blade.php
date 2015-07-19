@@ -42,58 +42,91 @@
             </div>
             <div id='tab-create'>
                 <div id='form-container'>
-                    <form id='form-create-book'>
+                    <form id='form-create-book' action="{{$root}}/save-admin-expert" method="post" target="ifr" onsubmit="startCreatingExpert()">
                         <div class='form-row'>
-                            <div class='form-label'>Name</div>
+                            <div class='form-label'>First Name</div>
                             <div class='form-data'>
-                                <input type='text' name='name'/>
+                                <input type='text' name='first_name'/>
                             </div>
-                            <div class='form-label'>Publish Date</div>
+                            <div class='form-label'>Last Name</div>
                             <div class='form-data'>
-                                <input type='text' name='publish_date'/>
+                                <input type='text' name='last_name'/>
                             </div>
                             <div class='clear'></div>
                         </div>
                         <div class='form-row'>
-                            <div class='form-label'>Subject</div>
+                            <div class='form-label'>Password</div>
                             <div class='form-data'>
-                                <input type='text' name='subject'/>
+                                <input type='text' name='password'/>
                             </div>
-                            <div class='form-label'>Author</div>
+                            <div class='form-label'>Confirm Password</div>
                             <div class='form-data'>
-                                <input type='text' name='author'/>
-                            </div>
-                            <div class='clear'></div>
-                        </div>
-                        <div class='form-row'>
-                            <div class='form-label'>Price</div>
-                            <div class='form-data'>
-                                <input type='text' name='price'/>
-                            </div>
-                            <div class='form-label'>Discounted Price</div>
-                            <div class='form-data'>
-                                <input type='text' name='discounted_price'/>
+                                <input type='text' name='confirm_password'/>
                             </div>
                             <div class='clear'></div>
                         </div>
                         <div class='form-row'>
-                            <div class='form-label'>Book type</div>
+                            <div class='form-label'>Email</div>
                             <div class='form-data'>
-                                <select name='book_type'>
-                                    <option>Course</option>
-                                    <option>Supplementary</option>
+                                <input type='text' name='email'/>
+                            </div>
+                            <div class='form-label'>Contact Number</div>
+                            <div class='form-data'>
+                                <input type='text' name='contact_number'/>
+                            </div>
+                            <div class='clear'></div>
+                        </div>
+                        <div class='form-row'>
+                            <div class='form-label'>Extension Number</div>
+                            <div class='form-data'>
+                                <input type='text' name='contact_number'/>
+                            </div>
+                            <div class='form-label'>Gender</div>
+                            <div class='form-data'>
+                                <select name='gender'>
+                                    <option>Male</option>
+                                    <option>Female</option>
                                 </select>
                             </div>
                             <div class='clear'></div>
                         </div>
                         <div class='form-row'>
+                            <div class='form-label'>About</div>
+                            <div class='form-data-full'>
+                                <textarea name="about" rows="5"></textarea>
+                            </div>
+                            <div class='clear'></div>
+                        </div>
+                        <div class='form-row'>
+                            <div class='form-label'>Experience</div>
+                            <div class='form-data-full'>
+                                <textarea name="experience" rows="5"></textarea>
+                            </div>
+                            <div class='clear'></div>
+                        </div>
+                        <div class='form-row'>
+                            <div class='form-label'>Image</div>
+                            <div class='form-data-full'>
+                                <input type="file" name="image"/>
+                            </div>
+                            <div class='clear'></div>
+                        </div>
+                        <div class='form-row'>
+                            <div class='form-label'>Banner image</div>
+                            <div class='form-data-full'>
+                                <input type="file" name="banner_image"/>
+                            </div>
+                            <div class='clear'></div>
+                        </div>
+                        <div class='form-row'>
                             <div class='form-label'>&nbsp;</div>
-                            <div class='form-data'>
-                                <input type='button' name='btn-create' value="Create Book" class='half'/> <span class='message'></span>
+                            <div class='form-data-full'>
+                                <input type='submit' value="Create Expert" class='half'/> <span class='message'></span>
                             </div>
                             <div class='clear'></div>
                         </div>
                     </form>
+                    <iframe id="ifr" name="ifr" style="visibility: hidden; width:1px; height:1px"></iframe>
                 </div>
             </div>
         </div>

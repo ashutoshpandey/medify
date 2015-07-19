@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Administration | Couriers</title>
+    <title>Administration | Update Course</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
@@ -16,16 +16,12 @@
 <body class="skin-blue sidebar-mini">
 <div class="wrapper">
 
-    @include('includes.admin.header')
-
-    @include('includes.admin.menu')
-
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Manage Software Users
+                Course: {{$course->name}}
             </h1>
         </section>
 
@@ -33,77 +29,79 @@
         <section class="content">
 
             <div class='tab-container'>
-                <ul class='tabs'>
-                    <li><a href='#tab-list'>List</a></li>
-                    <li><a href='#tab-create'>Create</a></li>
-                </ul>
-                <div id='tab-list'>
-                    <div id='software-user-list' class='list-container'></div>
-                </div>
                 <div id='tab-create'>
                     <div id='form-container'>
-                        <form id='form-create-software-user'>
-
+                        <form id='form-create-book' action="{{$root}}/save-admin-expert" method="post" target="ifr" onsubmit="startCreatingExpert()">
                             <div class='form-row'>
-                                <div class='form-label'>Username</div>
+                                <div class='form-label'>First Name</div>
                                 <div class='form-data'>
-                                    <input type='text' name='username'/>
+                                    <input type='text' name='first_name'/>
                                 </div>
-                                <div class='form-label'>User type</div>
+                                <div class='form-label'>Last Name</div>
                                 <div class='form-data'>
-                                    <select name="user_type">
-                                        <option>Administrator</option>
-                                        <option>Inventory</option>
-                                        <option>Reader</option>
-                                    </select>
+                                    <input type='text' name='last_name'/>
                                 </div>
                                 <div class='clear'></div>
                             </div>
-                            <div class='form-row'>
-                                <div class='form-label'>Name</div>
-                                <div class='form-data'>
-                                    <input type='text' name='name'/>
-                                </div>
-                                <div class='form-label'>Gender</div>
-                                <div class='form-data'>
-                                    <label><input type='radio' name='gender' value='male' checked="checked"/>
-                                        Male</label>
-                                    <label><input type='radio' name='gender' value='female'/> Female</label>
-                                </div>
-                                <div class='clear'></div>
-                            </div>
-
                             <div class='form-row'>
                                 <div class='form-label'>Password</div>
                                 <div class='form-data'>
-                                    <input type='password' name='password'/>
+                                    <input type='text' name='password'/>
                                 </div>
-                                <div class='form-label'>Confirm password</div>
+                                <div class='form-label'>Confirm Password</div>
                                 <div class='form-data'>
-                                    <input type='password' name='confirm_password'/>
+                                    <input type='text' name='confirm_password'/>
                                 </div>
                                 <div class='clear'></div>
                             </div>
                             <div class='form-row'>
                                 <div class='form-label'>Email</div>
                                 <div class='form-data'>
-                                    <input type='email' name='email'/>
+                                    <input type='text' name='email'/>
                                 </div>
-                                <div class='form-label'>Contact number</div>
+                                <div class='form-label'>Contact Number</div>
                                 <div class='form-data'>
                                     <input type='text' name='contact_number'/>
                                 </div>
                                 <div class='clear'></div>
                             </div>
                             <div class='form-row'>
-                                <div class='form-label'>&nbsp;</div>
+                                <div class='form-label'>Extension Number</div>
                                 <div class='form-data'>
-                                    <input type='button' name='btn-create' value="Create User" class='half'/> <span
-                                        class='message'></span>
+                                    <input type='text' name='contact_number'/>
+                                </div>
+                                <div class='form-label'>Gender</div>
+                                <div class='form-data'>
+                                    <select name='gender'>
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                    </select>
+                                </div>
+                                <div class='clear'></div>
+                            </div>
+                            <div class='form-row'>
+                                <div class='form-label'>About</div>
+                                <div class='form-data-full'>
+                                    <textarea name="about" rows="5"></textarea>
+                                </div>
+                                <div class='clear'></div>
+                            </div>
+                            <div class='form-row'>
+                                <div class='form-label'>Experience</div>
+                                <div class='form-data-full'>
+                                    <textarea name="about" rows="5"></textarea>
+                                </div>
+                                <div class='clear'></div>
+                            </div>
+                            <div class='form-row'>
+                                <div class='form-label'>&nbsp;</div>
+                                <div class='form-data-full'>
+                                    <input type='submit' value="Create Expert" class='half'/> <span class='message'></span>
                                 </div>
                                 <div class='clear'></div>
                             </div>
                         </form>
+                        <iframe id="ifr" name="ifr" style="visibility: hidden; width:1px; height:1px"></iframe>
                     </div>
                 </div>
             </div>
@@ -118,11 +116,6 @@
 <!-- ./wrapper -->
 
 @include('includes/common_js_bottom')
-{{HTML::script(asset("/public/js/site/admin/software-users.js"))}}
-<script type="text/javascript">
-    $(function () {
-        $(".couriers").addClass('active');
-    });
-</script>
+{{HTML::script(asset("/public/js/site/admin/view-course.js"))}}
 </body>
 </html>

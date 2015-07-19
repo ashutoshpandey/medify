@@ -44,6 +44,11 @@
     width: 35%;
     padding-right: 20px;
 }
+.form-row .form-data-full{
+    float: left;
+    width: 80%;
+    padding-right: 20px;
+}
 
 .form-row select, input[type='text'], input[type='password'], input[type='email']{
     border: solid 1px #ababab;

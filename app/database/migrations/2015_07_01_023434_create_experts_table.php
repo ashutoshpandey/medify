@@ -21,10 +21,9 @@ class CreateExpertsTable extends Migration {
             $table->string('gender', 255);
             $table->string('email', 255);
             $table->string('password', 255);
+            $table->string('country', 255);
             $table->string('image_name', 255);
-            $table->string('saved_image_name', 255);
             $table->string('banner_image_name', 255);
-            $table->string('banner_saved_image_name', 255);
             $table->text('about');
             $table->string('experience');
             $table->string('status', 50);
