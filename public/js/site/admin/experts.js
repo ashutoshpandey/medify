@@ -7,44 +7,17 @@ function startCreatingExpert(){
     $("#ifr").load(function(){
         expertCreated();
     });
+
+    return true;
 }
 
 function expertCreated(){
 
     $(".message").html("Expert created successfully");
 
+    $("input[type='text'], input[type='password'], textarea").html('');
+
     listExperts(1);
-}
-
-function createExpert(){
-
-    if(isExpertFormValid()){
-
-        var data = $("#form-create-expert").serialize();
-
-        $.ajax({
-            url: root + '/save-expert',
-            type: 'post',
-            data: data,
-            dataType: 'json',
-            success: function(result){
-
-                if(result.message.indexOf('not logged')>-1)
-                    window.location.replace(root);
-                else{
-                    $('.message').html('Expert created successfully');
-
-                    $('#form-container').find('input[type="text"], textarea').val('');
-
-                    listExperts(1);
-                }
-            }
-        });
-    }
-}
-
-function isExpertFormValid(){
-    return true;
 }
 
 function listExperts(page){

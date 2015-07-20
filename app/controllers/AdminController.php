@@ -417,6 +417,7 @@ class AdminController extends BaseController {
         else
             return json_encode(array('message'=>'empty'));
     }
+
     public function saveExpert(){
 
         $adminId = Session::get('admin_id');
@@ -435,6 +436,7 @@ class AdminController extends BaseController {
             $expert->password = Input::get('password');
             $expert->first_name = Input::get('first_name');
             $expert->last_name = Input::get('last_name');
+            $expert->gender = Input::get('gender');
             $expert->country = 'India';
             $expert->status = "active";
             $expert->about = Input::get('about');

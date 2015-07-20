@@ -20,6 +20,8 @@ class CreateExpertsTable extends Migration {
             $table->string('last_name', 255);
             $table->string('gender', 255);
             $table->string('email', 255);
+            $table->string('contact_number', 50);
+            $table->string('extension_number', 50);
             $table->string('password', 255);
             $table->string('country', 255);
             $table->string('image_name', 255);

@@ -17,11 +17,11 @@
 <div class="wrapper">
 
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+    <div class="content-wrapper" style="margin-left: 0px !important;">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Course: {{$course->name}}
+                Expert: {{$expert->first_name}} {{$expert->last_name}}
             </h1>
         </section>
 
@@ -31,44 +31,44 @@
             <div class='tab-container'>
                 <div id='tab-create'>
                     <div id='form-container'>
-                        <form id='form-create-book' action="{{$root}}/save-admin-expert" method="post" target="ifr" onsubmit="startCreatingExpert()">
+                        <form id='form-create-book' action="{{$root}}/update-admin-expert" method="post" target="ifr" onsubmit="startUpdatingExpert()">
                             <div class='form-row'>
                                 <div class='form-label'>First Name</div>
                                 <div class='form-data'>
-                                    <input type='text' name='first_name'/>
+                                    <input type='text' name='first_name' value="{{$expert->first_name}}"/>
                                 </div>
                                 <div class='form-label'>Last Name</div>
                                 <div class='form-data'>
-                                    <input type='text' name='last_name'/>
+                                    <input type='text' name='last_name' value="{{$expert->last_name}}"/>
                                 </div>
                                 <div class='clear'></div>
                             </div>
                             <div class='form-row'>
                                 <div class='form-label'>Password</div>
                                 <div class='form-data'>
-                                    <input type='text' name='password'/>
+                                    <input type='text' name='password' value="{{$expert->password}}"/>
                                 </div>
                                 <div class='form-label'>Confirm Password</div>
                                 <div class='form-data'>
-                                    <input type='text' name='confirm_password'/>
+                                    <input type='text' name='confirm_password' value="{{$expert->password}}"/>
                                 </div>
                                 <div class='clear'></div>
                             </div>
                             <div class='form-row'>
                                 <div class='form-label'>Email</div>
                                 <div class='form-data'>
-                                    <input type='text' name='email'/>
+                                    <input type='text' name='email' value="{{$expert->email}}"/>
                                 </div>
                                 <div class='form-label'>Contact Number</div>
                                 <div class='form-data'>
-                                    <input type='text' name='contact_number'/>
+                                    <input type='text' name='contact_number' value="{{$expert->contact_number}}"/>
                                 </div>
                                 <div class='clear'></div>
                             </div>
                             <div class='form-row'>
                                 <div class='form-label'>Extension Number</div>
                                 <div class='form-data'>
-                                    <input type='text' name='contact_number'/>
+                                    <input type='text' name='contact_number' value="{{$expert->extension_number}}"/>
                                 </div>
                                 <div class='form-label'>Gender</div>
                                 <div class='form-data'>
@@ -82,21 +82,21 @@
                             <div class='form-row'>
                                 <div class='form-label'>About</div>
                                 <div class='form-data-full'>
-                                    <textarea name="about" rows="5"></textarea>
+                                    <textarea name="about" rows="5">{{$expert->about}}</textarea>
                                 </div>
                                 <div class='clear'></div>
                             </div>
                             <div class='form-row'>
                                 <div class='form-label'>Experience</div>
                                 <div class='form-data-full'>
-                                    <textarea name="about" rows="5"></textarea>
+                                    <textarea name="about" rows="5">{{$expert->experience}}</textarea>
                                 </div>
                                 <div class='clear'></div>
                             </div>
                             <div class='form-row'>
                                 <div class='form-label'>&nbsp;</div>
                                 <div class='form-data-full'>
-                                    <input type='submit' value="Create Expert" class='half'/> <span class='message'></span>
+                                    <input type='submit' value="Update Expert" class='half'/> <span class='message'></span>
                                 </div>
                                 <div class='clear'></div>
                             </div>
@@ -116,6 +116,6 @@
 <!-- ./wrapper -->
 
 @include('includes/common_js_bottom')
-{{HTML::script(asset("/public/js/site/admin/view-course.js"))}}
+{{HTML::script(asset("/public/js/site/admin/view-expert.js"))}}
 </body>
 </html>

@@ -463,7 +463,12 @@ class ExpertController extends BaseController {
                     $extension = Input::file('image')->getClientOriginalExtension();
 
                     $fileName = $imageNameSaved . '.' . $extension;
-                    $destinationPath = "user-images/";
+                    $destinationPath = "public/expert-images/$userId/";
+
+                    $directoryPath = base_path() . '/' . $destinationPath;
+
+                    if(!file_exists($directoryPath))
+                        mkdir($directoryPath);
 
                     Input::file('image')->move($destinationPath, $fileName);
 

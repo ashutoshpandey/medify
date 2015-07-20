@@ -42,7 +42,7 @@
             </div>
             <div id='tab-create'>
                 <div id='form-container'>
-                    <form id='form-create-book' action="{{$root}}/save-admin-expert" method="post" target="ifr" onsubmit="startCreatingExpert()">
+                    <form id='form-create-book' action="{{$root}}/save-admin-expert" method="post" target="ifr" onsubmit="return startCreatingExpert()">
                         <div class='form-row'>
                             <div class='form-label'>First Name</div>
                             <div class='form-data'>

@@ -113,7 +113,12 @@ class UserController extends BaseController {
                     $extension = Input::file('image')->getClientOriginalExtension();
 
                     $fileName = $imageNameSaved . '.' . $extension;
-                    $destinationPath = "user-images/";
+                    $destinationPath = "public/user-images/$userId/";
+
+                    $directoryPath = base_path() . '/' . $destinationPath;
+
+                    if(!file_exists($directoryPath))
+                        mkdir($directoryPath);
 
                     Input::file('image')->move($destinationPath, $fileName);
 
@@ -162,7 +167,12 @@ class UserController extends BaseController {
                         $extension = $file->getClientOriginalExtension();
 
                         $fileName = $documentNameSaved . '.' . $extension;
-                        $destinationPath = "user-documents/$userId/";
+                        $destinationPath = "public/user-documents/$userId/";
+
+                        $directoryPath = base_path() . '/' . $destinationPath;
+
+                        if(!file_exists($directoryPath))
+                            mkdir($directoryPath);
 
                         $file->move($destinationPath, $fileName);
 
@@ -170,6 +180,7 @@ class UserController extends BaseController {
 
                         $userDocument->document_name = $documentName;
                         $userDocument->document_name_saved = $fileName;
+                        $userDocument->status = 'active';
 
                         $userDocument->save();
 
