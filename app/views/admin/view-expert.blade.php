@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Administration | Update Course</title>
+    <title>Administration | View Expert</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
@@ -27,11 +27,20 @@
 
         <!-- Main content -->
         <section class="content">
-
             <div class='tab-container'>
-                <div id='tab-create'>
+                <ul class='tabs'>
+                    <li><a href='#tab-edit'>Edit</a></li>
+                    <li><a href='#tab-memberships'>Memberships</a></li>
+                    <li><a href='#tab-specialties'>Specialties</a></li>
+                    <li><a href='#tab-services'>Services</a></li>
+                    <li><a href='#tab-achievements'>Achievements</a></li>
+                    <li><a href='#tab-social'>Social profiles</a></li>
+                </ul>
+
+                <div id='tab-edit'>
                     <div id='form-container'>
-                        <form id='form-create-book' action="{{$root}}/update-admin-expert" method="post" target="ifr" onsubmit="startUpdatingExpert()">
+                        <form id='form-create-book' action="{{$root}}/update-admin-expert" method="post" target="ifr"
+                              onsubmit="startUpdatingExpert()">
                             <div class='form-row'>
                                 <div class='form-label'>First Name</div>
                                 <div class='form-data'>
@@ -96,13 +105,60 @@
                             <div class='form-row'>
                                 <div class='form-label'>&nbsp;</div>
                                 <div class='form-data-full'>
-                                    <input type='submit' value="Update Expert" class='half'/> <span class='message'></span>
+                                    <input type='submit' value="Update Expert" class='half'/> <span
+                                        class='message'></span>
                                 </div>
                                 <div class='clear'></div>
                             </div>
                         </form>
                         <iframe id="ifr" name="ifr" style="visibility: hidden; width:1px; height:1px"></iframe>
                     </div>
+                </div>
+
+                <div id='tab-memberships'>
+
+                    <form id='form-create-membership'>
+                        <div class='form-row'>
+                            <div class='form-label'>Name</div>
+                            <div class='form-data'>
+                                <input type='text' name='name' value="{{$expert->first_name}}"/>
+                            </div>
+                            <div class='clear'></div>
+                        </div>
+                        <div class='form-row'>
+                            <div class='form-label'>Details</div>
+                            <div class='form-data'>
+                                <textarea name='details' rows="4"></textarea>
+                            </div>
+                            <div class='clear'></div>
+                        </div>
+                        <div class='form-row'>
+                            <div class='form-label'>&nbsp;</div>
+                            <div class='form-data'>
+                                <input type='button' name='btn-create-membership' value="Create Membership"/>
+                            </div>
+                            <div class='clear'></div>
+                        </div>
+                    </form>
+
+                    <div id='membership-list' class='list-container'></div>
+
+                </div>
+
+                <div id='tab-specialties'>
+                    <div id='specialty-list' class='list-container'></div>
+                </div>
+
+                <div id='tab-services'>
+                    <div id='service-list' class='list-container'></div>
+                </div>
+
+                <div id='tab-achievements'>
+                    <div id='achievement-list' class='list-container'></div>
+                </div>
+
+                <div id='tab-social'>
+                    <div id='social-list' class='list-container'></div>
                 </div>
             </div>
 
@@ -117,5 +173,6 @@
 
 @include('includes/common_js_bottom')
 {{HTML::script(asset("/public/js/site/admin/view-expert.js"))}}
+<span style="display: none" rel='{{$expert->id}}' id='expert_id'>&nbsp;</span>
 </body>
 </html>

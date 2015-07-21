@@ -18,7 +18,7 @@ class CreateExpertSocialProfilesTable extends Migration {
 
             $table->integer('expert_id')->unsigned();
 
-            $table->string('profile_type', 255);                // facebook, twitter etc.
+            $table->string('name', 255);                // facebook, twitter etc.
             $table->string('url', 255);
             $table->string('status', 50);
 

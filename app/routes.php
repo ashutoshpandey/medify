@@ -65,12 +65,17 @@ Route::get('/cancel-expert-available-appointment/{id}', 'ExpertController@cancel
 Route::get('/memberships', 'ExpertController@memberships');
 Route::get('/get-memberships', 'ExpertController@getMemberships');
 Route::post('/add-membership', 'ExpertController@addMembership');
-Route::get('/remove-membership/{id}', 'ExpertController@removeMembership');
+Route::get('/remove-expert-membership/{id}', 'ExpertController@removeMembership');
 
 Route::get('/achievements', 'ExpertController@achievements');
 Route::get('/get-achievements', 'ExpertController@getAchievements');
 Route::post('/add-achievement', 'ExpertController@addAchievements');
-Route::get('/remove-achievement/{id}', 'ExpertController@removeAchievements');
+Route::get('/remove-expert-achievement/{id}', 'ExpertController@removeAchievements');
+
+Route::get('/achievements', 'ExpertController@achievements');
+Route::get('/get-achievements', 'ExpertController@getAchievements');
+Route::post('/add-achievement', 'ExpertController@addAchievements');
+Route::get('/remove-expert-achievement/{id}', 'ExpertController@removeAchievements');
 
 /*-------------------- institute methods --------------------*/
 Route::get('/institute-dashboard', 'InstituteController@dashboard');
@@ -100,8 +105,10 @@ Route::get('/data-get-expert/{id}', 'ExpertController@getExpert');
 Route::get('/data-expert-appointments/{id}/{start-date?}/{end-date?}', 'ExpertController@dataExpertAppointments');
 Route::get('/data-expert-appointments-by-type/{id}/{appointment-type}/{start-date?}/{end-date?}', 'ExpertController@dataExpertAppointmentsByType');
 Route::get('/data-expert-cancelled-appointments/{id}', 'ExpertController@dataCancelledAppointments');
-Route::get('/data-get-memberships', 'ExpertController@dataGetMemberships');
-Route::get('/data-get-achievements', 'ExpertController@dataGetAchievements');
+Route::get('/data-expert-list-memberships/{id}/{page?}', 'ExpertController@dataListMemberships');
+Route::get('/data-expert-list-achievements/{id}/{page?}', 'ExpertController@dataListAchievements');
+Route::get('/data-expert-list-services/{id}/{page?}', 'ExpertController@dataListAchievements');
+Route::get('/data-expert-list-social/{id}/{page?}', 'ExpertController@dataListSocial');
 
 Route::get('/data-get-institution/{id}', 'InstituteController@getInstitute');
 Route::get('/data-institutes', 'InstituteController@dataInstitutes');
@@ -141,4 +148,22 @@ Route::get('/admin-software-users', 'AdminController@softwareUsers');
 Route::get('/admin-list-software-users/{status}/{page}', 'AdminController@listSoftwareUsers');
 Route::get('/admin-view-software-user/{id}', 'AdminController@viewSoftwareUser');
 
+Route::get('/remove-expert-membership-admin/{id}', 'AdminController@removeExpertMembership');
+Route::get('/remove-expert-service-admin/{id}', 'AdminController@removeExpertService');
+Route::get('/remove-expert-achievement-admin/{id}', 'AdminController@removeExpertAchievement');
+Route::get('/remove-expert-social-admin/{id}', 'AdminController@removeExpertSocial');
 
+Route::get('/remove-institute-membership-admin/{id}', 'AdminController@removeInstituteMembership');
+Route::get('/remove-institute-service-admin/{id}', 'AdminController@removeInstituteService');
+Route::get('/remove-institute-achievement-admin/{id}', 'AdminController@removeInstituteAchievement');
+Route::get('/remove-institute-social-admin/{id}', 'AdminController@removeInstituteSocial');
+
+Route::post('/create-expert-membership-admin', 'AdminController@createExpertMembership');
+Route::post('/create-expert-service-admin', 'AdminController@createExpertService');
+Route::post('/create-expert-achievement-admin', 'AdminController@createExpertAchievement');
+Route::post('/create-expert-social-admin', 'AdminController@createExpertSocial');
+
+Route::post('/create-institute-membership-admin', 'AdminController@createInstituteMembership');
+Route::post('/create-institute-service-admin', 'AdminController@createInstituteService');
+Route::post('/create-institute-achievement-admin', 'AdminController@creatInstituteAchievement');
+Route::post('/create-institute-social-admin', 'AdminController@createInstituteSocial');

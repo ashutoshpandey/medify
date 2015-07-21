@@ -561,7 +561,7 @@ class AdminController extends BaseController {
 
         $adminId = Session::get('admin_id');
         if(!isset($adminId))
-            return Redirect::to('/');
+            return json_encode(array('message'=>'not logged'));
 
         $expert = Expert::find($id);
 
@@ -572,6 +572,154 @@ class AdminController extends BaseController {
 
             return json_encode(array('message'=>'done'));
         }
+    }
+
+    public function removeExpertMembership($id){
+
+        $adminId = Session::get('admin_id');
+        if(!isset($adminId))
+            return json_encode(array('message'=>'not logged'));
+
+        $membership = ExpertMembership::find($id);
+
+        if(is_null($membership))
+            return json_encode(array('message'=>'invalid'));
+        else{
+            $membership->status = 'removed';
+            $membership->save();
+
+            return json_encode(array('message'=>'done'));
+        }
+    }
+
+    public function removeExpertAchievement($id){
+
+        $adminId = Session::get('admin_id');
+        if(!isset($adminId))
+            return json_encode(array('message'=>'not logged'));
+
+        $achievement = ExpertAchievement::find($id);
+
+        if(is_null($achievement))
+            return json_encode(array('message'=>'invalid'));
+        else{
+            $achievement->status = 'removed';
+            $achievement->save();
+
+            return json_encode(array('message'=>'done'));
+        }
+    }
+
+    public function removeExpertService($id){
+
+        $adminId = Session::get('admin_id');
+        if(!isset($adminId))
+            return json_encode(array('message'=>'not logged'));
+
+        $service = ExpertService::find($id);
+
+        if(is_null($service))
+            return json_encode(array('message'=>'invalid'));
+        else{
+            $service->status = 'removed';
+            $service->save();
+
+            return json_encode(array('message'=>'done'));
+        }
+    }
+
+    public function removeExpertSocial($id){
+
+        $adminId = Session::get('admin_id');
+        if(!isset($adminId))
+            return json_encode(array('message'=>'not logged'));
+
+        $social = ExpertSocial::find($id);
+
+        if(is_null($social))
+            return json_encode(array('message'=>'invalid'));
+        else{
+            $social->status = 'removed';
+            $social->save();
+
+            return json_encode(array('message'=>'done'));
+        }
+    }
+
+    public function createExpertMembership(){
+
+        $adminId = Session::get('admin_id');
+        if(!isset($adminId))
+            return json_encode(array('message'=>'not logged'));
+
+        $membership = new ExpertMembership();
+
+        $membership->expert_id = Session::get('expert_id');
+        $membership->name = Input::get('name');
+        $membership->details = Input::get('details');
+
+        $membership->status = 'active';
+        $membership->created_at = date('Y-m-d h:i:s');
+        $membership->save();
+
+        return json_encode(array('message'=>'done'));
+    }
+
+    public function createExpertService(){
+
+        $adminId = Session::get('admin_id');
+        if(!isset($adminId))
+            return json_encode(array('message'=>'not logged'));
+
+        $service = new ExpertService();
+
+        $service->expert_id = Session::get('expert_id');
+        $service->name = Input::get('name');
+        $service->details = Input::get('details');
+
+        $service->status = 'active';
+        $service->created_at = date('Y-m-d h:i:s');
+        $service->save();
+
+        return json_encode(array('message'=>'done'));
+    }
+
+    public function createExpertAchievement(){
+
+        $adminId = Session::get('admin_id');
+        if(!isset($adminId))
+            return json_encode(array('message'=>'not logged'));
+
+        $achievement = new ExpertAchievement();
+
+        $achievement->expert_id = Session::get('expert_id');
+        $achievement->name = Input::get('name');
+        $achievement->details = Input::get('details');
+
+        $achievement->status = 'active';
+        $achievement->created_at = date('Y-m-d h:i:s');
+        $achievement->save();
+
+        return json_encode(array('message'=>'done'));
+    }
+
+    public function createExpertSocial(){
+
+        $adminId = Session::get('admin_id');
+        if(!isset($adminId))
+            return json_encode(array('message'=>'not logged'));
+
+        $social = new ExpertSocial();
+
+        $social->expert_id = Session::get('expert_id');
+        $social->name = Input::get('name');
+        $social->url = Input::get('url');
+
+        $social->status = 'active';
+        $social->created_at = date('Y-m-d h:i:s');
+        $social->save();
+
+        return json_encode(array('message'=>'done'));
     }
 
 /************************** software users *************************/

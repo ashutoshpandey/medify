@@ -602,29 +602,67 @@ class ExpertController extends BaseController {
             return json_encode(array('message'=>'empty'));
     }
 
-    public function dataGetMemberships($expertId){
+    public function dataListMemberships($expertId, $page=null){
 
         if(isset($expertId)){
 
             $memberships = ExpertMembership::where('expert_id','=',$expertId)->
                 where('status','=','active')->get();
 
-            return json_encode(array('message'=>'found', 'memberships' =>$memberships->toArray()));
+            if(isset($memberships) && count($memberships)>0)
+                return json_encode(array('message'=>'found', 'memberships' =>$memberships->toArray()));
+            else
+                return json_encode(array('message'=>'empty'));
         }
         else
-            return json_encode(array('message'=>'empty'));
+            return json_encode(array('message'=>'invalid'));
     }
 
-    public function dataGetAchievements($expertId){
+    public function dataListAchievements($expertId, $page=null){
 
         if(isset($expertId)){
 
             $achievements = ExpertAchievement::where('expert_id','=',$expertId)->
                 where('status','=','active')->get();
 
-            return json_encode(array('message'=>'found', 'achievements' =>$achievements->toArray()));
+            if(isset($achievements) && count($achievements)>0)
+                return json_encode(array('message'=>'found', 'achievements' =>$achievements->toArray()));
+            else
+                return json_encode(array('message'=>'empty'));
         }
         else
-            return json_encode(array('message'=>'empty'));
+            return json_encode(array('message'=>'invalid'));
+    }
+
+    public function dataListServices($expertId, $page=null){
+
+        if(isset($expertId)){
+
+            $services = ExpertService::where('expert_id','=',$expertId)->
+                where('status','=','active')->get();
+
+            if(isset($services) && count($services)>0)
+                return json_encode(array('message'=>'found', 'services' =>$services->toArray()));
+            else
+                return json_encode(array('message'=>'empty'));
+        }
+        else
+            return json_encode(array('message'=>'invalid'));
+    }
+
+    public function dataListSocial($expertId, $page=null){
+
+        if(isset($expertId)){
+
+            $expertSocials = ExpertSocial::where('expert_id','=',$expertId)->
+                                           where('status','=','active')->get();
+
+            if(isset($expertSocials) && count($expertSocials)>0)
+                return json_encode(array('message'=>'found', 'socials' =>$expertSocials->toArray()));
+            else
+                return json_encode(array('message'=>'empty'));
+        }
+        else
+            return json_encode(array('message'=>'invalid'));
     }
 }

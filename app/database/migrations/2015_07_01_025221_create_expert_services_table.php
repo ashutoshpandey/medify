@@ -18,7 +18,7 @@ class CreateExpertServicesTable extends Migration {
 
             $table->integer('expert_id')->unsigned();
 
-            $table->string('title');
+            $table->string('name');
             $table->text('description');
             $table->string('status', 50);
 
