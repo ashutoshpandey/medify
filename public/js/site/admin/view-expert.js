@@ -4,8 +4,6 @@ $(function(){
 
     expertId = $('#expert_id').attr('rel');
 
-    $("input[name='btn-update']").click(updateExpert);
-
     $("input[name='btn-create-membership']").click(createMembership);
     $("input[name='btn-create-service']").click(createService);
     $("input[name='btn-create-achievement']").click(createAchievement);
@@ -439,31 +437,20 @@ function showSocials(data){
 
 }
 
-function updateExpert(){
+function startUpdatingExpert(){
 
-    if(isExpertFormValid()){
+    $("#ifr").load(function(){
+        expertUpdated();
+    });
 
-        var data = $("#form-update-expert").serialize();
-
-        $.ajax({
-            url: root + '/update-expert',
-            type: 'post',
-            data: data,
-            dataType: 'json',
-            success: function(result){
-
-                if(result.message.indexOf('not logged')>-1)
-                    window.location.replace(root);
-                else if(result.message.indexOf('duplicate')>-1){
-                    $('.message').html('Duplicate name for expert');
-                }
-                else if(result.message.indexOf('done')>-1){
-                    $('.message').html('Expert updated successfully');
-                }
-            }
-        });
-    }
+    return true;
 }
+
+function expertUpdated(){
+
+    $(".message").html("Expert updated successfully");
+}
+
 function isExpertFormValid(){
     return true;
 }

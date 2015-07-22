@@ -79,7 +79,7 @@
                         <div class='form-row'>
                             <div class='form-label'>Extension Number</div>
                             <div class='form-data'>
-                                <input type='text' name='contact_number'/>
+                                <input type='text' name='extension_number'/>
                             </div>
                             <div class='form-label'>Gender</div>
                             <div class='form-data'>

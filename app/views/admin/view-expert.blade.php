@@ -39,7 +39,7 @@
 
                 <div id='tab-edit'>
                     <div id='form-container'>
-                        <form id='form-create-book' action="{{$root}}/update-admin-expert" method="post" target="ifr"
+                        <form id='form-create-book' action="{{$root}}/update-admin-expert" method="post" target="ifr" enctype="multipart/form-data"
                               onsubmit="startUpdatingExpert()">
                             <div class='form-row'>
                                 <div class='form-label'>First Name</div>
@@ -77,7 +77,7 @@
                             <div class='form-row'>
                                 <div class='form-label'>Extension Number</div>
                                 <div class='form-data'>
-                                    <input type='text' name='contact_number' value="{{$expert->extension_number}}"/>
+                                    <input type='text' name='extension_number' value="{{$expert->extension_number}}"/>
                                 </div>
                                 <div class='form-label'>Gender</div>
                                 <div class='form-data'>
@@ -98,7 +98,21 @@
                             <div class='form-row'>
                                 <div class='form-label'>Experience</div>
                                 <div class='form-data-full'>
-                                    <textarea name="about" rows="5">{{$expert->experience}}</textarea>
+                                    <textarea name="experience" rows="5">{{$expert->experience}}</textarea>
+                                </div>
+                                <div class='clear'></div>
+                            </div>
+                            <div class='form-row'>
+                                <div class='form-label'>Image</div>
+                                <div class='form-data-full'>
+                                    <input type="file" name="image"/>
+                                </div>
+                                <div class='clear'></div>
+                            </div>
+                            <div class='form-row'>
+                                <div class='form-label'>Banner image</div>
+                                <div class='form-data-full'>
+                                    <input type="file" name="banner_image"/>
                                 </div>
                                 <div class='clear'></div>
                             </div>

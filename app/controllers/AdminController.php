@@ -441,11 +441,11 @@ class AdminController extends BaseController {
             $expert->status = "active";
             $expert->about = Input::get('about');
             $expert->experience = Input::get('experience');
+            $expert->contact_number = Input::get('contact_number');
+            $expert->extension_number = Input::get('extension_number');
 
             $expert->created_at = date("Y-m-d h:i:s");
             $expert->updated_at = date("Y-m-d h:i:s");
-
-            $expert->save();
 
             if (Input::hasFile('image') && Input::file('image')->isValid())
             {
@@ -456,6 +456,7 @@ class AdminController extends BaseController {
                     mkdir($destinationPath);
 
                 Input::file('image_name')->move($destinationPath, $image_name);
+                $expert->image_name = $image_name;
             }
 
             if (Input::hasFile('banner_image') && Input::file('banner_image')->isValid())
@@ -467,10 +468,9 @@ class AdminController extends BaseController {
                     mkdir($destinationPath);
 
                 Input::file('banner_image')->move($destinationPath, $banner_image_name);
+                $expert->banner_image_name = $banner_image_name;
             }
 
-            $expert->image_name = $image_name;
-            $expert->banner_image_name = $banner_image_name;
             $expert->save();
 
             return json_encode(array('message'=>'done'));
@@ -510,7 +510,7 @@ class AdminController extends BaseController {
         if(!isset($adminId))
             return json_encode(array('message'=>'not logged'));
 
-        $id = Input::get('id');
+        $id = Session::get('expert_id');
 
         $expert = Expert::find($id);
 
@@ -518,36 +518,46 @@ class AdminController extends BaseController {
             return json_encode(array('message'=>'invalid'));
         else{
 
-            $pic = "";
-
             $hasPic = false;
 
-            if (Input::hasFile('file') && Input::file('file')->isValid())
+
+            if (Input::hasFile('image') && Input::file('image')->isValid())
             {
-                $pic = Input::file('file')->getClientOriginalName();
+                $image_name = Input::file('image')->getClientOriginalName();
 
-                $destinationPath = public_path() . "/img/experts/";
+                $destinationPath = public_path() . "/uploads/experts/" . $expert->id;
+                if(!file_exists($destinationPath))
+                    mkdir($destinationPath);
 
-                $hasPic = true;
+                Input::file('image')->move($destinationPath, $image_name);
+                $expert->image_name = $image_name;
+            }
 
-                Input::file('file')->move($destinationPath, $pic);
+            if (Input::hasFile('banner_image') && Input::file('banner_image')->isValid())
+            {
+                $banner_image_name = Input::file('banner_image')->getClientOriginalName();
+
+                $destinationPath = public_path() . "/uploads/experts/" . $expert->id;
+                if(!file_exists($destinationPath))
+                    mkdir($destinationPath);
+
+                Input::file('banner_image')->move($destinationPath, $banner_image_name);
+                $expert->banner_image_name = $banner_image_name;
             }
 
             $expert->email = Input::get('email');
+            $expert->contact_number = Input::get('contact_number');
             $expert->password = Input::get('password');
             $expert->first_name = Input::get('first_name');
             $expert->last_name = Input::get('last_name');
-            $expert->country = Input::get('country');
-            $expert->timezone = Input::get('timezone');
+            $expert->gender = Input::get('gender');
+            $expert->country = 'India';
+            $expert->status = "active";
             $expert->about = Input::get('about');
-            $expert->fees_rupee = Input::get('fees_rupee');
-            $expert->fees_dollar = Input::get('fees_dollar');
+            $expert->experience = Input::get('experience');
+            $expert->contact_number = Input::get('contact_number');
+            $expert->extension_number = Input::get('extension_number');
 
-            if($hasPic)
-                $expert->pic = $pic;
-
-            $expert->category_id = Input::get('category_id');
-            $expert->subcategory_id = Input::get('subcategory_id');
             $expert->status = "active";
             $expert->updated_at = date("Y-m-d h:i:s");
 
