@@ -650,6 +650,22 @@ class ExpertController extends BaseController {
             return json_encode(array('message'=>'invalid'));
     }
 
+    public function dataListSpecialties($expertId, $page=null){
+
+        if(isset($expertId)){
+
+            $specialties = ExpertSpecialty::where('expert_id','=',$expertId)->
+                where('status','=','active')->get();
+
+            if(isset($specialties) && count($specialties)>0)
+                return json_encode(array('message'=>'found', 'specialties' =>$specialties->toArray()));
+            else
+                return json_encode(array('message'=>'empty'));
+        }
+        else
+            return json_encode(array('message'=>'invalid'));
+    }
+
     public function dataListSocial($expertId, $page=null){
 
         if(isset($expertId)){

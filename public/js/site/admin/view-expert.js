@@ -10,12 +10,15 @@ $(function(){
     $("input[name='btn-create-service']").click(createService);
     $("input[name='btn-create-achievement']").click(createAchievement);
     $("input[name='btn-create-social']").click(createSocial);
+    $("input[name='btn-create-specialty']").click(createSpecialty);
 
     listMemberships(1);
 
     listServices(1);
 
     listAchievements(1);
+
+    listSpecialties(1);
 
     listSocialProfiles(1);
 });
@@ -45,6 +48,7 @@ function showMemberships(data){
                 <tr> \
                     <th data-column-id="id" data-type="numeric">ID</th> \
                     <th data-column-id="name">Name</th> \
+                    <th data-column-id="details">Details</th> \
                     <th data-formatter="link">Action</th> \
                 </tr> \
             </thead> \
@@ -57,6 +61,7 @@ function showMemberships(data){
             str = str + '<tr> \
                     <td>' + membership.id + '</td> \
                     <td>' + membership.name + '</td> \
+                    <td>' + membership.details + '</td> \
                     <td></td> \
                 </tr>';
         }
@@ -70,14 +75,14 @@ function showMemberships(data){
             formatters: {
                 'link': function(column, row)
                 {
-                    str = str + '&nbsp;&nbsp; <a class="remove" href="#" rel="' + row.id + '">Remove</a>';
+                    var str = "&nbsp;&nbsp; <a class='remove' href='#' rel='" + row.id + "'>Remove</a>";
 
                     return str;
                 }
             }
         }).on("loaded.rs.jquery.bootgrid", function()
             {
-                $(".remove").click(function(){
+                $('#membership-list').find(".remove").click(function(){
                     var id = $(this).attr("rel");
 
                     if(!confirm("Are you sure to remove this membership?"))
@@ -98,6 +103,90 @@ function showMemberships(data){
     }
     else
         $('#membership-list').html('No memberships found');
+
+}
+
+
+function listSpecialties(page){
+
+    $.getJSON(
+        root + '/data-expert-list-specialties/' + expertId + '/' + page,
+        function(result){
+
+            if(result.message.indexOf('not logged')>-1)
+                window.location.replace(root);
+            else{
+                showSpecialties(result);
+            }
+        }
+    );
+}
+function showSpecialties(data){
+
+    if(data!=undefined && data.specialties!=undefined && data.specialties.length>0){
+
+        var str = '';
+
+        str = str + '<table id="grid-specialties" class="table table-condensed table-hover table-striped"> \
+            <thead> \
+                <tr> \
+                    <th data-column-id="id" data-type="numeric">ID</th> \
+                    <th data-column-id="name">Name</th> \
+                    <th data-column-id="details">Detail</th> \
+                    <th data-formatter="link">Action</th> \
+                </tr> \
+            </thead> \
+            <tbody>';
+
+        for(var i =0;i<data.specialties.length;i++){
+
+            var specialty = data.specialties[i];
+
+            str = str + '<tr> \
+                    <td>' + specialty.id + '</td> \
+                    <td>' + specialty.name + '</td> \
+                    <td>' + specialty.details + '</td> \
+                    <td></td> \
+                </tr>';
+        }
+
+        str = str + '</tbody> \
+        </table>';
+
+        $('#specialty-list').html(str);
+
+        $("#grid-specialties").bootgrid({
+            formatters: {
+                'link': function(column, row)
+                {
+                    var str = "&nbsp;&nbsp; <a class='remove' href='#' rel='" + row.id + "'>Remove</a>";
+
+                    return str;
+                }
+            }
+        }).on("loaded.rs.jquery.bootgrid", function()
+            {
+                $('#specialty-list').find(".remove").click(function(){
+                    var id = $(this).attr("rel");
+
+                    if(!confirm("Are you sure to remove this specialty?"))
+                        return;
+
+                    $.getJSON(root + '/remove-expert-specialty-admin/' + id,
+                        function(result){
+                            if(result.message.indexOf('done')>-1)
+                                listSpecialties(1);
+                            else if(result.message.indexOf('not logged')>-1)
+                                window.location.replace(root);
+                            else
+                                alert("Server returned error : " + result);
+                        }
+                    );
+                });
+            });
+    }
+    else
+        $('#specialty-list').html('No specialties found');
 
 }
 
@@ -126,6 +215,7 @@ function showServices(data){
                 <tr> \
                     <th data-column-id="id" data-type="numeric">ID</th> \
                     <th data-column-id="name">Name</th> \
+                    <th data-column-id="details">Details</th> \
                     <th data-formatter="link">Action</th> \
                 </tr> \
             </thead> \
@@ -138,6 +228,7 @@ function showServices(data){
             str = str + '<tr> \
                     <td>' + service.id + '</td> \
                     <td>' + service.name + '</td> \
+                    <td>' + service.details + '</td> \
                     <td></td> \
                 </tr>';
         }
@@ -151,14 +242,14 @@ function showServices(data){
             formatters: {
                 'link': function(column, row)
                 {
-                    str = str + '&nbsp;&nbsp; <a class="remove" href="#" rel="' + row.id + '">Remove</a>';
+                    var str = '&nbsp;&nbsp; <a class="remove" href="#" rel="' + row.id + '">Remove</a>';
 
                     return str;
                 }
             }
         }).on("loaded.rs.jquery.bootgrid", function()
             {
-                $(".remove").click(function(){
+                $('#service-list').find(".remove").click(function(){
                     var id = $(this).attr("rel");
 
                     if(!confirm("Are you sure to remove this service?"))
@@ -167,7 +258,7 @@ function showServices(data){
                     $.getJSON(root + '/remove-expert-service-admin/' + id,
                         function(result){
                             if(result.message.indexOf('done')>-1)
-                                listMemberships(1);
+                                listServices(1);
                             else if(result.message.indexOf('not logged')>-1)
                                 window.location.replace(root);
                             else
@@ -202,11 +293,12 @@ function showAchievements(data){
 
         var str = '';
 
-        str = str + '<table id="grid-services" class="table table-condensed table-hover table-striped"> \
+        str = str + '<table id="grid-achievements" class="table table-condensed table-hover table-striped"> \
             <thead> \
                 <tr> \
                     <th data-column-id="id" data-type="numeric">ID</th> \
                     <th data-column-id="name">Name</th> \
+                    <th data-column-id="details">Details</th> \
                     <th data-formatter="link">Action</th> \
                 </tr> \
             </thead> \
@@ -219,6 +311,7 @@ function showAchievements(data){
             str = str + '<tr> \
                     <td>' + achievement.id + '</td> \
                     <td>' + achievement.name + '</td> \
+                    <td>' + achievement.details + '</td> \
                     <td></td> \
                 </tr>';
         }
@@ -232,14 +325,14 @@ function showAchievements(data){
             formatters: {
                 'link': function(column, row)
                 {
-                    str = str + '&nbsp;&nbsp; <a class="remove" href="#" rel="' + row.id + '">Remove</a>';
+                    var str ='&nbsp;&nbsp; <a class="remove" href="#" rel="' + row.id + '">Remove</a>';
 
                     return str;
                 }
             }
         }).on("loaded.rs.jquery.bootgrid", function()
             {
-                $(".remove").click(function(){
+                $('#achievement-list').find(".remove").click(function(){
                     var id = $(this).attr("rel");
 
                     if(!confirm("Are you sure to remove this achievement?"))
@@ -248,7 +341,7 @@ function showAchievements(data){
                     $.getJSON(root + '/remove-expert-achievement-admin/' + id,
                         function(result){
                             if(result.message.indexOf('done')>-1)
-                                listMemberships(1);
+                                listAchievements(1);
                             else if(result.message.indexOf('not logged')>-1)
                                 window.location.replace(root);
                             else
@@ -288,7 +381,7 @@ function showSocials(data){
                 <tr> \
                     <th data-column-id="id" data-type="numeric">ID</th> \
                     <th data-column-id="name">Name</th> \
-                    <th data-column-id="name">URL</th> \
+                    <th data-column-id="url">URL</th> \
                     <th data-formatter="link">Action</th> \
                 </tr> \
             </thead> \
@@ -315,14 +408,14 @@ function showSocials(data){
             formatters: {
                 'link': function(column, row)
                 {
-                    str = str + '&nbsp;&nbsp; <a class="remove" href="#" rel="' + row.id + '">Remove</a>';
+                    var str = '&nbsp;&nbsp; <a class="remove" href="#" rel="' + row.id + '">Remove</a>';
 
                     return str;
                 }
             }
         }).on("loaded.rs.jquery.bootgrid", function()
             {
-                $(".remove").click(function(){
+                $('#social-list').find(".remove").click(function(){
                     var id = $(this).attr("rel");
 
                     if(!confirm("Are you sure to remove this social record?"))
@@ -396,6 +489,9 @@ function createMembership(){
                 else if(result.message.indexOf('done')>-1){
                     $('.message').html('Membership added successfully');
 
+                    $("#form-create-membership").find("input[type='text']").val('');
+                    $("#form-create-membership").find("textarea").val('');
+
                     listMemberships(1);
                 }
             }
@@ -428,6 +524,9 @@ function createAchievement(){
                 else if(result.message.indexOf('done')>-1){
                     $('.message').html('Achievement added successfully');
 
+                    $("#form-create-achievement").find("input[type='text']").val('');
+                    $("#form-create-achievement").find("textarea").val('');
+
                     listAchievements(1);
                 }
             }
@@ -435,6 +534,41 @@ function createAchievement(){
     }
 }
 function isAchievementFormValid(){
+    return true;
+}
+
+
+function createSpecialty(){
+
+    if(isSpecialtyFormValid()){
+
+        var data = $("#form-create-specialty").serialize();
+
+        $.ajax({
+            url: root + '/create-expert-specialty-admin',
+            type: 'post',
+            data: data,
+            dataType: 'json',
+            success: function(result){
+
+                if(result.message.indexOf('not logged')>-1)
+                    window.location.replace(root);
+                else if(result.message.indexOf('duplicate')>-1){
+                    $('.message').html('Duplicate name for expert');
+                }
+                else if(result.message.indexOf('done')>-1){
+                    $('.message').html('Specialty added successfully');
+
+                    $("#form-create-specialty").find("input[type='text']").val('');
+                    $("#form-create-specialty").find("textarea").val('');
+
+                    listSpecialties(1);
+                }
+            }
+        });
+    }
+}
+function isSpecialtyFormValid(){
     return true;
 }
 
@@ -459,6 +593,9 @@ function createService(){
                 }
                 else if(result.message.indexOf('done')>-1){
                     $('.message').html('Service added successfully');
+
+                    $("#form-create-service").find("input[type='text']").val('');
+                    $("#form-create-service").find("textarea").val('');
 
                     listServices(1);
                 }
@@ -491,6 +628,9 @@ function createSocial(){
                 }
                 else if(result.message.indexOf('done')>-1){
                     $('.message').html('Social information added successfully');
+
+                    $("#form-create-social").find("input[type='text']").val('');
+                    $("#form-create-social").find("textarea").val('');
 
                     listSocialProfiles(1);
                 }

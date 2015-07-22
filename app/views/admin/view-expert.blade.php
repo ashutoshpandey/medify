@@ -121,7 +121,7 @@
                         <div class='form-row'>
                             <div class='form-label'>Name</div>
                             <div class='form-data'>
-                                <input type='text' name='name' value="{{$expert->first_name}}"/>
+                                <input type='text' name='name'/>
                             </div>
                             <div class='clear'></div>
                         </div>
@@ -146,18 +146,118 @@
                 </div>
 
                 <div id='tab-specialties'>
+
+                    <form id='form-create-specialty'>
+                        <div class='form-row'>
+                            <div class='form-label'>Name</div>
+                            <div class='form-data'>
+                                <input type='text' name='name'/>
+                            </div>
+                            <div class='clear'></div>
+                        </div>
+                        <div class='form-row'>
+                            <div class='form-label'>Details</div>
+                            <div class='form-data'>
+                                <textarea name='details' rows="4"></textarea>
+                            </div>
+                            <div class='clear'></div>
+                        </div>
+                        <div class='form-row'>
+                            <div class='form-label'>&nbsp;</div>
+                            <div class='form-data'>
+                                <input type='button' name='btn-create-specialty' value="Create Specialty"/>
+                            </div>
+                            <div class='clear'></div>
+                        </div>
+                    </form>
+
                     <div id='specialty-list' class='list-container'></div>
                 </div>
 
                 <div id='tab-services'>
+
+                    <form id='form-create-service'>
+                        <div class='form-row'>
+                            <div class='form-label'>Name</div>
+                            <div class='form-data'>
+                                <input type='text' name='name'/>
+                            </div>
+                            <div class='clear'></div>
+                        </div>
+                        <div class='form-row'>
+                            <div class='form-label'>Details</div>
+                            <div class='form-data'>
+                                <textarea name='details' rows="4"></textarea>
+                            </div>
+                            <div class='clear'></div>
+                        </div>
+                        <div class='form-row'>
+                            <div class='form-label'>&nbsp;</div>
+                            <div class='form-data'>
+                                <input type='button' name='btn-create-service' value="Create Service"/>
+                            </div>
+                            <div class='clear'></div>
+                        </div>
+                    </form>
+
                     <div id='service-list' class='list-container'></div>
                 </div>
 
                 <div id='tab-achievements'>
+
+                    <form id='form-create-achievement'>
+                        <div class='form-row'>
+                            <div class='form-label'>Name</div>
+                            <div class='form-data'>
+                                <input type='text' name='name'/>
+                            </div>
+                            <div class='clear'></div>
+                        </div>
+                        <div class='form-row'>
+                            <div class='form-label'>Details</div>
+                            <div class='form-data'>
+                                <textarea name='details' rows="4"></textarea>
+                            </div>
+                            <div class='clear'></div>
+                        </div>
+                        <div class='form-row'>
+                            <div class='form-label'>&nbsp;</div>
+                            <div class='form-data'>
+                                <input type='button' name='btn-create-achievement' value="Create Achievement"/>
+                            </div>
+                            <div class='clear'></div>
+                        </div>
+                    </form>
+
                     <div id='achievement-list' class='list-container'></div>
                 </div>
 
                 <div id='tab-social'>
+
+                    <form id='form-create-social'>
+                        <div class='form-row'>
+                            <div class='form-label'>Name</div>
+                            <div class='form-data'>
+                                <input type='text' name='name'/>
+                            </div>
+                            <div class='clear'></div>
+                        </div>
+                        <div class='form-row'>
+                            <div class='form-label'>URL</div>
+                            <div class='form-data'>
+                                <input type='text' name='url'/>
+                            </div>
+                            <div class='clear'></div>
+                        </div>
+                        <div class='form-row'>
+                            <div class='form-label'>&nbsp;</div>
+                            <div class='form-data'>
+                                <input type='button' name='btn-create-social' value="Create Social"/>
+                            </div>
+                            <div class='clear'></div>
+                        </div>
+                    </form>
+
                     <div id='social-list' class='list-container'></div>
                 </div>
             </div>

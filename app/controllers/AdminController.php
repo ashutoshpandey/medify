@@ -646,6 +646,24 @@ class AdminController extends BaseController {
         }
     }
 
+    public function removeExpertSpecialty($id){
+
+        $adminId = Session::get('admin_id');
+        if(!isset($adminId))
+            return json_encode(array('message'=>'not logged'));
+
+        $specialty = ExpertSpecialty::find($id);
+
+        if(is_null($specialty))
+            return json_encode(array('message'=>'invalid'));
+        else{
+            $specialty->status = 'removed';
+            $specialty->save();
+
+            return json_encode(array('message'=>'done'));
+        }
+    }
+
     public function createExpertMembership(){
 
         $adminId = Session::get('admin_id');
@@ -718,6 +736,25 @@ class AdminController extends BaseController {
         $social->status = 'active';
         $social->created_at = date('Y-m-d h:i:s');
         $social->save();
+
+        return json_encode(array('message'=>'done'));
+    }
+
+    public function createExpertSpecialty(){
+
+        $adminId = Session::get('admin_id');
+        if(!isset($adminId))
+            return json_encode(array('message'=>'not logged'));
+
+        $specialty = new ExpertSpecialty();
+
+        $specialty->expert_id = Session::get('expert_id');
+        $specialty->name = Input::get('name');
+        $specialty->details = Input::get('details');
+
+        $specialty->status = 'active';
+        $specialty->created_at = date('Y-m-d h:i:s');
+        $specialty->save();
 
         return json_encode(array('message'=>'done'));
     }

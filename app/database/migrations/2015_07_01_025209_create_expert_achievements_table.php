@@ -18,8 +18,8 @@ class CreateExpertAchievementsTable extends Migration {
 
             $table->integer('expert_id')->unsigned();
 
-            $table->string('title', 255);
-            $table->text('description');
+            $table->string('name', 255);
+            $table->text('details');
             $table->string('status', 50);
 
             $table->foreign('expert_id')->references('id')->on('experts');
