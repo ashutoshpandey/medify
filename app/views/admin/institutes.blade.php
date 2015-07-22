@@ -351,6 +351,10 @@
     <div class='form-data'>
         <input type='text' name='latitude' class='half'/><input type='text' name='longitude' class='half'/>
     </div>
+    <div class='form-label'>About</div>
+    <div class='form-data'>
+        <textarea name='about'></textarea>
+    </div>
     <div class='clear'></div>
 </div>
 <div class='form-row'>

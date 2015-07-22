@@ -9,7 +9,7 @@ function updateInstitute(){
         var data = $("#form-update-institute").serialize();
 
         $.ajax({
-            url: root + '/update-institute',
+            url: root + '/update-institute-admin',
             type: 'post',
             data: data,
             dataType: 'json',

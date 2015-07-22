@@ -343,6 +343,10 @@
                                 <div class='form-data'>
                                     <input type='text' name='latitude' class='half' value='{{$institute->latitude}}'/><input type='text' name='longitude' class='half' value='{{$institute->longitude}}'/>
                                 </div>
+                                <div class='form-label'>About</div>
+                                <div class='form-data'>
+                                    <textarea name='about'>{{$institute->about}}</textarea>
+                                </div>
                                 <div class='clear'></div>
                             </div>
                             <div class='form-row'>

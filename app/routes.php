@@ -131,16 +131,6 @@ Route::get('/admin-list-appointments/{status}/{page}', 'AdminController@listAppo
 Route::get('/admin-view-appointment/{id}', 'AdminController@viewAppointment');
 Route::get('/cancel-admin-appointment/{id}', 'AdminController@cancelAppointment');
 
-Route::get('/admin-institutes', 'AdminController@institutes');
-Route::get('/admin-view-institute/{id}', 'AdminController@viewInstitute');
-Route::get('/admin-list-institutes/{status}/{page}', 'AdminController@listInstitutes');
-
-Route::get('/admin-experts', 'AdminController@experts');
-Route::get('/admin-view-expert/{id}', 'AdminController@viewExpert');
-Route::get('/admin-list-experts/{status}/{page}', 'AdminController@listExperts');
-Route::post('/save-admin-expert', 'AdminController@saveExpert');
-Route::post('/update-admin-expert', 'AdminController@updateExpert');
-
 Route::get('/admin-users', 'AdminController@users');
 Route::get('/admin-view-user/{id}', 'AdminController@viewUser');
 Route::get('/admin-list-users/{status}/{page}', 'AdminController@listUsers');
@@ -161,12 +151,22 @@ Route::get('/remove-institute-achievement-admin/{id}', 'AdminController@removeIn
 Route::get('/remove-institute-social-admin/{id}', 'AdminController@removeInstituteSocial');
 Route::get('/remove-institute-specialty-admin/{id}', 'AdminController@removeInstituteSpecialty');
 
+Route::get('/admin-experts', 'AdminController@experts');
+Route::get('/admin-view-expert/{id}', 'AdminController@viewExpert');
+Route::get('/admin-list-experts/{status}/{page}', 'AdminController@listExperts');
+Route::post('/save-admin-expert', 'AdminController@saveExpert');
+Route::post('/update-admin-expert', 'AdminController@updateExpert');
 Route::post('/create-expert-membership-admin', 'AdminController@createExpertMembership');
 Route::post('/create-expert-service-admin', 'AdminController@createExpertService');
 Route::post('/create-expert-achievement-admin', 'AdminController@createExpertAchievement');
 Route::post('/create-expert-social-admin', 'AdminController@createExpertSocial');
 Route::post('/create-expert-specialty-admin', 'AdminController@createExpertSpecialty');
 
+Route::get('/admin-institutes', 'AdminController@institutes');
+Route::get('/admin-view-institute/{id}', 'AdminController@viewInstitute');
+Route::get('/admin-list-institutes/{status}/{page}', 'AdminController@listInstitutes');
+Route::post('/save-institute-admin', 'AdminController@saveInstitute');
+Route::post('/update-institute-admin', 'AdminController@updateInstitute');
 Route::post('/create-institute-membership-admin', 'AdminController@createInstituteMembership');
 Route::post('/create-institute-service-admin', 'AdminController@createInstituteService');
 Route::post('/create-institute-achievement-admin', 'AdminController@creatInstituteAchievement');

@@ -3,9 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/AdminController.php" afterPath="$PROJECT_DIR$/app/controllers/AdminController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/experts.blade.php" afterPath="$PROJECT_DIR$/app/views/admin/experts.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/view-expert.blade.php" afterPath="$PROJECT_DIR$/app/views/admin/view-expert.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/site/admin/view-expert.js" afterPath="$PROJECT_DIR$/public/js/site/admin/view-expert.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/institutes.blade.php" afterPath="$PROJECT_DIR$/app/views/admin/institutes.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/site/admin/institutes.js" afterPath="$PROJECT_DIR$/public/js/site/admin/institutes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes.php" afterPath="$PROJECT_DIR$/app/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/view-institute.blade.php" afterPath="$PROJECT_DIR$/app/views/admin/view-institute.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/site/admin/view-institute.js" afterPath="$PROJECT_DIR$/public/js/site/admin/view-institute.js" />
     </list>
     <ignored path="med.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -14,7 +16,7 @@
     <file path="/experts.js" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1437356014034" ignored="false" />
     <file path="/Dummy.txt" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1437528506581" ignored="false" />
     <file path="/experts.blade.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1437541012094" ignored="false" />
-    <file path="/AdminController.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1437541064577" ignored="false" />
+    <file path="/AdminController.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1437543226110" ignored="false" />
     <file path="/view-expert.blade.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1437541073672" ignored="false" />
     <file path="/2015_07_01_023434_create_experts_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1437356782772" ignored="false" />
     <file path="/view-expert.js" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1437540223981" ignored="false" />
@@ -24,6 +26,8 @@
     <file path="/ExpertService.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1437452631251" ignored="false" />
     <file path="/routes.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1437456719358" ignored="false" />
     <file path="/ExpertSpecialty.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1437531159924" ignored="false" />
+    <file path="/institutes.blade.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1437542920585" ignored="false" />
+    <file path="/view-institute.blade.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1437543164033" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,28 +47,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="institutes.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/site/admin/institutes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="16" selection-start="305" selection-end="305" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1437542579043" expanded="true" signature="1737:2105" placeholder="..." />
+                <marker date="1437542579043" expanded="true" signature="1759:2083" placeholder="..." />
+                <marker date="1437542579043" expanded="true" signature="1782:2060" placeholder="..." />
+                <marker date="1437542579043" expanded="true" signature="2252:2279" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="routes.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="152" column="47" selection-start="9005" selection-end="9005" vertical-scroll-proportion="-9.633333">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="view-expert.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/admin/view-expert.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="45" selection-start="1554" selection-end="1554" vertical-scroll-proportion="-12.1">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="experts.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/admin/experts.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="81" column="66" selection-start="3465" selection-end="3465" vertical-scroll-proportion="-2.1">
+            <state line="168" column="36" selection-start="10350" selection-end="10350" vertical-scroll-proportion="-19.433332">
               <folding />
             </state>
           </provider>
@@ -73,58 +73,34 @@
       <file leaf-file-name="AdminController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/AdminController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="559" column="0" selection-start="17288" selection-end="17288" vertical-scroll-proportion="0.07493857">
+            <state line="1058" column="22" selection-start="32128" selection-end="32128" vertical-scroll-proportion="0.79361176">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="view-expert.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/site/admin/view-expert.js">
+      <file leaf-file-name="institutes.blade.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/admin/institutes.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="0" selection-start="75" selection-end="75" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="n#!!block;n#showServices#0" expanded="false" />
-                <element signature="n#!!block;n#listAchievements#0" expanded="false" />
-                <element signature="n#!!block;n#listSocialProfiles#0" expanded="false" />
-                <element signature="n#!!block;n#isExpertFormValid#0" expanded="false" />
-                <element signature="n#!!block;n#isMembershipFormValid#0" expanded="false" />
-                <element signature="n#!!block;n#createAchievement#0" expanded="false" />
-                <element signature="n#!!block;n#createSpecialty#0" expanded="false" />
-                <element signature="n#!!block;n#createService#0" expanded="false" />
-                <element signature="n#!!block;n#isSocialFormValid#0" expanded="false" />
-                <marker date="1437540601723" expanded="true" signature="1132:1502" placeholder="..." />
-                <marker date="1437540601723" expanded="true" signature="1154:1480" placeholder="..." />
-                <marker date="1437540601723" expanded="true" signature="1177:1457" placeholder="..." />
-                <marker date="1437540601723" expanded="true" signature="1640:1667" placeholder="..." />
-                <marker date="1437540601723" expanded="true" signature="3815:4015" placeholder="..." />
-                <marker date="1437540601723" expanded="true" signature="3815:4184" placeholder="..." />
-                <marker date="1437540601723" expanded="true" signature="3837:4015" placeholder="..." />
-                <marker date="1437540601723" expanded="true" signature="3860:4139" placeholder="..." />
-                <marker date="1437540601723" expanded="true" signature="3860:3883" placeholder="..." />
-                <marker date="1437540601723" expanded="true" signature="4321:4348" placeholder="..." />
-                <marker date="1437540601723" expanded="true" signature="6466:6836" placeholder="..." />
-                <marker date="1437540601723" expanded="true" signature="6488:6814" placeholder="..." />
-                <marker date="1437540601723" expanded="true" signature="6511:6791" placeholder="..." />
-                <marker date="1437540601723" expanded="true" signature="6965:6992" placeholder="..." />
-                <marker date="1437540601723" expanded="true" signature="9113:9483" placeholder="..." />
-                <marker date="1437540601723" expanded="true" signature="9135:9461" placeholder="..." />
-                <marker date="1437540601723" expanded="true" signature="9158:9438" placeholder="..." />
-                <marker date="1437540601723" expanded="true" signature="9624:9651" placeholder="..." />
-                <marker date="1437540601723" expanded="true" signature="11786:11986" placeholder="..." />
-                <marker date="1437540601723" expanded="true" signature="11786:12148" placeholder="..." />
-                <marker date="1437540601723" expanded="true" signature="11808:11986" placeholder="..." />
-                <marker date="1437540601723" expanded="true" signature="11831:11854" placeholder="..." />
-                <marker date="1437540601723" expanded="true" signature="12274:12301" placeholder="..." />
-              </folding>
+            <state line="358" column="0" selection-start="14354" selection-end="14354" vertical-scroll-proportion="-21.266666">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ExpertController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/ExpertController.php">
+      <file leaf-file-name="view-institute.blade.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/admin/view-institute.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="642" column="0" selection-start="19611" selection-end="19611" vertical-scroll-proportion="-8.666667">
+            <state line="347" column="78" selection-start="26542" selection-end="26542" vertical-scroll-proportion="-234.93333">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view-institute.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/site/admin/view-institute.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="48" selection-start="265" selection-end="265" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -148,10 +124,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/database/migrations/2015_07_01_023434_create_experts_table.php" />
-        <option value="$PROJECT_DIR$/app/models/ExpertSocial.php" />
-        <option value="$PROJECT_DIR$/app/models/ExpertService.php" />
-        <option value="$PROJECT_DIR$/app/database/migrations/2015_07_01_025229_create_expert_social_profiles_table.php" />
         <option value="$PROJECT_DIR$/app/models/ExpertSpecialty.php" />
         <option value="$PROJECT_DIR$/app/controllers/ExpertController.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2015_07_01_025220_create_expert_specialties_table.php" />
@@ -159,10 +131,14 @@
         <option value="$PROJECT_DIR$/app/database/migrations/2015_07_01_025209_create_expert_achievements_table.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2015_07_01_025154_create_institute_achievements_table.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2015_07_01_025004_create_institute_specialties_table.php" />
-        <option value="$PROJECT_DIR$/app/routes.php" />
         <option value="$PROJECT_DIR$/public/js/site/admin/view-expert.js" />
         <option value="$PROJECT_DIR$/app/views/admin/experts.blade.php" />
         <option value="$PROJECT_DIR$/app/views/admin/view-expert.blade.php" />
+        <option value="$PROJECT_DIR$/public/js/site/admin/institutes.js" />
+        <option value="$PROJECT_DIR$/app/views/admin/institutes.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/admin/view-institute.blade.php" />
+        <option value="$PROJECT_DIR$/public/js/site/admin/view-institute.js" />
+        <option value="$PROJECT_DIR$/app/routes.php" />
         <option value="$PROJECT_DIR$/app/controllers/AdminController.php" />
       </list>
     </option>
@@ -634,37 +610,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/ExpertSocial.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="184" selection-end="184" vertical-scroll-proportion="0.22853687" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/ExpertService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="1" selection-start="179" selection-end="179" vertical-scroll-proportion="0.22853687">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_01_025229_create_expert_social_profiles_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="32" selection-start="435" selection-end="435" vertical-scroll-proportion="0.49626866" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/ExpertSpecialty.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="42" selection-start="87" selection-end="87" vertical-scroll-proportion="0.10157195">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_01_025220_create_expert_specialties_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="32" selection-start="428" selection-end="428" vertical-scroll-proportion="-13.3">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_01_025221_create_expert_services_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="33" selection-start="459" selection-end="459" vertical-scroll-proportion="-14.0">
@@ -693,13 +638,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="152" column="47" selection-start="9005" selection-end="9005" vertical-scroll-proportion="-9.633333">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/site/admin/experts.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="0" selection-start="336" selection-end="336" vertical-scroll-proportion="0.53908986">
@@ -714,14 +652,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/ExpertController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="642" column="0" selection-start="19611" selection-end="19611" vertical-scroll-proportion="-8.666667">
+        <state line="642" column="0" selection-start="19611" selection-end="19611" vertical-scroll-proportion="0.31438935">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/site/admin/view-expert.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="75" selection-end="75" vertical-scroll-proportion="0.0">
+        <state line="6" column="0" selection-start="75" selection-end="75" vertical-scroll-proportion="0.1470245">
           <folding>
             <element signature="n#!!block;n#showServices#0" expanded="false" />
             <element signature="n#!!block;n#listAchievements#0" expanded="false" />
@@ -732,29 +670,29 @@
             <element signature="n#!!block;n#createSpecialty#0" expanded="false" />
             <element signature="n#!!block;n#createService#0" expanded="false" />
             <element signature="n#!!block;n#isSocialFormValid#0" expanded="false" />
-            <marker date="1437540601723" expanded="true" signature="1132:1502" placeholder="..." />
-            <marker date="1437540601723" expanded="true" signature="1154:1480" placeholder="..." />
-            <marker date="1437540601723" expanded="true" signature="1177:1457" placeholder="..." />
-            <marker date="1437540601723" expanded="true" signature="1640:1667" placeholder="..." />
-            <marker date="1437540601723" expanded="true" signature="3815:4015" placeholder="..." />
-            <marker date="1437540601723" expanded="true" signature="3815:4184" placeholder="..." />
-            <marker date="1437540601723" expanded="true" signature="3837:4015" placeholder="..." />
-            <marker date="1437540601723" expanded="true" signature="3860:4139" placeholder="..." />
-            <marker date="1437540601723" expanded="true" signature="3860:3883" placeholder="..." />
-            <marker date="1437540601723" expanded="true" signature="4321:4348" placeholder="..." />
-            <marker date="1437540601723" expanded="true" signature="6466:6836" placeholder="..." />
-            <marker date="1437540601723" expanded="true" signature="6488:6814" placeholder="..." />
-            <marker date="1437540601723" expanded="true" signature="6511:6791" placeholder="..." />
-            <marker date="1437540601723" expanded="true" signature="6965:6992" placeholder="..." />
-            <marker date="1437540601723" expanded="true" signature="9113:9483" placeholder="..." />
-            <marker date="1437540601723" expanded="true" signature="9135:9461" placeholder="..." />
-            <marker date="1437540601723" expanded="true" signature="9158:9438" placeholder="..." />
-            <marker date="1437540601723" expanded="true" signature="9624:9651" placeholder="..." />
-            <marker date="1437540601723" expanded="true" signature="11786:11986" placeholder="..." />
-            <marker date="1437540601723" expanded="true" signature="11786:12148" placeholder="..." />
-            <marker date="1437540601723" expanded="true" signature="11808:11986" placeholder="..." />
-            <marker date="1437540601723" expanded="true" signature="11831:11854" placeholder="..." />
-            <marker date="1437540601723" expanded="true" signature="12274:12301" placeholder="..." />
+            <marker date="1437540601723" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1437540601723" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1437540601723" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1437540601723" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1437540601723" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1437540601723" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1437540601723" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1437540601723" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1437540601723" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1437540601723" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1437540601723" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1437540601723" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1437540601723" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1437540601723" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1437540601723" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1437540601723" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1437540601723" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1437540601723" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1437540601723" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1437540601723" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1437540601723" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1437540601723" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1437540601723" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -773,9 +711,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/site/admin/institutes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="16" selection-start="305" selection-end="305" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1437542579043" expanded="true" signature="1737:2105" placeholder="..." />
+            <marker date="1437542579043" expanded="true" signature="1759:2083" placeholder="..." />
+            <marker date="1437542579043" expanded="true" signature="1782:2060" placeholder="..." />
+            <marker date="1437542579043" expanded="true" signature="2252:2279" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/AuthenticationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="5" selection-start="297" selection-end="297" vertical-scroll-proportion="0.33010882">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/institutes.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="358" column="0" selection-start="14354" selection-end="14354" vertical-scroll-proportion="-21.266666">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/view-institute.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="347" column="78" selection-start="26542" selection-end="26542" vertical-scroll-proportion="-234.93333">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/site/admin/view-institute.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="48" selection-start="265" selection-end="265" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="168" column="36" selection-start="10350" selection-end="10350" vertical-scroll-proportion="-19.433332">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/AdminController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="559" column="0" selection-start="17288" selection-end="17288" vertical-scroll-proportion="0.07493857">
+        <state line="1058" column="22" selection-start="32128" selection-end="32128" vertical-scroll-proportion="0.79361176">
           <folding />
         </state>
       </provider>

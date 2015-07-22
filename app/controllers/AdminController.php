@@ -950,25 +950,14 @@ class AdminController extends BaseController {
             return Redirect::to('/');
 
         if(isset($id)){
-            $user = User::find($id);
+            $institute = Institute::find($id);
 
-            if(isset($user)){
+            if(isset($institute)){
 
-                Session::put('user_id', $id);
+                Session::put('institute_id', $id);
 
-                if($user->gender=='male'){
-                    $male_checked = 'checked="checked"';
-                    $female_checked = '';
-                }
-                else{
-                    $female_checked = 'checked="checked"';
-                    $male_checked = '';
-                }
-
-                return View::make('admin.view-user')
-                    ->with('user', $user)
-                    ->with('male_checked', $male_checked)
-                    ->with('female_checked', $female_checked);
+                return View::make('admin.view-institute')
+                    ->with('institute', $institute);
             }
             else
                 return Redirect::to('/');
@@ -983,11 +972,11 @@ class AdminController extends BaseController {
         if(!isset($adminId))
             return json_encode(array('message'=>'not logged'));
 
-        $users = User::where('status','=',$status)->get();
+        $institutes = Institute::where('status','=',$status)->get();
 
-        if(isset($users) && count($users)>0){
+        if(isset($institutes) && count($institutes)>0){
 
-            return json_encode(array('message'=>'found', 'users' => $users->toArray()));
+            return json_encode(array('message'=>'found', 'institutes' => $institutes->toArray()));
         }
         else
             return json_encode(array('message'=>'empty'));
@@ -1000,16 +989,44 @@ class AdminController extends BaseController {
         if(!isset($adminId))
             return json_encode(array('message'=>'not logged'));
 
-        $user = User::find($id);
+        $institute = Institute::find($id);
 
-        if(is_null($user))
+        if(is_null($institute))
             return json_encode(array('message'=>'invalid'));
         else{
-            $user->status = 'removed';
-            $user->save();
+            $institute->status = 'removed';
+            $institute->save();
 
             return json_encode(array('message'=>'done'));
         }
+    }
+
+    public function saveInstitute(){
+
+        $adminId = Session::get('admin_id');
+        if(!isset($adminId))
+            return json_encode(array('message'=>'not logged'));
+
+        $institute = new Institute();
+
+        $institute->name = Input::get('name');
+        $institute->establish_date = date('Y-m-d h:i:s', strtotime(Input::get('establish_date')));
+        $institute->address = Input::get('address');
+        $institute->city = Input::get('city');
+        $institute->state = Input::get('state');
+        $institute->country = Input::get('country');
+        $institute->zip = Input::get('zip');
+        $institute->about = Input::get('about');
+        $institute->land_mark = Input::get('land_mark');
+        $institute->contact_number_1 = Input::get('contact_number_1');
+        $institute->contact_number_2 = Input::get('contact_number_2');
+        $institute->latitude = Input::get('latitude');
+        $institute->longitude = Input::get('longitude');
+        $institute->status = 'active';
+
+        $institute->save();
+
+        return json_encode(array('message'=>'done'));
     }
 
     public function updateInstitute(){
@@ -1018,21 +1035,28 @@ class AdminController extends BaseController {
         if(!isset($adminId))
             return json_encode(array('message'=>'not logged'));
 
-        $id = Input::get('id');
+        $id = Session::get('institute_id');
 
-        $user = User::find($id);
+        $institute = Institute::find($id);
 
-        if(is_null($user))
+        if(is_null($institute))
             return json_encode(array('message'=>'invalid'));
         else{
-            $user->first_name = Input::get('first_name');
-            $user->last_name = Input::get('last_name');
-            $user->email = Input::get('email');
-            $user->phone = Input::get('phone');
-            $user->password = Input::get('password');
-            $user->country = Input::get('country');
-            $user->timezone = Input::get('timezone');
-            $user->save();
+            $institute->name = Input::get('name');
+            $institute->establish_date = date('Y-m-d h:i:s', strtotime(Input::get('establish_date')));
+            $institute->address = Input::get('address');
+            $institute->city = Input::get('city');
+            $institute->state = Input::get('state');
+            $institute->about = Input::get('about');
+            $institute->country = Input::get('country');
+            $institute->zip = Input::get('zip');
+            $institute->land_mark = Input::get('land_mark');
+            $institute->contact_number_1 = Input::get('contact_number_1');
+            $institute->contact_number_2 = Input::get('contact_number_2');
+            $institute->latitude = Input::get('latitude');
+            $institute->longitude = Input::get('longitude');
+
+            $institute->save();
 
             return json_encode(array('message'=>'done'));
         }

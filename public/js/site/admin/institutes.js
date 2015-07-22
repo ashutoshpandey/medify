@@ -14,7 +14,7 @@ function createInstitute(){
         var data = $("#form-create-institute").serialize();
 
         $.ajax({
-            url: root + '/save-institute',
+            url: root + '/save-institute-admin',
             type: 'post',
             data: data,
             dataType: 'json',
