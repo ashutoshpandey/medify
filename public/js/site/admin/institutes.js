@@ -1,9 +1,6 @@
 $(function(){
     $("input[name='btn-create']").click(createInstitute);
 
-    $('a[href="#tab-edit"]').hide();
-    $('#tab-edit').hide();
-
     listInstitutes(1);
 });
 

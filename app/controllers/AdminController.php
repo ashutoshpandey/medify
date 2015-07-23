@@ -124,7 +124,28 @@ class AdminController extends BaseController {
             return Redirect::to('/');
     }
 
-/********************** appointments ***********************/
+    public function cancelAppointment($id){
+
+        $adminId = Session::get('admin_id');
+        if(!isset($adminId))
+            return json_encode(array('message'=>'not logged'));
+
+        $appointment = Appointment::find($id);
+
+        if(is_null($appointment))
+            return json_encode(array('message'=>'invalid'));
+        else{
+            $appointment->status = "admin-cancelled";
+            $appointment->cancel_id = $adminId;
+            $appointment->updated_at = date('Y-m-d h:i:s');
+
+            $appointment->save();
+
+            return json_encode(array('message'=>'done'));
+        }
+    }
+
+/********************** categories ***********************/
     public function manageCategories(){
 
         $adminId = Session::get('admin_id');
@@ -143,7 +164,7 @@ class AdminController extends BaseController {
         $categories = Category::where('status','=','active')->get();
 
         if(isset($categories) && count($categories)>0)
-            return json_encode(array('message'=>'found', 'categories' => $categories));
+            return json_encode(array('message'=>'found', 'categories' => $categories->toArray()));
         else
             return json_encode(array('message'=>'empty'));
     }
@@ -186,7 +207,7 @@ class AdminController extends BaseController {
 
         if(is_null($tempSubCategory) || $tempSubCategory->isEmpty()){
 
-            $category_id = Input::get('category_id');
+            $category_id = Input::get('category');
 
             $subCategory = new SubCategory();
 
@@ -225,7 +246,17 @@ class AdminController extends BaseController {
         if(is_null($category))
             return json_encode(array('message'=>'invalid'));
         else{
-            $category->delete();
+            $category->status = 'removed';
+            $category->save();
+
+            $subcategories = SubCategory::where('category_id', '=', $id)->get();
+
+            if(isset($subcategories) && count($subcategories)>0){
+                foreach($subcategories as $subcategory){
+                    $subcategory->status = 'removed';
+                    $subcategory->save();
+                }
+            }
 
             return json_encode(array('message'=>'done'));
         }
@@ -254,7 +285,8 @@ class AdminController extends BaseController {
         if(is_null($subCategory))
             return json_encode(array('message'=>'invalid'));
         else{
-            $subCategory->delete();
+            $subCategory->status = 'removed';
+            $subCategory->save();
 
             return json_encode(array('message'=>'done'));
         }
@@ -281,18 +313,7 @@ class AdminController extends BaseController {
         }
     }
 
-    public function manageSubcategories(){
-
-        $adminId = Session::get('admin_id');
-        if(!isset($adminId))
-            return Redirect::to('/');
-
-        $categories = Category::where('status','=','active')->get();
-
-        return View::make('admin.manage-subcategories')->with("categories", $categories);
-    }
-
-    public function getSubCategories($id){
+    public function listSubCategories($id){
 
         $adminId = Session::get('admin_id');
         if(!isset($adminId))
@@ -302,7 +323,7 @@ class AdminController extends BaseController {
                                     ->where('status','=','active')->get();
 
         if(isset($subCategories) && count($subCategories)>0)
-            return json_encode(array('message'=>'found', 'subcategories' => $subCategories));
+            return json_encode(array('message'=>'found', 'subcategories' => $subCategories->toArray()));
         else
             return json_encode(array('message'=>'empty'));
     }
@@ -323,27 +344,6 @@ class AdminController extends BaseController {
             $subCategory->name = Input::get('name');
 
             $subCategory->save();
-
-            return json_encode(array('message'=>'done'));
-        }
-    }
-
-    public function cancelAppointment($id){
-
-        $adminId = Session::get('admin_id');
-        if(!isset($adminId))
-            return json_encode(array('message'=>'not logged'));
-
-        $appointment = Appointment::find($id);
-
-        if(is_null($appointment))
-            return json_encode(array('message'=>'invalid'));
-        else{
-            $appointment->status = "admin-cancelled";
-            $appointment->cancel_id = $adminId;
-            $appointment->updated_at = date('Y-m-d h:i:s');
-
-            $appointment->save();
 
             return json_encode(array('message'=>'done'));
         }

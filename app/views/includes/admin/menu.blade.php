@@ -31,6 +31,12 @@
                     <span>Users</span>
                 </a>
             </li>
+            <li class="categories">
+                <a href="{{$root}}/admin-categories">
+                    <i class="fa fa-laptop"></i>
+                    <span>Categories</span>
+                </a>
+            </li>
             <li class="software-users">
                 <a href="{{$root}}/admin-software-users">
                     <i class="fa fa-edit"></i> <span>Software users</span>

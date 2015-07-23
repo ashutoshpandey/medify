@@ -175,3 +175,13 @@ Route::post('/create-institute-service-admin', 'AdminController@createInstituteS
 Route::post('/create-institute-achievement-admin', 'AdminController@creatInstituteAchievement');
 Route::post('/create-institute-social-admin', 'AdminController@createInstituteSocial');
 Route::post('/create-institute-specialty-admin', 'AdminController@createInstituteSpecialty');
+
+Route::get('/admin-categories', 'AdminController@manageCategories');
+Route::get('/admin-list-categories/{status}', 'AdminController@listCategories');
+Route::get('/admin-list-subcategories/{id}/{status}', 'AdminController@listSubcategories');
+Route::post('/save-category', 'AdminController@saveCategory');
+Route::post('/update-category', 'AdminController@updateCategory');
+Route::post('/save-subcategory', 'AdminController@saveSubCategory');
+Route::post('/update-subcategory', 'AdminController@updateSubCategory');
+Route::get('/remove-category/{id}', 'AdminController@removeCategory');
+Route::get('/remove-subcategory/{id}', 'AdminController@removeSubCategory');
