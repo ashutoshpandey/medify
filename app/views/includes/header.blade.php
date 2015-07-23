@@ -1,6 +1,6 @@
 <header>
     <div class="logo">
-        <a href="index.php"><img src="public/images/logo.png"/></a>
+        <a href="index.php">{{HTML::image(asset("public/images/logo.png"))}}</a>
     </div>
     <div class="nav_menu">
         <ul>

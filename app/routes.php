@@ -13,12 +13,15 @@
 
 /*-------------------- static methods --------------------*/
 Route::get('/', 'StaticController@home');
-Route::get('/register-user', 'StaticController@');
-Route::get('/register-expert', 'StaticController@');
-Route::get('/forgot-user-password', 'StaticController@');
-Route::get('/forgot-expert-password', 'StaticController@');
-Route::get('/contact-us', 'StaticController@');
-Route::get('/about-us', 'StaticController@');
+Route::get('/register-user', 'StaticController@registerUser');
+Route::get('/register-expert', 'StaticController@registerExpert');
+Route::get('/forgot-user-password', 'StaticController@forgotUserPassword');
+Route::get('/forgot-expert-password', 'StaticController@forgotExpertPassword');
+Route::get('/contact-us', 'StaticController@contactUs');
+Route::get('/about-us', 'StaticController@aboutUs');
+
+/*-------------------- data pages methods --------------------*/
+Route::get('/expert/{id}', 'StaticController@expert');
 
 
 /*-------------------- authentication methods --------------------*/

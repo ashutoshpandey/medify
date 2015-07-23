@@ -6,7 +6,7 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-    @include('includes.common_css')
+    @include('includes.admin.common_css')
 
     {{HTML::style(asset("/public/css/AdminLTE.css"))}}
     {{HTML::style(asset("/public/css/admin-skins/_all-skins.min.css"))}}
