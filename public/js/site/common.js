@@ -67,13 +67,53 @@ $(document).ready(function () {
         $(".expert_search input").val(text);
         $(".search_content").hide();
     });
-    $(".how_it_works .close_hiw").click(function () {
-        $(".how_it_works").slideUp();
-    });
+
     $("a[rel='how_it_works']").click(function (e) {
         e.preventDefault();
         $(window).scrollTop(0);
         $(".how_it_works").slideDown();
+        $(".login_box").slideUp();
+        $(".sign_up_box").slideUp();
+        $(".forgot_password_box").slideUp();
+    });
+    $(".how_it_works .close_hiw").click(function () {
+        $(".how_it_works").slideUp();
+    });
+
+    $("a[rel='login_box']").click(function (e) {
+        e.preventDefault();
+        $(window).scrollTop(0);
+        $(".login_box").slideDown();
+        $(".sign_up_box").slideUp();
+        $(".how_it_works").slideUp();
+        $(".forgot_password_box").slideUp();
+    });
+    $(".login_box .close_hiw").click(function () {
+        $(".login_box").slideUp();
+    });
+
+    $("a[rel='sign_up_box']").click(function (e) {
+        e.preventDefault();
+        $(window).scrollTop(0);
+        $(".sign_up_box").slideDown();
+        $(".login_box").slideUp();
+        $(".how_it_works").slideUp();
+        $(".forgot_password_box").slideUp();
+    });
+    $(".sign_up_box .close_hiw").click(function () {
+        $(".sign_up_box").slideUp();
+    });
+
+    $("a[rel='forgot_password_box']").click(function (e) {
+        e.preventDefault();
+        $(window).scrollTop(0);
+        $(".forgot_password_box").slideDown();
+        $(".login_box").slideUp();
+        $(".how_it_works").slideUp();
+        $(".sign_up_box").slideUp();
+    });
+    $(".forgot_password_box .close_hiw").click(function () {
+        $(".forgot_password_box").slideUp();
     });
 
 });

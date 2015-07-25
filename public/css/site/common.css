@@ -78,22 +78,25 @@ header{
     display: block;
     font: 30px/48px HelveticaNeue;
 }
-.how_it_works {
+
+/*********************** how it works ***********************/
+.how_it_works, .login_box, .sign_up_box, .forgot_password_box {
     height: 400px;
     position: relative;
     background: #41AAD0;
     text-align: center;
+    display: none;
 }
-.how_it_works h2 {
+.how_it_works h2, .login_box h2, .sign_up_box h2, .forgot_password_box h2 {
     color: #b5e8f6;
     font: 30px/45px SourceSansPro-Regular;
     padding: 20px 0;
 }
-.how_it_works p {
+.how_it_works p, .login_box p, .sign_up_box p {
     color: #fdfdfd;
     font: 20px/32px HelveticaNeue;
 }
-.how_it_works .process {
+.how_it_works .process, .login_box .process, .sign_up_box .process, .forgot_password_box .process {
     display: block;
     margin: 20px auto;
     padding: 10px;
@@ -114,9 +117,6 @@ header{
     margin: 0 auto 20px;
     width: 80px;
 }
-.how_it_works{
-    display: none;
-}
 .how_it_works p.detail {
     color: #b5e8f6;
     font: 15px/18px HelveticaNeue;
@@ -128,23 +128,69 @@ header{
     vertical-align: top;
     width: 84px;
 }
-.how_it_works .close_hiw {
+.how_it_works .close_hiw, .login_box .close_hiw, .sign_up_box .close_hiw, .forgot_password_box .close_hiw {
     position: absolute;
     right: 15px;
     top: 15px;
     cursor: pointer;
 }
-.how_it_works .close_hiw svg path{
+.how_it_works .close_hiw svg path, .login_box .close_hiw svg path, .sign_up_box .close_hiw svg path, .forgot_password_box .close_hiw svg path{
     stroke: #f2f2f2;
     fill:#f2f2f2;
 }
 
+.login_box .form-row, .sign_up_box .form-row, .forgot_password_box .form-row{
+    margin-bottom: 15px;
+}
+.login_box .form-label, .sign_up_box .form-label, .forgot_password_box .form-label{
+    width: 25%;
+    float: left;
+    color: white;
+    font-size: 15px;
+}
+.login_box .form-data, .sign_up_box .form-data, .forgot_password_box .form-data{
+    width: 65%;
+    float: left;
+}
+.login_box input[type='text'], .login_box input[type='password']{width: 100%;}
+.sign_up_box input[type='text'], .sign_up_box input[type='password']{width: 100%;}
+.forgot_password_box input[type='email']{width: 100%;}
 
+.login_box .btn-box, .sign_up_box .btn-box, .forgot_password_box .btn-box{
+    padding: 10px 25px;
+    background-color: #0071bc;
+    border: solid 2px gainsboro;
+    border-radius: 5%;
+    color: white;
+    display: inline-block;
+    cursor: default;
+}
+.login_box .btn-box:hover, .sign_up_box .btn-box:hover, .forgot_password_box .btn-box:hover{
+    background-color: #0099e8;
+}
+.login_box .user_type, .sign_up_box .user_type{
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: left;
+}
 
+.box-link{
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+.box-link:hover{
+    color: yellow;
+}
 
+.forgot_password_box h3{
+    color: white;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
 
-
-
+.left-align{text-align:left!important;}
 
 
 

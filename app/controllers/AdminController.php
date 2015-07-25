@@ -602,6 +602,24 @@ class AdminController extends BaseController {
         }
     }
 
+    public function removeExpertQualification($id){
+
+        $adminId = Session::get('admin_id');
+        if(!isset($adminId))
+            return json_encode(array('message'=>'not logged'));
+
+        $qualification = ExpertQualification::find($id);
+
+        if(is_null($qualification))
+            return json_encode(array('message'=>'invalid'));
+        else{
+            $qualification->status = 'removed';
+            $qualification->save();
+
+            return json_encode(array('message'=>'done'));
+        }
+    }
+
     public function removeExpertAchievement($id){
 
         $adminId = Session::get('admin_id');
@@ -689,6 +707,25 @@ class AdminController extends BaseController {
         $membership->status = 'active';
         $membership->created_at = date('Y-m-d h:i:s');
         $membership->save();
+
+        return json_encode(array('message'=>'done'));
+    }
+
+    public function createExpertQualification(){
+
+        $adminId = Session::get('admin_id');
+        if(!isset($adminId))
+            return json_encode(array('message'=>'not logged'));
+
+        $qualification = new ExpertQualification();
+
+        $qualification->expert_id = Session::get('expert_id');
+        $qualification->name = Input::get('name');
+        $qualification->description = Input::get('description');
+
+        $qualification->status = 'active';
+        $qualification->created_at = date('Y-m-d h:i:s');
+        $qualification->save();
 
         return json_encode(array('message'=>'done'));
     }

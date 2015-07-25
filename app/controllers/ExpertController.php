@@ -681,4 +681,20 @@ class ExpertController extends BaseController {
         else
             return json_encode(array('message'=>'invalid'));
     }
+
+    public function dataListQualification($expertId, $page=null){
+
+        if(isset($expertId)){
+
+            $expertQualifications = ExpertQualification::where('expert_id','=',$expertId)->
+            where('status','=','active')->get();
+
+            if(isset($expertQualifications) && count($expertQualifications)>0)
+                return json_encode(array('message'=>'found', 'qualifications' =>$expertQualifications->toArray()));
+            else
+                return json_encode(array('message'=>'empty'));
+        }
+        else
+            return json_encode(array('message'=>'invalid'));
+    }
 }

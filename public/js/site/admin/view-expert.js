@@ -9,6 +9,7 @@ $(function(){
     $("input[name='btn-create-achievement']").click(createAchievement);
     $("input[name='btn-create-social']").click(createSocial);
     $("input[name='btn-create-specialty']").click(createSpecialty);
+    $("input[name='btn-create-qualification']").click(createQualification);
 
     listMemberships(1);
 
@@ -19,6 +20,8 @@ $(function(){
     listSpecialties(1);
 
     listSocialProfiles(1);
+
+    listQualifications(1);
 });
 
 function listMemberships(page){
@@ -625,6 +628,124 @@ function createSocial(){
         });
     }
 }
-function isSocialFormValid(){
+function isQualificationFormValid(){
     return true;
+}
+
+
+function createQualification(){
+
+    if(isQualificationFormValid()){
+
+        var data = $("#form-create-qualification").serialize();
+
+        $.ajax({
+            url: root + '/create-expert-qualification-admin',
+            type: 'post',
+            data: data,
+            dataType: 'json',
+            success: function(result){
+
+                if(result.message.indexOf('not logged')>-1)
+                    window.location.replace(root);
+                else if(result.message.indexOf('duplicate')>-1){
+                    $('.message').html('Duplicate qualification');
+                }
+                else if(result.message.indexOf('done')>-1){
+                    $('.message').html('Qualification added successfully');
+
+                    $("#form-create-qualification").find("input[type='text']").val('');
+                    $("#form-create-qualification").find("textarea").val('');
+
+                    listQualifications(1);
+                }
+            }
+        });
+    }
+}
+function isQualificationFormValid(){
+    return true;
+}
+
+function listQualifications(page){
+
+    $.getJSON(
+        root + '/data-expert-list-qualification/' + expertId + '/' + page,
+        function(result){
+
+            if(result.message.indexOf('not logged')>-1)
+                window.location.replace(root);
+            else{
+                showQualifications(result);
+            }
+        }
+    );
+}
+function showQualifications(data){
+
+    if(data!=undefined && data.qualifications!=undefined && data.qualifications.length>0){
+
+        var str = '';
+
+        str = str + '<table id="grid-qualifications" class="table table-condensed table-hover table-striped"> \
+            <thead> \
+                <tr> \
+                    <th data-column-id="id" data-type="numeric">ID</th> \
+                    <th data-column-id="name">Name</th> \
+                    <th data-column-id="detail">Description</th> \
+                    <th data-formatter="link">Action</th> \
+                </tr> \
+            </thead> \
+            <tbody>';
+
+        for(var i =0;i<data.qualifications.length;i++){
+
+            var qualification = data.qualifications[i];
+
+            str = str + '<tr> \
+                    <td>' + qualification.id + '</td> \
+                    <td>' + qualification.name + '</td> \
+                    <td>' + qualification.description + '</td> \
+                    <td></td> \
+                </tr>';
+        }
+
+        str = str + '</tbody> \
+        </table>';
+
+        $('#qualification-list').html(str);
+
+        $("#grid-qualifications").bootgrid({
+            formatters: {
+                'link': function(column, row)
+                {
+                    var str = '&nbsp;&nbsp; <a class="remove" href="#" rel="' + row.id + '">Remove</a>';
+
+                    return str;
+                }
+            }
+        }).on("loaded.rs.jquery.bootgrid", function()
+        {
+            $('#qualification-list').find(".remove").click(function(){
+                var id = $(this).attr("rel");
+
+                if(!confirm("Are you sure to remove this social record?"))
+                    return;
+
+                $.getJSON(root + '/remove-expert-qualification-admin/' + id,
+                    function(result){
+                        if(result.message.indexOf('done')>-1)
+                            listQualifications(1);
+                        else if(result.message.indexOf('not logged')>-1)
+                            window.location.replace(root);
+                        else
+                            alert("Server returned error : " + result);
+                    }
+                );
+            });
+        });
+    }
+    else
+        $('#qualification-list').html('No qualification found');
+
 }

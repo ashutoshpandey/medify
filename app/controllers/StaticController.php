@@ -1,6 +1,7 @@
 <?php
 
 class StaticController extends BaseController {
+
 	public function __construct(){
 
 		$this->beforeFilter(function(){
@@ -12,6 +13,14 @@ class StaticController extends BaseController {
 	public function home()
 	{
 		return View::make('home');
+	}
+
+	public function expertLogin(){
+		return View::make('expert-login');
+	}
+
+	public function experts($city=null, $keyword=null){
+		return View::make('expert.experts');
 	}
 
 	public function expert($id){

@@ -92,7 +92,7 @@
                     </ul>
 
                 @else
-                    -
+                    <li>&mdash;</li>
                 @endif
 
             </section>
@@ -188,40 +188,6 @@
 
         </section>
         <div class="clear"></div>
-        <section>
-
-            <p class="heading"><span class="fa fa-map-marker"></span> CASE STUDY</p>
-
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lacinia enim magna, non aliquet turpis
-                scelerisque sed. Sed vel augue vitae mauris
-                venenatis faucibus. Donec sit amet ullamcorper justo, eufaucibus magna. Sed id purus sit amet orci
-                rutrum semper. Duis dignissim enim eget sem
-                vulputate, id suscipit libero ullamcorper. Integer et interdum dui. Nullam tempus in nisl a mattis.Lorem
-                ipsum dolor sit amet, consectetur adipiscing
-                elit. Nullam lacinia enim magna, non aliquet turpis scelerisque sed. Sed vel augue vitae mauris
-                venenatis faucibus. Donec sit amet ullamcorper justo,
-                eufaucibus magna. Sed id purus sit amet orci rutrum semper. Duis dignissim enim eget sem vulputate, id
-                suscipit libero ullamcorper. Integer et
-                interdum dui. Nullam tempus in nisl a mattis.</p>
-
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lacinia enim magna, non aliquet turpis
-                scelerisque sed. Sed vel augue vitae mauris
-                venenatis faucibus. Donec sit amet ullamcorper justo, eufaucibus magna. Sed id purus sit amet orci
-                rutrum semper. Duis dignissim enim eget sem
-                vulputate, id suscipit libero ullamcorper. Integer et interdum dui. Nullam tempus in nisl a mattis.</p>
-
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lacinia enim magna, non aliquet turpis
-                scelerisque sed. Sed vel augue vitae mauris
-                venenatis faucibus. Donec sit amet ullamcorper justo, eufaucibus magna. Sed id purus sit amet orci
-                rutrum semper. Duis dignissim enim eget sem
-                vulputate, id suscipit libero ullamcorper. Integer et interdum dui. Nullam tempus in nisl a mattis.
-            </p>
-
-        </section>
-
 
     </div>
 </div>

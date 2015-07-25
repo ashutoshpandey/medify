@@ -35,6 +35,7 @@
                     <li><a href='#tab-services'>Services</a></li>
                     <li><a href='#tab-achievements'>Achievements</a></li>
                     <li><a href='#tab-social'>Social profiles</a></li>
+                    <li><a href='#tab-qualification'>Qualification</a></li>
                 </ul>
 
                 <div id='tab-edit'>
@@ -273,6 +274,36 @@
                     </form>
 
                     <div id='social-list' class='list-container'></div>
+                </div>
+
+                <div id='tab-qualification'>
+
+                    <form id='form-create-qualification'>
+                        <div class='form-row'>
+                            <div class='form-label'>Name</div>
+                            <div class='form-data'>
+                                <input type='text' name='name'/>
+                            </div>
+                            <div class='clear'></div>
+                        </div>
+                        <div class='form-row'>
+                            <div class='form-label'>Description</div>
+                            <div class='form-data'>
+                                <textarea name='description' rows="4"></textarea>
+                            </div>
+                            <div class='clear'></div>
+                        </div>
+                        <div class='form-row'>
+                            <div class='form-label'>&nbsp;</div>
+                            <div class='form-data'>
+                                <input type='button' name='btn-create-qualification' value="Create Qualification"/>
+                            </div>
+                            <div class='clear'></div>
+                        </div>
+                    </form>
+
+                    <div id='qualification-list' class='list-container'></div>
+
                 </div>
             </div>
 

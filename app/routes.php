@@ -19,17 +19,19 @@ Route::get('/forgot-user-password', 'StaticController@forgotUserPassword');
 Route::get('/forgot-expert-password', 'StaticController@forgotExpertPassword');
 Route::get('/contact-us', 'StaticController@contactUs');
 Route::get('/about-us', 'StaticController@aboutUs');
+Route::get('/search-cities/{key}', 'StaticController@searchCities');
+
+Route::get('/expert-login', 'StaticController@expertLogin');
 
 /*-------------------- data pages methods --------------------*/
 Route::get('/expert/{id}', 'StaticController@expert');
-
+Route::get('/experts/{city?}/{keyword?}', 'StaticController@experts');
 
 /*-------------------- authentication methods --------------------*/
 Route::post('/save-user', 'AuthenticationController@');
 Route::post('/is-valid-expert', 'AuthenticationController@');
 Route::post('/is-valid-user', 'AuthenticationController@');
 Route::post('/is-valid-admin', 'AuthenticationController@');
-
 
 /*-------------------- user methods --------------------*/
 Route::get('/user-dashboard', 'UserController@dashboard');
@@ -113,6 +115,7 @@ Route::get('/data-expert-list-achievements/{id}/{page?}', 'ExpertController@data
 Route::get('/data-expert-list-services/{id}/{page?}', 'ExpertController@dataListServices');
 Route::get('/data-expert-list-specialties/{id}/{page?}', 'ExpertController@dataListSpecialties');
 Route::get('/data-expert-list-social/{id}/{page?}', 'ExpertController@dataListSocial');
+Route::get('/data-expert-list-qualification/{id}/{page?}', 'ExpertController@dataListQualification');
 
 Route::get('/data-get-institution/{id}', 'InstituteController@getInstitute');
 Route::get('/data-institutes', 'InstituteController@dataInstitutes');
@@ -147,6 +150,7 @@ Route::get('/remove-expert-service-admin/{id}', 'AdminController@removeExpertSer
 Route::get('/remove-expert-achievement-admin/{id}', 'AdminController@removeExpertAchievement');
 Route::get('/remove-expert-social-admin/{id}', 'AdminController@removeExpertSocial');
 Route::get('/remove-expert-specialty-admin/{id}', 'AdminController@removeExpertSpecialty');
+Route::get('/remove-expert-qualification-admin/{id}', 'AdminController@removeExpertQualification');
 
 Route::get('/remove-institute-membership-admin/{id}', 'AdminController@removeInstituteMembership');
 Route::get('/remove-institute-service-admin/{id}', 'AdminController@removeInstituteService');
@@ -164,6 +168,7 @@ Route::post('/create-expert-service-admin', 'AdminController@createExpertService
 Route::post('/create-expert-achievement-admin', 'AdminController@createExpertAchievement');
 Route::post('/create-expert-social-admin', 'AdminController@createExpertSocial');
 Route::post('/create-expert-specialty-admin', 'AdminController@createExpertSpecialty');
+Route::post('/create-expert-qualification-admin', 'AdminController@createExpertQualification');
 
 Route::get('/admin-institutes', 'AdminController@institutes');
 Route::get('/admin-view-institute/{id}', 'AdminController@viewInstitute');
