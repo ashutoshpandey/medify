@@ -145,6 +145,11 @@ Route::get('/admin-software-users', 'AdminController@softwareUsers');
 Route::get('/admin-list-software-users/{status}/{page}', 'AdminController@listSoftwareUsers');
 Route::get('/admin-view-software-user/{id}', 'AdminController@viewSoftwareUser');
 
+Route::get('/admin-locations', 'AdminController@locations');
+Route::get('/admin-list-locations/{status}/{page}', 'AdminController@listLocations');
+Route::get('/remove-location/{id}', 'AdminController@removeLocation');
+Route::post('/save-location', 'AdminController@saveLocation');
+
 Route::get('/remove-expert-membership-admin/{id}', 'AdminController@removeExpertMembership');
 Route::get('/remove-expert-service-admin/{id}', 'AdminController@removeExpertService');
 Route::get('/remove-expert-achievement-admin/{id}', 'AdminController@removeExpertAchievement');

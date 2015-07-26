@@ -22,13 +22,15 @@ class CreateExpertsTable extends Migration {
             $table->string('email', 255);
             $table->string('contact_number', 50);
             $table->string('extension_number', 50);
-            $table->string('password', 255);
+            $table->integer('location_id')->unsigned();
             $table->string('country', 255);
             $table->string('image_name', 255);
             $table->string('banner_image_name', 255);
             $table->text('about');
             $table->string('experience');
             $table->string('status', 50);
+
+            $table->foreign('location_id')->references('id')->on('locations');
 
             $table->timestamps();
 		});

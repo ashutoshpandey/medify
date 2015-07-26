@@ -1,11 +1,6 @@
-var keywordType;
-
 $(function () {
 
-    keywordType = 'i';
-
     $("input[name='location']").autocomplete({
-        appendTo: "#reference-pane",
         source: function (request, response) {
             $.ajax({
                 type: 'GET',
@@ -13,28 +8,28 @@ $(function () {
                 dataType: "json",
                 success: function (data) {
 
-                    if(data.message=="found")
-                        response($.map(data.locations, function(obj) {
-                            return {
-                                label: obj.city + '-' + obj.state,
-                                value: obj.city + '-' + obj.state,
-                                id: obj.id
-                            };
-                        }));
+                    if(data.message=="found") {
+
+                        $(".locations").html('');
+
+                        for (var i = 0; i < data.locations.length; i++) {
+
+                            var location = data.locations[i];
+
+                            var place = location.city + " - " + location.state;
+
+                            $(".locations").append("<p rel='" + location.id + "'><span class='fa fa-map-marker'></span> " + place + "</p>")
+                        }
+                    }
                 }
             })
         },
-        minLength: 1,
+        minLength: 2,
         delay: 100,
         select: function(event, ui){
             $("#search-city").val(ui.item.id);
         }
-    }).data("ui-autocomplete")._renderItem = function (ul, item) {
-        return $("<li>")
-            .data("item.autocomplete", item)
-            .append("<a class='search-city' href='javascript:void(0)' rel='" + item.id + "'>" + item.label + "</a>")
-            .appendTo(ul);
-    };
+    });
 
     $("input[name='search']").autocomplete({
         appendTo: "#explore-by",
@@ -50,19 +45,21 @@ $(function () {
 
             $.ajax({
                 type: 'GET',
-                url: url,
+                url: root,
                 dataType: "json",
-                success: function (data) {
+                success: function (result) {
 
-                    if(data.message=="found")
-                        response($.map(data.institutes, function(obj) {
+                    if(result.message=="found") {
 
-                            return {
-                                label: obj.name,
-                                value: obj.name,
-                                id: obj.id
-                            };
-                        }));
+                        $(".search_content").html('');
+
+                        for (var i = 0; i < result.data.length; i++) {
+
+                            var row = data.results[i];
+
+                            $(".search_content").append("<p rel='" + result.id + "'><b>" + row.name + "</b> " + row.group + "</p>")
+                        }
+                    }
                 }
             })
         },

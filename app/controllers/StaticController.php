@@ -59,4 +59,54 @@ class StaticController extends BaseController {
 		else
 			return Redirect::to('/');
 	}
+
+	public function searchCities($key)
+	{
+		if(isset($key)){
+
+			$locations = Location::where('city','like', '%'. $key . '%')->orWhere('state', 'like', '%' . $key . '%')->where('status','=','active')->get();
+
+			if(isset($locations) && count($locations)>0){
+
+				return json_encode(array('message'=>'found', 'locations' => $locations->toArray()));
+			}
+			else
+				return json_encode(array('message'=>'empty'));
+		}
+		else
+			return json_encode(array('message'=>'invalid'));
+	}
+
+	public function searchByKeyword($key, $cityId=null)
+	{
+		if(isset($key)){
+
+			if(isset($cityId)){
+				$experts = Expert::where('name','like', '%'. $key . '%')->where('status','=','active')->get();
+				$institutes = Institute::where('name','like', '%'. $key . '%')->where('status','=','active')->get();
+			}
+			else{
+				$experts = Expert::where('name','like', '%'. $key . '%')->where('status','=','active')->get();
+				$institutes = Institute::where('name','like', '%'. $key . '%')->where('status','=','active')->get();
+			}
+
+			$data = array();
+
+			if(isset($experts) && count($experts)>0)
+				foreach($experts as $expert)
+					$data[] = array('id' => $expert->id, 'name' => $expert->name, 'group' => 'expert');
+
+
+			if(isset($institutes) && count($institutes)>0)
+				foreach($institutes as $institute)
+					$data[] = array('id' => $institute->id, 'name' => $institute->name, 'group' => 'institute');
+
+			if(isset($data) && count($data)>0)
+				return json_decode(array('message' => 'found', 'data' => $data));
+			else
+				return json_decode(array('message' => 'empty'));
+		}
+		else
+			return json_encode(array('message'=>'invalid'));
+	}
 }

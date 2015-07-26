@@ -68,6 +68,7 @@ function showGrid(data){
                     <th data-column-id="id" data-type="numeric">ID</th> \
                     <th data-column-id="city">City</th> \
                     <th data-column-id="state">State</th> \
+                    <th data-column-id="pin">Pin</th> \
                     <th data-formatter="link">Action</th> \
                 </tr> \
             </thead> \
@@ -81,7 +82,7 @@ function showGrid(data){
                     <td>' + location.id + '</td> \
                     <td>' + location.city + '</td> \
                     <td>' + location.state + '</td> \
-                    <td>' + location.contact_number + '</td> \
+                    <td>' + location.pin + '</td> \
                     <td></td> \
                 </tr>';
             }
@@ -95,8 +96,7 @@ function showGrid(data){
         formatters: {
             'link': function(column, row)
             {
-                var str = '<a target="_blank" href="' + root + '/admin-view-location/' + row.id + '">View</a>';
-                str = str + '&nbsp;&nbsp; <a class="remove" href="#" rel="' + row.id + '">Remove</a>';
+                var str = '&nbsp;&nbsp; <a class="remove" href="#" rel="' + row.id + '">Remove</a>';
 
                 return str;
             }
