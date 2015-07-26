@@ -1,4 +1,5 @@
 <div class="row">
+    <form id="form-search">
     <div class="column three  location_search">
         <div class="row">
             <input type="text" name="location" placeholder="location" style="padding-left: 30px;"/>
@@ -6,13 +7,6 @@
             <p class="location_icon"><span class="fa fa-map-marker"></span></p>
 
             <div class="locations">
-                <p><span class="fa fa-map-marker"></span> Prateek Laurel sector 120, Noida</p>
-
-                <p><span class="fa fa-map-marker"></span> Prateek Laurel sector 120, Delhi</p>
-
-                <p><span class="fa fa-map-marker"></span> Prateek Laurel sector 120, Noida</p>
-
-                <p><span class="fa fa-map-marker"></span> Prateek Laurel sector 120, Mumbai</p>
             </div>
         </div>
     </div>
@@ -43,4 +37,6 @@
     <div class="column two">
         <button type="button" id="btn-search">Search</button>
     </div>
+    <input type="hidden" name="search-city">
+    </form>
 </div>

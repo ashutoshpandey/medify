@@ -15,7 +15,7 @@ function expertCreated(){
 
     $(".message").html("Expert created successfully");
 
-    $("input[type='text'], input[type='password'], textarea").html('');
+    $("input[type='text'], input[type='password'], input[type='email'], textarea").val('');
 
     listExperts(1);
 }

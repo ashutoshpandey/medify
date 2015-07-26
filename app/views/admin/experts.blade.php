@@ -42,7 +42,7 @@
             </div>
             <div id='tab-create'>
                 <div id='form-container'>
-                    <form id='form-create-book' action="{{$root}}/save-admin-expert" method="post" target="ifr" onsubmit="return startCreatingExpert()">
+                    <form id='form-create-book' action="{{$root}}/save-admin-expert" method="post" enctype="multipart/form-data" target="ifr" onsubmit="return startCreatingExpert()">
                         <div class='form-row'>
                             <div class='form-label'>First Name</div>
                             <div class='form-data'>
@@ -57,18 +57,18 @@
                         <div class='form-row'>
                             <div class='form-label'>Password</div>
                             <div class='form-data'>
-                                <input type='text' name='password'/>
+                                <input type='password' name='password'/>
                             </div>
                             <div class='form-label'>Confirm Password</div>
                             <div class='form-data'>
-                                <input type='text' name='confirm_password'/>
+                                <input type='password' name='confirm_password'/>
                             </div>
                             <div class='clear'></div>
                         </div>
                         <div class='form-row'>
                             <div class='form-label'>Email</div>
                             <div class='form-data'>
-                                <input type='text' name='email'/>
+                                <input type='email' name='email'/>
                             </div>
                             <div class='form-label'>Contact Number</div>
                             <div class='form-data'>

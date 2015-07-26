@@ -426,9 +426,6 @@ class AdminController extends BaseController {
 
         if($this->isDuplicateExpert()==="no"){
 
-            $image_name = "";
-            $banner_image_name = "";
-
             $expert = new Expert;
 
             $expert->email = Input::get('email');
@@ -447,7 +444,9 @@ class AdminController extends BaseController {
             $expert->created_at = date("Y-m-d h:i:s");
             $expert->updated_at = date("Y-m-d h:i:s");
 
-            if (Input::hasFile('image') && Input::file('image')->isValid())
+            $expert->save();
+
+            if (Input::hasFile('image'))
             {
                 $image_name = Input::file('image')->getClientOriginalName();
 
@@ -455,11 +454,12 @@ class AdminController extends BaseController {
                 if(!file_exists($destinationPath))
                     mkdir($destinationPath);
 
-                Input::file('image_name')->move($destinationPath, $image_name);
+                Input::file('image')->move($destinationPath, $image_name);
+
                 $expert->image_name = $image_name;
             }
 
-            if (Input::hasFile('banner_image') && Input::file('banner_image')->isValid())
+            if (Input::hasFile('banner_image'))
             {
                 $banner_image_name = Input::file('banner_image')->getClientOriginalName();
 
@@ -468,6 +468,7 @@ class AdminController extends BaseController {
                     mkdir($destinationPath);
 
                 Input::file('banner_image')->move($destinationPath, $banner_image_name);
+
                 $expert->banner_image_name = $banner_image_name;
             }
 
@@ -1049,10 +1050,7 @@ class AdminController extends BaseController {
         $institute->name = Input::get('name');
         $institute->establish_date = date('Y-m-d h:i:s', strtotime(Input::get('establish_date')));
         $institute->address = Input::get('address');
-        $institute->city = Input::get('city');
-        $institute->state = Input::get('state');
-        $institute->country = Input::get('country');
-        $institute->zip = Input::get('zip');
+        $institute->location_id = Input::get('city');
         $institute->about = Input::get('about');
         $institute->land_mark = Input::get('land_mark');
         $institute->contact_number_1 = Input::get('contact_number_1');
@@ -1176,5 +1174,24 @@ class AdminController extends BaseController {
 
             return json_encode(array('message' => 'not logged'));
         }
+    }
+
+    public function getCities($state){
+
+        $adminId = Session::get('admin_id');
+        if(!isset($adminId))
+            return json_encode(array('message'=>'not logged'));
+
+        if(isset($state)) {
+
+            $locations = Location::where('state', '=', $state)->where('status', '=', 'active')->get();
+
+            if (isset($locations) && count($locations) > 0)
+                return json_encode(array('message' => 'found', 'locations' => $locations->toArray()));
+            else
+                return json_encode(array('message' => 'empty'));
+        }
+        else
+            return json_encode(array('message' => 'invalid'));
     }
 }

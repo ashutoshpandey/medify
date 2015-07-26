@@ -82,11 +82,11 @@ class StaticController extends BaseController {
 		if(isset($key)){
 
 			if(isset($cityId)){
-				$experts = Expert::where('name','like', '%'. $key . '%')->where('status','=','active')->get();
+				$experts = Expert::where('first_name','like', '%'. $key . '%')->Orwhere('last_name','like', '%'. $key . '%')->where('status','=','active')->get();
 				$institutes = Institute::where('name','like', '%'. $key . '%')->where('status','=','active')->get();
 			}
 			else{
-				$experts = Expert::where('name','like', '%'. $key . '%')->where('status','=','active')->get();
+				$experts = Expert::where('first_name','like', '%'. $key . '%')->Orwhere('last_name','like', '%'. $key . '%')->where('status','=','active')->get();
 				$institutes = Institute::where('name','like', '%'. $key . '%')->where('status','=','active')->get();
 			}
 
@@ -94,19 +94,34 @@ class StaticController extends BaseController {
 
 			if(isset($experts) && count($experts)>0)
 				foreach($experts as $expert)
-					$data[] = array('id' => $expert->id, 'name' => $expert->name, 'group' => 'expert');
+					$data[] = array('id' => $expert->id, 'name' => $expert->first_name . ' ' . $expert->last_name, 'group' => 'Experts');
 
 
 			if(isset($institutes) && count($institutes)>0)
 				foreach($institutes as $institute)
-					$data[] = array('id' => $institute->id, 'name' => $institute->name, 'group' => 'institute');
+					$data[] = array('id' => $institute->id, 'name' => $institute->name, 'group' => 'Institutes');
 
 			if(isset($data) && count($data)>0)
-				return json_decode(array('message' => 'found', 'data' => $data));
+				return json_encode(array('message' => 'found', 'data' => $data));
 			else
-				return json_decode(array('message' => 'empty'));
+				return json_encode(array('message' => 'empty'));
 		}
 		else
 			return json_encode(array('message'=>'invalid'));
+	}
+
+	public function getCities($state){
+
+		if(isset($state)) {
+
+			$locations = Location::where('state', '=', $state)->where('status', '=', 'active')->get();
+
+			if (isset($locations) && count($locations) > 0)
+				return json_encode(array('message' => 'found', 'locations' => $locations->toArray()));
+			else
+				return json_encode(array('message' => 'empty'));
+		}
+		else
+			return json_encode(array('message' => 'invalid'));
 	}
 }

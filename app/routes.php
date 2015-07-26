@@ -20,6 +20,8 @@ Route::get('/forgot-expert-password', 'StaticController@forgotExpertPassword');
 Route::get('/contact-us', 'StaticController@contactUs');
 Route::get('/about-us', 'StaticController@aboutUs');
 Route::get('/search-cities/{key}', 'StaticController@searchCities');
+Route::get('/search-keyword/{key}/{city?}', 'StaticController@searchByKeyword');
+Route::get('/get-cities/{state}', 'StaticController@getCities');
 
 Route::get('/expert-login', 'StaticController@expertLogin');
 
@@ -140,6 +142,8 @@ Route::get('/cancel-admin-appointment/{id}', 'AdminController@cancelAppointment'
 Route::get('/admin-users', 'AdminController@users');
 Route::get('/admin-view-user/{id}', 'AdminController@viewUser');
 Route::get('/admin-list-users/{status}/{page}', 'AdminController@listUsers');
+
+Route::get('/admin-get-cities/{state}', 'AdminController@getCities');
 
 Route::get('/admin-software-users', 'AdminController@softwareUsers');
 Route::get('/admin-list-software-users/{status}/{page}', 'AdminController@listSoftwareUsers');

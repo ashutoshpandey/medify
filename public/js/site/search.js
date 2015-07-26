@@ -38,14 +38,14 @@ $(function () {
             var url;
             var cityId = $("#search-city").val();
 
-            if(cityId.length==0)
+            if(cityId==undefined || cityId.length==0)
                 url = root + '/search-keyword/' + request.term;
             else
                 url = root + '/search-keyword/' + request.term + '/' + cityId;
 
             $.ajax({
                 type: 'GET',
-                url: root,
+                url: url,
                 dataType: "json",
                 success: function (result) {
 
@@ -55,23 +55,18 @@ $(function () {
 
                         for (var i = 0; i < result.data.length; i++) {
 
-                            var row = data.results[i];
+                            var row = result.data[i];
 
-                            $(".search_content").append("<p rel='" + result.id + "'><b>" + row.name + "</b> " + row.group + "</p>")
+                            $(".search_content").append("<p rel='" + row.id + "'><b>" + row.name + "</b> in " + row.group + "</p>")
                         }
                     }
                 }
             })
         },
-        minLength: 1,
+        minLength: 2,
         delay: 100,
         select: function(event, ui){
             $("#search-city").val(ui.item.id);
         }
-    }).data("ui-autocomplete")._renderItem = function (ul, item) {
-        return $("<li>")
-            .data("item.autocomplete", item)
-            .append("<a class='search-city' href='javascript:void(0)' rel='" + item.id + "'>" + item.label + "</a>")
-            .appendTo(ul);
-    };
+    });
 });
