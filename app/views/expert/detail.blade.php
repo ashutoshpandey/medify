@@ -193,9 +193,12 @@
 </div>
 </div>
 
+@include('includes.footer')
+
 {{HTML::script(asset("/public/js/jquery.flexslider-min.js"))}}
 {{HTML::script(asset("/public/js/jquery-asPieProgress.min.js"))}}
 {{HTML::script(asset("/public/js/site/detail_circ.js"))}}
+{{HTML::script(asset("/public/js/site/login.js"))}}
 <script type="text/javascript">
     $(window).on('load', function () {
         $('.pie_progress.punctuality').asPieProgress('go', '50%');
@@ -203,8 +206,6 @@
         $('.pie_progress.satisfaction').asPieProgress('go', '70%');
     });
 </script>
-
-@include('includes.footer')
 
 </body>
 </html>

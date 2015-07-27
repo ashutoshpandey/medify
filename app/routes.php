@@ -23,6 +23,8 @@ Route::get('/search-cities/{key}', 'StaticController@searchCities');
 Route::get('/search-keyword/{key}/{city?}', 'StaticController@searchByKeyword');
 Route::get('/get-cities/{state}', 'StaticController@getCities');
 
+Route::get('/logout', 'AuthenticationController@logout');
+
 Route::get('/expert-login', 'StaticController@expertLogin');
 
 /*-------------------- data pages methods --------------------*/
@@ -31,9 +33,9 @@ Route::get('/experts/{city?}/{keyword?}', 'StaticController@experts');
 
 /*-------------------- authentication methods --------------------*/
 Route::post('/save-user', 'AuthenticationController@');
-Route::post('/is-valid-expert', 'AuthenticationController@');
-Route::post('/is-valid-user', 'AuthenticationController@');
-Route::post('/is-valid-admin', 'AuthenticationController@');
+Route::post('/is-valid-expert', 'AuthenticationController@isValidExpert');
+Route::post('/is-valid-user', 'AuthenticationController@isValidUser');
+Route::post('/is-valid-admin', 'AuthenticationController@isValidAdmin');
 
 /*-------------------- user methods --------------------*/
 Route::get('/user-dashboard', 'UserController@dashboard');

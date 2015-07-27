@@ -30,10 +30,16 @@ class ExpertController extends BaseController {
             ->where('status','=','pending')
             ->where('appointment_date','>=', date('Y-m-d H:i:s'))->count();
 
+        if(isset($expert->image_name))
+            $expertImage = 'uploads/experts/' . $expert->id . '/' . $expert->image_name;
+        else
+            $expertImage = 'images/expert.jpg';
+
         return View::make('expert.dashboard')
                     ->with('appointment_count', $appointment_count)
                     ->with('availability_count', $availability_count)
-                    ->with('expert_name', $expert->first_name . " " . $expert->last_name);
+                    ->with('expert_name', $expert->first_name . " " . $expert->last_name)
+                    ->with('expertImage', $expertImage);
     }
 
     public function appointments(){

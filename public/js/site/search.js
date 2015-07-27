@@ -27,12 +27,12 @@ $(function () {
         minLength: 2,
         delay: 100,
         select: function(event, ui){
+            alert(ui);
             $("#search-city").val(ui.item.id);
         }
     });
 
     $("input[name='search']").autocomplete({
-        appendTo: "#explore-by",
         source: function (request, response) {
 
             var url;
@@ -57,7 +57,7 @@ $(function () {
 
                             var row = result.data[i];
 
-                            $(".search_content").append("<p rel='" + row.id + "'><b>" + row.name + "</b> in " + row.group + "</p>")
+                            $(".search_content").append("<p class='group_" + row.group + "' rel='" + row.id + "'><b>" + row.name + "</b> in " + row.group + "</p>")
                         }
                     }
                 }
@@ -66,7 +66,7 @@ $(function () {
         minLength: 2,
         delay: 100,
         select: function(event, ui){
-            $("#search-city").val(ui.item.id);
+            alert(ui.item.id);
         }
     });
 });

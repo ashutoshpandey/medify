@@ -80,10 +80,10 @@
     </div>
 </div>
 
-{{HTML::script(asset("/public/js/site/experts.js"))}}
-
 @include('includes.footer')
 
+{{HTML::script(asset("/public/js/site/experts.js"))}}
+{{HTML::script(asset("/public/js/site/login.js"))}}
 
 </body>
 </html>

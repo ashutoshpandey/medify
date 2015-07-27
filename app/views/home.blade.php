@@ -122,6 +122,7 @@
 
 @include('includes.footer')
 {{HTML::script(asset("/public/js/site/search.js"))}}
+{{HTML::script(asset("/public/js/site/login.js"))}}
 
 </body>
 </html>

@@ -10,15 +10,15 @@
                 <div class='form-row'>
                     <div class='form-label'>&nbsp;</div>
                     <div class='form-data user_type'>
-                        <label><input type="radio" value="expert" name="user-type" checked="checked"/> I am an Expert</label> &nbsp;&nbsp; <label><input type="radio" value="user" name="user-type"/> I am a User</label>
+                        <label><input type="radio" value="expert" name="user_type" checked="checked"/> I am an Expert</label> &nbsp;&nbsp; <label><input type="radio" value="user" name="user_type"/> I am a User</label>
                     </div>
                     <div class='clear'></div>
                 </div>
 
                 <div class='form-row'>
-                    <div class='form-label'>Username</div>
+                    <div class='form-label'>Email</div>
                     <div class='form-data'>
-                        <input type='text' name='username'/>
+                        <input type='email' name='email'/>
                     </div>
                     <div class='clear'></div>
                 </div>
@@ -57,15 +57,15 @@
             <div class='form-row'>
                 <div class='form-label'>&nbsp;</div>
                 <div class='form-data user_type'>
-                    <label><input type="radio" value="expert" name="user-type" checked="checked"/> I am an Expert</label> &nbsp;&nbsp; <label><input type="radio" value="user" name="user-type"/> I am a User</label>
+                    <label><input type="radio" value="expert" name="user_type" checked="checked"/> I am an Expert</label> &nbsp;&nbsp; <label><input type="radio" value="user" name="user_type"/> I am a User</label>
                 </div>
                 <div class='clear'></div>
             </div>
 
             <div class='form-row'>
-                <div class='form-label'>Username</div>
+                <div class='form-label'>Email</div>
                 <div class='form-data'>
-                    <input type='text' name='username'/>
+                    <input type='email' name='email'/>
                 </div>
                 <div class='clear'></div>
             </div>

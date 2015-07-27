@@ -8,15 +8,7 @@ class AuthenticationController extends BaseController {
             View::share('root', URL::to('/'));
         });
     }
-	
-	public function customerLogin(){
-		return View::make('authentication.customer-login');
-	}
-	
-	public function expertLogin(){
-		return View::make('authentication.expert-login');
-	}
-	
+
 	public function adminLogin(){
 		return View::make('admin.login');
 	}
@@ -25,16 +17,8 @@ class AuthenticationController extends BaseController {
         return View::make('authentication.register-expert');
     }
 
-	public function registerCustomer(){
-		return View::make('authentication.register-customer');
-	}
-	
-	public function passwordRecovery(){
-		return View::make('authentication.password-recovery');
-	}
-	
-	public function passwordSent(){
-		return View::make('authentication.password-sent');
+	public function registerUser(){
+		return View::make('authentication.register-user');
 	}
 
     public function isValidAdmin()
@@ -54,31 +38,28 @@ class AuthenticationController extends BaseController {
         }
     }
 
-	public function isValidCustomer()
+	public function isValidUser()
 	{
         $email = Input::get('email');
         $password = Input::get('password');
 
-        $customer = Customer::where('email', '=', $email)
+        $user = User::where('email', '=', $email)
                     ->where('password','=',$password)->first();
 
-        if(is_null($customer)){
-
-            $ar = array("message"=>"invalid");
-
-            return $ar;
+        if(is_null($user)){
+            return json_encode(array("message"=>"invalid"));
         }
         else{
-            Session::put('customerId', $customer->id);
+            Session::put('user_id', $user->id);
+            Session::put('login_type', 'user');
 
             $ar = array(
                 "message"       =>  "correct",
-                "id"            =>  $customer->id,
-                "first_name"    =>  $customer->first_name,
-                "last_name"     =>  $customer->last_name
+                "first_name"    =>  $user->first_name,
+                "last_name"     =>  $user->last_name
             );
 
-            return $ar;
+            return json_encode($ar);
         }
 	}
 
@@ -90,11 +71,14 @@ class AuthenticationController extends BaseController {
         $expert = Expert::where('email', '=', $email)->where('password','=', $password)->first();
 
         if(is_null($expert))
-            return "invalid";
+            return json_encode(array("message"=>"invalid"));
         else{
             Session::put('expert_id', $expert->id);
+            Session::put('login_type', 'expert');
 
-            return "correct";
+            $ar = array("message" => "correct");
+
+            return json_encode($ar);
         }
     }
 
@@ -273,4 +257,10 @@ class AuthenticationController extends BaseController {
         });
     }
     /************************ expert methods ************************/
+
+    public function logout(){
+        Session::flush();
+
+        return Redirect::to('/');
+    }
 }
