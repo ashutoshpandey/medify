@@ -603,6 +603,24 @@ class AdminController extends BaseController {
         }
     }
 
+    public function removeExpertLocation($id){
+
+        $adminId = Session::get('admin_id');
+        if(!isset($adminId))
+            return json_encode(array('message'=>'not logged'));
+
+        $location = ExpertLocation::find($id);
+
+        if(is_null($location))
+            return json_encode(array('message'=>'invalid'));
+        else{
+            $location->status = 'removed';
+            $location->save();
+
+            return json_encode(array('message'=>'done'));
+        }
+    }
+
     public function removeExpertQualification($id){
 
         $adminId = Session::get('admin_id');
@@ -708,6 +726,27 @@ class AdminController extends BaseController {
         $membership->status = 'active';
         $membership->created_at = date('Y-m-d h:i:s');
         $membership->save();
+
+        return json_encode(array('message'=>'done'));
+    }
+
+    public function createExpertLocation(){
+
+        $adminId = Session::get('admin_id');
+        if(!isset($adminId))
+            return json_encode(array('message'=>'not logged'));
+
+        $location = new ExpertLocation();
+
+        $location->expert_id = Session::get('expert_id');
+        $location->location_id = Input::get('city');
+        $location->address = Input::get('address');
+        $location->latitude = Input::get('latitude');
+        $location->longitude = Input::get('longitude');
+
+        $location->status = 'active';
+        $location->created_at = date('Y-m-d h:i:s');
+        $location->save();
 
         return json_encode(array('message'=>'done'));
     }

@@ -50,21 +50,37 @@
 
 <div class="fixed_width_container expert_listing">
     <div class="row">
+
+        @if($found)
+
+        @foreach($experts as $expertObj)
+
+            <?php
+                $expert = get_object_vars($expertObj);
+
+                if (isset( $expert['image_name'])) {
+                    $expertPic = asset('public/uploads/experts/' . $expert['id'] . '/' .  $expert['image_name']);
+                    $fileLocation = public_path() . '\\uploads\\experts\\' . $expert['id'] . '\\' .  $expert['image_name'];
+
+                    if (!file_exists($fileLocation))
+                        $expertPic = asset('public/images/expert.jpg');
+                } else
+                    $expertPic = asset('public/images/expert.jpg');
+            ?>
+
         <div class="column four">
             <div class="expert">
                 <div class="expert_img">
-                    {{HTML::image(asset("public/images/expert.jpg"))}}
+                    {{HTML::image(asset($expertPic))}}
                 </div>
                 <div class="expert_details">
-                    <p class="name">Dr. Abhay Aggarwal</p>
+                    <p class="name">{{$expert['first_name']}} {{$expert['last_name']}}</p>
                     <p class="qualification">MD, MBBS</p>
                     <p class="specialities">Heart Surgeon</p>
                     <p class="fee">Rs 500/-</p>
                     <p class="rating">
                     </p>
-                    <p><span class="fa fa-map-marker"></span> Noida</p>
-<!--                    <button class="book_now"><span class="fa fa-calendar"></span> BOOK NOW</button>-->
-
+                    <p><span class="fa fa-map-marker"></span> {{$expert['city']}}</p>
                     <div class="methods">
                         <span class="active"><i class="flaticon-telephone90"></i></span>
                         <span><i class="flaticon-laptop135"></i></span>
@@ -77,6 +93,11 @@
                 </div>
             </div>
         </div>
+
+        @endforeach
+
+        @endif
+
     </div>
 </div>
 

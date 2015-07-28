@@ -36,6 +36,7 @@
                     <li><a href='#tab-achievements'>Achievements</a></li>
                     <li><a href='#tab-social'>Social profiles</a></li>
                     <li><a href='#tab-qualification'>Qualification</a></li>
+                    <li><a href='#tab-address'>Address</a></li>
                 </ul>
 
                 <div id='tab-edit'>
@@ -150,7 +151,8 @@
                         <div class='form-row'>
                             <div class='form-label'>&nbsp;</div>
                             <div class='form-data'>
-                                <input type='button' name='btn-create-membership' value="Create Membership"/>
+                                <input type='button' name='btn-create-membership' value="Create Membership" class="half"/><span
+                                        class='message'></span>
                             </div>
                             <div class='clear'></div>
                         </div>
@@ -180,7 +182,8 @@
                         <div class='form-row'>
                             <div class='form-label'>&nbsp;</div>
                             <div class='form-data'>
-                                <input type='button' name='btn-create-specialty' value="Create Specialty"/>
+                                <input type='button' name='btn-create-specialty' value="Create Specialty" class="half"/><span
+                                        class='message'></span>
                             </div>
                             <div class='clear'></div>
                         </div>
@@ -209,7 +212,8 @@
                         <div class='form-row'>
                             <div class='form-label'>&nbsp;</div>
                             <div class='form-data'>
-                                <input type='button' name='btn-create-service' value="Create Service"/>
+                                <input type='button' name='btn-create-service' value="Create Service" class="half"/><span
+                                        class='message'></span>
                             </div>
                             <div class='clear'></div>
                         </div>
@@ -238,7 +242,8 @@
                         <div class='form-row'>
                             <div class='form-label'>&nbsp;</div>
                             <div class='form-data'>
-                                <input type='button' name='btn-create-achievement' value="Create Achievement"/>
+                                <input type='button' name='btn-create-achievement' value="Create Achievement" class="half"/><span
+                                        class='message'></span>
                             </div>
                             <div class='clear'></div>
                         </div>
@@ -267,7 +272,8 @@
                         <div class='form-row'>
                             <div class='form-label'>&nbsp;</div>
                             <div class='form-data'>
-                                <input type='button' name='btn-create-social' value="Create Social"/>
+                                <input type='button' name='btn-create-social' value="Create Social" class="half"/><span
+                                        class='message'></span>
                             </div>
                             <div class='clear'></div>
                         </div>
@@ -296,13 +302,97 @@
                         <div class='form-row'>
                             <div class='form-label'>&nbsp;</div>
                             <div class='form-data'>
-                                <input type='button' name='btn-create-qualification' value="Create Qualification"/>
+                                <input type='button' name='btn-create-qualification' value="Create Qualification" class="half"/><span
+                                        class='message'></span>
                             </div>
                             <div class='clear'></div>
                         </div>
                     </form>
 
                     <div id='qualification-list' class='list-container'></div>
+
+                </div>
+
+                <div id='tab-address'>
+
+                    <form id='form-create-location'>
+                        <div class='form-row'>
+                            <div class='form-label'>State</div>
+                            <div class='form-data'>
+                                <select name="state">
+                                    <option>Andaman and Nicobar Islands</option>
+                                    <option>Andhra Pradesh</option>
+                                    <option>Arunachal Pradesh</option>
+                                    <option>Assam</option>
+                                    <option>Bihar</option>
+                                    <option>Chandigarh</option>
+                                    <option>Chhattisgarh</option>
+                                    <option>Dadar and Nagar Haveli</option>
+                                    <option>Daman and Diu</option>
+                                    <option>Delhi</option>
+                                    <option>Goa</option>
+                                    <option>Gujarat</option>
+                                    <option>Haryana</option>
+                                    <option>Himachal Pradesh</option>
+                                    <option>Jammu and Kashmir</option>
+                                    <option>Jharkhand</option>
+                                    <option>Karnataka</option>
+                                    <option>Kerala</option>
+                                    <option>Lakshadeep</option>
+                                    <option>Madya Pradesh</option>
+                                    <option>Maharashtra</option>
+                                    <option>Manipur</option>
+                                    <option>Meghalaya</option>
+                                    <option>Mizoram</option>
+                                    <option>Nagaland</option>
+                                    <option>Orissa</option>
+                                    <option>Pondicherry</option>
+                                    <option>Punjab</option>
+                                    <option>Rajasthan</option>
+                                    <option>Sikkim</option>
+                                    <option>Tamil Nadu</option>
+                                    <option>Tripura</option>
+                                    <option>Uttaranchal</option>
+                                    <option>Uttar Pradesh</option>
+                                    <option>West Bengal</option>
+                                </select>
+                            </div>
+                            <div class='form-label'>City</div>
+                            <div class='form-data'>
+                                <select name="city">
+                                </select>
+                            </div>
+                            <div class='clear'></div>
+                        </div>
+                        <div class='form-row'>
+                            <div class='form-label'>Address</div>
+                            <div class='form-data'>
+                                <textarea name='address' rows="4"></textarea>
+                            </div>
+                            <div class='clear'></div>
+                        </div>
+                        <div class='form-row'>
+                            <div class='form-label'>Latitude</div>
+                            <div class='form-data'>
+                                <input type='text' name='latitude'/>
+                            </div>
+                            <div class='form-label'>Longitude</div>
+                            <div class='form-data'>
+                                <input type='text' name='longitude'/>
+                            </div>
+                            <div class='clear'></div>
+                        </div>
+                        <div class='form-row'>
+                            <div class='form-label'>&nbsp;</div>
+                            <div class='form-data'>
+                                <input type='button' name='btn-create-location' value="Create Location" class="half"/><span
+                                        class='message'></span>
+                            </div>
+                            <div class='clear'></div>
+                        </div>
+                    </form>
+
+                    <div id='location-list' class='list-container'></div>
 
                 </div>
             </div>

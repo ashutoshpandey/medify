@@ -29,7 +29,7 @@ Route::get('/expert-login', 'StaticController@expertLogin');
 
 /*-------------------- data pages methods --------------------*/
 Route::get('/expert/{id}', 'StaticController@expert');
-Route::get('/experts/{city?}/{keyword?}', 'StaticController@experts');
+Route::any('/experts', 'StaticController@experts');
 
 /*-------------------- authentication methods --------------------*/
 Route::post('/save-user', 'AuthenticationController@');
@@ -120,6 +120,7 @@ Route::get('/data-expert-list-services/{id}/{page?}', 'ExpertController@dataList
 Route::get('/data-expert-list-specialties/{id}/{page?}', 'ExpertController@dataListSpecialties');
 Route::get('/data-expert-list-social/{id}/{page?}', 'ExpertController@dataListSocial');
 Route::get('/data-expert-list-qualification/{id}/{page?}', 'ExpertController@dataListQualification');
+Route::get('/data-expert-list-location/{id}/{page?}', 'ExpertController@dataListLocation');
 
 Route::get('/data-get-institution/{id}', 'InstituteController@getInstitute');
 Route::get('/data-institutes', 'InstituteController@dataInstitutes');
@@ -162,6 +163,7 @@ Route::get('/remove-expert-achievement-admin/{id}', 'AdminController@removeExper
 Route::get('/remove-expert-social-admin/{id}', 'AdminController@removeExpertSocial');
 Route::get('/remove-expert-specialty-admin/{id}', 'AdminController@removeExpertSpecialty');
 Route::get('/remove-expert-qualification-admin/{id}', 'AdminController@removeExpertQualification');
+Route::get('/remove-expert-location-admin/{id}', 'AdminController@removeExpertLocation');
 
 Route::get('/remove-institute-membership-admin/{id}', 'AdminController@removeInstituteMembership');
 Route::get('/remove-institute-service-admin/{id}', 'AdminController@removeInstituteService');
@@ -180,6 +182,7 @@ Route::post('/create-expert-achievement-admin', 'AdminController@createExpertAch
 Route::post('/create-expert-social-admin', 'AdminController@createExpertSocial');
 Route::post('/create-expert-specialty-admin', 'AdminController@createExpertSpecialty');
 Route::post('/create-expert-qualification-admin', 'AdminController@createExpertQualification');
+Route::post('/create-expert-location-admin', 'AdminController@createExpertLocation');
 
 Route::get('/admin-institutes', 'AdminController@institutes');
 Route::get('/admin-view-institute/{id}', 'AdminController@viewInstitute');

@@ -7,4 +7,8 @@ class ExpertLocation extends Eloquent{
     public function expert(){
         return $this->belongsTo('Expert', 'expert_id');
     }
+
+    public function location(){
+        return $this->belongsTo('Location', 'location_id');
+    }
 }

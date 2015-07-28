@@ -703,4 +703,19 @@ class ExpertController extends BaseController {
         else
             return json_encode(array('message'=>'invalid'));
     }
+
+    public function dataListLocation($expertId, $page=null){
+
+        if(isset($expertId)){
+
+            $expertLocations = ExpertLocation::where('expert_id','=',$expertId)->with('location')->where('status','=','active')->get();
+
+            if(isset($expertLocations) && count($expertLocations)>0)
+                return json_encode(array('message'=>'found', 'locations' =>$expertLocations->toArray()));
+            else
+                return json_encode(array('message'=>'empty'));
+        }
+        else
+            return json_encode(array('message'=>'invalid'));
+    }
 }

@@ -18,7 +18,7 @@ $(document).ready(function () {
             'margin-top': '70px',
             'z-index': 15
         }, 200);
-        $(".page_banner .filter").css('position', 'fixed')
+        $(".page_banner .filter").css('position', 'fixed');
         $(".popup").fadeIn();
     });
     $(".popup").click(function () {
@@ -27,7 +27,7 @@ $(document).ready(function () {
             'margin-top': '100px',
             'z-index': 0
         }, 200);
-        $(".page_banner .filter").css('position', 'absolute')
+        $(".page_banner .filter").css('position', 'absolute');
         $(".popup").fadeOut();
     });
     $(".location_search input").click(function (e) {

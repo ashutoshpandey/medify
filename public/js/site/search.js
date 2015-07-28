@@ -1,5 +1,11 @@
 $(function () {
 
+    $("#btn-search").click(function(){
+        $("#form-search").attr('method', 'post');
+        $("#form-search").attr('action', root + '/experts');
+        $("#form-search").submit();
+    });
+
     $("input[name='location']").autocomplete({
         source: function (request, response) {
             $.ajax({
@@ -18,18 +24,23 @@ $(function () {
 
                             var place = location.city + " - " + location.state;
 
-                            $(".locations").append("<p rel='" + location.id + "'><span class='fa fa-map-marker'></span> " + place + "</p>")
+                            $(".locations").append("<p rel='" + location.id + "' title='" + place + "'><span class='fa fa-map-marker'></span> " + place + "</p>")
                         }
+
+                        $(".locations").find('p').unbind('click');
+                        $(".locations").find('p').click(function(){
+                            var location = $(this).attr('title');
+                            var id = $(this).attr('rel');
+
+                            $("input[name='location']").val(location);
+                            $("input[name='search-city']").val(id);
+                        });
                     }
                 }
             })
         },
         minLength: 2,
-        delay: 100,
-        select: function(event, ui){
-            alert(ui);
-            $("#search-city").val(ui.item.id);
-        }
+        delay: 100
     });
 
     $("input[name='search']").autocomplete({
@@ -57,8 +68,17 @@ $(function () {
 
                             var row = result.data[i];
 
-                            $(".search_content").append("<p class='group_" + row.group + "' rel='" + row.id + "'><b>" + row.name + "</b> in " + row.group + "</p>")
+                            $(".search_content").append("<p class='group_" + row.group + "' rel='" + row.id + "' title='" + row.name + "'><b>" + row.name + "</b> in " + row.group + "</p>")
                         }
+
+                        $(".search_content").find('p').unbind('click');
+                        $(".search_content").find('p').click(function(){
+                            var location = $(this).attr('title');
+                            var id = $(this).attr('rel');
+
+                            $("input[name='search']").val(location);
+                            $("input[name='search-keyword']").val(id);
+                        });
                     }
                 }
             })

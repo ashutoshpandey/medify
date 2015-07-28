@@ -2,20 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\xampp1.8\htdocs\medify\public\js\tablesorter.js" afterPath="" />
-      <change type="MOVED" beforePath="C:\xampp1.8\htdocs\medify\public\js\site\moment.min.js" afterPath="$PROJECT_DIR$/public/js/moment.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/AuthenticationController.php" afterPath="$PROJECT_DIR$/app/controllers/AuthenticationController.php" />
+      <change type="DELETED" beforePath="C:\xampp1.8\htdocs\medify\public\js\site\static\home.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/AdminController.php" afterPath="$PROJECT_DIR$/app/controllers/AdminController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/ExpertController.php" afterPath="$PROJECT_DIR$/app/controllers/ExpertController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/includes/common_js_bottom.blade.php" afterPath="$PROJECT_DIR$/app/views/includes/common_js_bottom.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/expert/detail.blade.php" afterPath="$PROJECT_DIR$/app/views/expert/detail.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/ExpertLocation.php" afterPath="$PROJECT_DIR$/app/models/ExpertLocation.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/StaticController.php" afterPath="$PROJECT_DIR$/app/controllers/StaticController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/site/common.js" afterPath="$PROJECT_DIR$/public/js/site/common.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/expert/experts.blade.php" afterPath="$PROJECT_DIR$/app/views/expert/experts.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home.blade.php" afterPath="$PROJECT_DIR$/app/views/home.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery.flexslider-min.js" afterPath="$PROJECT_DIR$/public/js/jquery.flexslider-min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/site/layout.css" afterPath="$PROJECT_DIR$/public/css/site/layout.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/includes/login-box.blade.php" afterPath="$PROJECT_DIR$/app/views/includes/login-box.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/site/login.js" afterPath="$PROJECT_DIR$/public/js/site/login.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes.php" afterPath="$PROJECT_DIR$/app/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/includes/search.blade.php" afterPath="$PROJECT_DIR$/app/views/includes/search.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/site/search.js" afterPath="$PROJECT_DIR$/public/js/site/search.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/view-expert.blade.php" afterPath="$PROJECT_DIR$/app/views/admin/view-expert.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/site/admin/view-expert.js" afterPath="$PROJECT_DIR$/public/js/site/admin/view-expert.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="med.iws" />
@@ -38,21 +36,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="dashboard.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/expert/dashboard.blade.php">
+      <file leaf-file-name="ExpertController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/ExpertController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.4">
-              <caret line="22" column="124" selection-start-line="22" selection-start-column="124" selection-end-line="22" selection-end-column="124" />
+            <state vertical-scroll-proportion="-16.2">
+              <caret line="705" column="0" selection-start-line="705" selection-start-column="0" selection-end-line="705" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ExpertController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controllers/ExpertController.php">
+      <file leaf-file-name="ExpertLocation.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/ExpertLocation.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7048611">
-              <caret line="38" column="45" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="45" />
+            <state vertical-scroll-proportion="-7.7">
+              <caret line="11" column="53" selection-start-line="11" selection-start-column="53" selection-end-line="11" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="search.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/site/search.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="4" column="60" selection-start-line="4" selection-start-column="60" selection-end-line="4" selection-end-column="60" />
               <folding />
             </state>
           </provider>
@@ -61,39 +69,115 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.2">
-              <caret line="25" column="54" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
+            <state vertical-scroll-proportion="-14.566667">
+              <caret line="122" column="88" selection-start-line="122" selection-start-column="88" selection-end-line="122" selection-end-column="88" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AuthenticationController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/AuthenticationController.php">
+      <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/AdminController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-27.4">
-              <caret line="263" column="33" selection-start-line="263" selection-start-column="33" selection-end-line="263" selection-end-column="33" />
+            <state vertical-scroll-proportion="-18.3">
+              <caret line="737" column="0" selection-start-line="737" selection-start-column="0" selection-end-line="737" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="common_css.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/includes/common_css.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.1">
-              <caret line="3" column="53" selection-start-line="3" selection-start-column="53" selection-end-line="3" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="experts.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="experts.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/expert/experts.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-22.5">
-              <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.28125">
+              <caret line="62" column="90" selection-start-line="62" selection-start-column="90" selection-end-line="62" selection-end-column="90" />
+              <folding>
+                <marker date="1438059628196" expanded="true" signature="2271:2515" placeholder="..." />
+                <marker date="1438059628196" expanded="true" signature="2304:2515" placeholder="..." />
+                <marker date="1438059628196" expanded="true" signature="2345:2423" placeholder="..." />
+                <marker date="1438059628196" expanded="true" signature="2468:2515" placeholder="..." />
+                <marker date="1438059628196" expanded="true" signature="2766:2791" placeholder="..." />
+                <marker date="1438059628196" expanded="true" signature="2919:3192" placeholder="..." />
+                <marker date="1438059628196" expanded="true" signature="3234:3449" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StaticController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/StaticController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-12.6">
+              <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+              <folding>
+                <marker date="1438059094418" expanded="true" signature="1016:1244" placeholder="select * fro..experts..." />
+                <marker date="1438059094418" expanded="true" signature="1175:1232" placeholder="select exper..expert_locations..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="laravel.log" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/storage/logs/laravel.log">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-247.05882">
+              <caret line="400" column="0" selection-start-line="400" selection-start-column="0" selection-end-line="400" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view-expert.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/admin/view-expert.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.966666">
+              <caret line="366" column="0" selection-start-line="366" selection-start-column="0" selection-end-line="366" selection-end-column="0" />
+              <folding>
+                <element signature="n#select#0;n#div#1;n#div#0;n#form#0;n#div#7;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view-expert.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/site/admin/view-expert.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="668" column="1" selection-start-line="668" selection-start-column="1" selection-end-line="668" selection-end-column="1" />
+              <folding>
+                <marker date="1438057063287" expanded="true" signature="1631:2001" placeholder="..." />
+                <marker date="1438057063287" expanded="true" signature="1653:1979" placeholder="..." />
+                <marker date="1438057063287" expanded="true" signature="1676:1956" placeholder="..." />
+                <marker date="1438057063287" expanded="true" signature="2139:2166" placeholder="..." />
+                <marker date="1438057063287" expanded="true" signature="4358:4733" placeholder="..." />
+                <marker date="1438057063287" expanded="true" signature="4600:4688" placeholder="..." />
+                <marker date="1438057063287" expanded="true" signature="4600:4711" placeholder="..." />
+                <marker date="1438057063287" expanded="true" signature="4600:4733" placeholder="..." />
+                <marker date="1438057063287" expanded="true" signature="4868:4895" placeholder="..." />
+                <marker date="1438057063287" expanded="true" signature="7068:7437" placeholder="..." />
+                <marker date="1438057063287" expanded="true" signature="7090:7415" placeholder="..." />
+                <marker date="1438057063287" expanded="true" signature="7113:7392" placeholder="..." />
+                <marker date="1438057063287" expanded="true" signature="7574:7601" placeholder="..." />
+                <marker date="1438057063287" expanded="true" signature="9777:10147" placeholder="..." />
+                <marker date="1438057063287" expanded="true" signature="9799:10125" placeholder="..." />
+                <marker date="1438057063287" expanded="true" signature="9822:10102" placeholder="..." />
+                <marker date="1438057063287" expanded="true" signature="10276:10303" placeholder="..." />
+                <marker date="1438057063287" expanded="true" signature="12486:12856" placeholder="..." />
+                <marker date="1438057063287" expanded="true" signature="12508:12834" placeholder="..." />
+                <marker date="1438057063287" expanded="true" signature="12531:12811" placeholder="..." />
+                <marker date="1438057063287" expanded="true" signature="12997:13024" placeholder="..." />
+                <marker date="1438057063287" expanded="true" signature="15216:15578" placeholder="..." />
+                <marker date="1438057063287" expanded="true" signature="15238:15556" placeholder="..." />
+                <marker date="1438057063287" expanded="true" signature="15261:15533" placeholder="..." />
+                <marker date="1438057063287" expanded="true" signature="15704:15731" placeholder="..." />
+                <marker date="1438057063287" expanded="true" signature="25530:25903" placeholder="..." />
+                <marker date="1438057063287" expanded="true" signature="25552:25881" placeholder="..." />
+                <marker date="1438057063287" expanded="true" signature="25575:25858" placeholder="..." />
+                <marker date="1438057063287" expanded="true" signature="26050:26077" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -116,7 +200,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/views/includes/admin/common_css.blade.php" />
         <option value="$PROJECT_DIR$/app/views/admin/admin-section.blade.php" />
         <option value="$PROJECT_DIR$/app/models/Expert.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2015_07_01_023434_create_subcategories_table.php" />
@@ -128,15 +211,12 @@
         <option value="$PROJECT_DIR$/app/database/migrations/2015_07_01_023437_create_expertcategories_table.php" />
         <option value="$PROJECT_DIR$/public/js/site/admin/categories.js" />
         <option value="$PROJECT_DIR$/app/config/database.php" />
-        <option value="$PROJECT_DIR$/public/js/site/admin/view-expert.js" />
-        <option value="$PROJECT_DIR$/app/views/admin/view-expert.blade.php" />
         <option value="$PROJECT_DIR$/app/views/expert-login.blade.php" />
         <option value="$PROJECT_DIR$/public/js/site/expert-login.js" />
         <option value="$PROJECT_DIR$/public/js/site/user-login.js" />
         <option value="$PROJECT_DIR$/app/views/includes/how-it-works.blade.php" />
         <option value="$PROJECT_DIR$/app/views/includes/admin/login-box.blade.php" />
         <option value="$PROJECT_DIR$/public/css/site/common.css" />
-        <option value="$PROJECT_DIR$/public/js/site/common.js" />
         <option value="$PROJECT_DIR$/app/views/includes/header.blade.php" />
         <option value="$PROJECT_DIR$/app/models/Location.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2015_07_03_020902_create_expert_locations_table.php" />
@@ -144,29 +224,33 @@
         <option value="$PROJECT_DIR$/public/js/site/admin/locations.js" />
         <option value="$PROJECT_DIR$/app/views/includes/footer.blade.php" />
         <option value="$PROJECT_DIR$/public/js/site/admin/experts.js" />
-        <option value="$PROJECT_DIR$/app/storage/logs/laravel.log" />
         <option value="$PROJECT_DIR$/app/database/migrations/2015_07_01_023434_create_experts_table.php" />
         <option value="$PROJECT_DIR$/app/views/admin/experts.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/includes/search.blade.php" />
         <option value="$PROJECT_DIR$/app/views/admin/institutes.blade.php" />
         <option value="$PROJECT_DIR$/public/js/site/admin/institutes.js" />
-        <option value="$PROJECT_DIR$/app/controllers/AdminController.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2015_07_01_023326_create_institutes_table.php" />
-        <option value="$PROJECT_DIR$/app/controllers/StaticController.php" />
-        <option value="$PROJECT_DIR$/public/js/site/search.js" />
         <option value="$PROJECT_DIR$/app/views/includes/expert/menu.blade.php" />
         <option value="$PROJECT_DIR$/app/views/includes/common_js_bottom.blade.php" />
         <option value="$PROJECT_DIR$/app/views/home.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/expert/experts.blade.php" />
         <option value="$PROJECT_DIR$/app/views/expert/detail.blade.php" />
         <option value="$PROJECT_DIR$/app/views/expert/expert-section.blade.php" />
         <option value="$PROJECT_DIR$/public/css/site/layout.css" />
         <option value="$PROJECT_DIR$/app/views/includes/login-box.blade.php" />
         <option value="$PROJECT_DIR$/public/js/site/login.js" />
-        <option value="$PROJECT_DIR$/app/controllers/ExpertController.php" />
         <option value="$PROJECT_DIR$/app/views/expert/dashboard.blade.php" />
-        <option value="$PROJECT_DIR$/app/routes.php" />
         <option value="$PROJECT_DIR$/app/controllers/AuthenticationController.php" />
+        <option value="$PROJECT_DIR$/public/js/site/common.js" />
+        <option value="$PROJECT_DIR$/app/views/includes/search.blade.php" />
+        <option value="$PROJECT_DIR$/public/js/site/search.js" />
+        <option value="$PROJECT_DIR$/app/controllers/AdminController.php" />
+        <option value="$PROJECT_DIR$/app/routes.php" />
+        <option value="$PROJECT_DIR$/app/controllers/ExpertController.php" />
+        <option value="$PROJECT_DIR$/app/models/ExpertLocation.php" />
+        <option value="$PROJECT_DIR$/public/js/site/admin/view-expert.js" />
+        <option value="$PROJECT_DIR$/app/views/admin/view-expert.blade.php" />
+        <option value="$PROJECT_DIR$/app/storage/logs/laravel.log" />
+        <option value="$PROJECT_DIR$/app/controllers/StaticController.php" />
+        <option value="$PROJECT_DIR$/app/views/expert/experts.blade.php" />
       </list>
     </option>
   </component>
@@ -219,7 +303,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -324,6 +407,64 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="expert" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="database" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -349,6 +490,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -458,49 +600,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/css/site/common.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38926175">
-          <caret line="156" column="0" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/site/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="114" column="27" selection-start-line="114" selection-start-column="27" selection-end-line="114" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/includes/header.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41319445">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/site/static/home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49328858">
-          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_01_023433_create_location_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_01_023528_create_user_healths_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5590278">
-          <caret line="24" column="70" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_03_020903_create_expert_locations_timings_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -553,16 +652,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/storage/logs/laravel.log">
-      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_01_023434_create_experts_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5833333">
@@ -583,14 +672,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="88" column="45" selection-start-line="88" selection-start-column="45" selection-end-line="88" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/institutes.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="318" column="79" selection-start-line="318" selection-start-column="79" selection-end-line="318" selection-end-column="79" />
           <folding />
         </state>
       </provider>
@@ -625,24 +706,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/site/admin/institutes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="141" column="46" selection-start-line="141" selection-start-column="46" selection-end-line="141" selection-end-column="46" />
-          <folding>
-            <marker date="1437914162259" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1437914162259" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1437914162259" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1437914162259" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_07_01_023412_create_user_addresses_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -657,30 +724,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5300481">
           <caret line="22" column="37" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/AdminController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1054" column="56" selection-start-line="1054" selection-start-column="56" selection-end-line="1054" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/StaticController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.1">
-          <caret line="121" column="54" selection-start-line="121" selection-start-column="54" selection-end-line="121" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/site/search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44630873">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -732,14 +775,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/includes/search.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3402778">
-          <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/css/site/layout.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -756,14 +791,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/includes/common_css.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.1">
-          <caret line="3" column="53" selection-start-line="3" selection-start-column="53" selection-end-line="3" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/includes/login-box.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-21.7">
@@ -776,7 +803,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -784,7 +810,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -792,7 +817,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -800,7 +824,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -808,7 +831,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5167785">
           <caret line="29" column="69" selection-start-line="29" selection-start-column="69" selection-end-line="29" selection-end-column="69" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -816,47 +838,211 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/site/experts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33213645">
+          <caret line="1" column="8093" selection-start-line="1" selection-start-column="8093" selection-end-line="1" selection-end-column="8093" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/expert/experts.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/views/includes/common_css.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-22.5">
-          <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+        <state vertical-scroll-proportion="-2.1">
+          <caret line="3" column="53" selection-start-line="3" selection-start-column="53" selection-end-line="3" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/expert/dashboard.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.4">
+        <state vertical-scroll-proportion="0.0">
           <caret line="22" column="124" selection-start-line="22" selection-start-column="124" selection-end-line="22" selection-end-column="124" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes.php">
+    <entry file="file://$PROJECT_DIR$/public/js/site/common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.2">
-          <caret line="25" column="54" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
+        <state vertical-scroll-proportion="-2.597015">
+          <caret line="24" column="43" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/AuthenticationController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-27.4">
-          <caret line="263" column="33" selection-start-line="263" selection-start-column="33" selection-end-line="263" selection-end-column="33" />
+        <state vertical-scroll-proportion="5.2534723">
+          <caret line="248" column="0" selection-start-line="248" selection-start-column="0" selection-end-line="248" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/includes/search.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-28.0">
+          <caret line="40" column="49" selection-start-line="40" selection-start-column="49" selection-end-line="40" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/site/admin/institutes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding>
+            <marker date="1437914162259" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1437914162259" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1437914162259" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1437914162259" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/view-institute.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.024305556">
+          <caret line="313" column="99" selection-start-line="313" selection-start-column="99" selection-end-line="313" selection-end-column="99" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/institutes.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.066667">
+          <caret line="354" column="45" selection-start-line="354" selection-start-column="45" selection-end-line="354" selection-end-column="45" />
+          <folding>
+            <element signature="n#select#0;n#div#1;n#div#2;n#form#0;n#div#0;n#div#1;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/AdminController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.3">
+          <caret line="737" column="0" selection-start-line="737" selection-start-column="0" selection-end-line="737" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/ExpertController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7048611">
-          <caret line="38" column="45" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="45" />
+        <state vertical-scroll-proportion="-16.2">
+          <caret line="705" column="0" selection-start-line="705" selection-start-column="0" selection-end-line="705" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/ExpertLocation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.7">
+          <caret line="11" column="53" selection-start-line="11" selection-start-column="53" selection-end-line="11" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/site/admin/view-expert.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="668" column="1" selection-start-line="668" selection-start-column="1" selection-end-line="668" selection-end-column="1" />
+          <folding>
+            <marker date="1438057063287" expanded="true" signature="1631:2001" placeholder="..." />
+            <marker date="1438057063287" expanded="true" signature="1653:1979" placeholder="..." />
+            <marker date="1438057063287" expanded="true" signature="1676:1956" placeholder="..." />
+            <marker date="1438057063287" expanded="true" signature="2139:2166" placeholder="..." />
+            <marker date="1438057063287" expanded="true" signature="4358:4733" placeholder="..." />
+            <marker date="1438057063287" expanded="true" signature="4600:4688" placeholder="..." />
+            <marker date="1438057063287" expanded="true" signature="4600:4711" placeholder="..." />
+            <marker date="1438057063287" expanded="true" signature="4600:4733" placeholder="..." />
+            <marker date="1438057063287" expanded="true" signature="4868:4895" placeholder="..." />
+            <marker date="1438057063287" expanded="true" signature="7068:7437" placeholder="..." />
+            <marker date="1438057063287" expanded="true" signature="7090:7415" placeholder="..." />
+            <marker date="1438057063287" expanded="true" signature="7113:7392" placeholder="..." />
+            <marker date="1438057063287" expanded="true" signature="7574:7601" placeholder="..." />
+            <marker date="1438057063287" expanded="true" signature="9777:10147" placeholder="..." />
+            <marker date="1438057063287" expanded="true" signature="9799:10125" placeholder="..." />
+            <marker date="1438057063287" expanded="true" signature="9822:10102" placeholder="..." />
+            <marker date="1438057063287" expanded="true" signature="10276:10303" placeholder="..." />
+            <marker date="1438057063287" expanded="true" signature="12486:12856" placeholder="..." />
+            <marker date="1438057063287" expanded="true" signature="12508:12834" placeholder="..." />
+            <marker date="1438057063287" expanded="true" signature="12531:12811" placeholder="..." />
+            <marker date="1438057063287" expanded="true" signature="12997:13024" placeholder="..." />
+            <marker date="1438057063287" expanded="true" signature="15216:15578" placeholder="..." />
+            <marker date="1438057063287" expanded="true" signature="15238:15556" placeholder="..." />
+            <marker date="1438057063287" expanded="true" signature="15261:15533" placeholder="..." />
+            <marker date="1438057063287" expanded="true" signature="15704:15731" placeholder="..." />
+            <marker date="1438057063287" expanded="true" signature="25530:25903" placeholder="..." />
+            <marker date="1438057063287" expanded="true" signature="25552:25881" placeholder="..." />
+            <marker date="1438057063287" expanded="true" signature="25575:25858" placeholder="..." />
+            <marker date="1438057063287" expanded="true" signature="26050:26077" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/view-expert.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.966666">
+          <caret line="366" column="0" selection-start-line="366" selection-start-column="0" selection-end-line="366" selection-end-column="0" />
+          <folding>
+            <element signature="n#select#0;n#div#1;n#div#0;n#form#0;n#div#7;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/storage/logs/laravel.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-247.05882">
+          <caret line="400" column="0" selection-start-line="400" selection-start-column="0" selection-end-line="400" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.566667">
+          <caret line="122" column="88" selection-start-line="122" selection-start-column="88" selection-end-line="122" selection-end-column="88" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/site/search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="60" selection-start-line="4" selection-start-column="60" selection-end-line="4" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/StaticController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.6">
+          <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+          <folding>
+            <marker date="1438059094418" expanded="true" signature="1016:1244" placeholder="select * fro..experts..." />
+            <marker date="1438059094418" expanded="true" signature="1175:1232" placeholder="select exper..expert_locations..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/expert/experts.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28125">
+          <caret line="62" column="90" selection-start-line="62" selection-start-column="90" selection-end-line="62" selection-end-column="90" />
+          <folding>
+            <marker date="1438059628196" expanded="true" signature="2271:2515" placeholder="..." />
+            <marker date="1438059628196" expanded="true" signature="2304:2515" placeholder="..." />
+            <marker date="1438059628196" expanded="true" signature="2345:2423" placeholder="..." />
+            <marker date="1438059628196" expanded="true" signature="2468:2515" placeholder="..." />
+            <marker date="1438059628196" expanded="true" signature="2766:2791" placeholder="..." />
+            <marker date="1438059628196" expanded="true" signature="2919:3192" placeholder="..." />
+            <marker date="1438059628196" expanded="true" signature="3234:3449" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
