@@ -14,7 +14,10 @@ class StaticController extends BaseController
 
     public function home()
     {
-        return View::make('home');
+        return View::make('home')
+                ->with('location', '')
+                ->with('search', '')
+                ->with('locationId', '');
     }
 
     public function expertLogin()
@@ -24,33 +27,84 @@ class StaticController extends BaseController
 
     public function experts()
     {
+        $location = Input::get('location');
         $locationId = Input::get('search-city');
-        $keyword = Input::get('search-keyword');
+        $keyword = Input::get('search');
 
-        if (isset($locationId)) {
+        if (isset($locationId) && strlen($locationId)>0) {
 
             if(isset($keyword) && strlen(trim($keyword))>0){
-                $sql = "((select * from experts where first_name like '%keyword%' or last_name like '%$keyword%')";
+
+                $sql = "(select experts.id,first_name,last_name,title,highest_qualification,city,state,image_name from experts, locations, expert_locations where experts.id=expert_locations.expert_id
+                        and expert_locations.location_id=locations.id and
+                        experts.id in(select expert_id from expert_locations where location_id=$locationId) and first_name like '%$keyword%' or last_name like '%$keyword%')";
+
                 $sql .= " union ";
-                $sql .= "(select * from experts where id in (select expert_id in expert_specialties where name like '%$keyword%')) group by experts.id";
+
+                $sql .= "(select experts.id,first_name,last_name,title,highest_qualification,city,state,image_name from experts, locations, expert_locations where experts.id=expert_locations.expert_id
+                        and expert_locations.location_id=locations.id and
+                        experts.id in(select expert_id from expert_locations where location_id=$locationId) and experts.id in (select expert_id from expert_specialties where name like '%$keyword%'))";
             }
             else{
-                $sql = "select * from experts, locations, expert_locations where experts.id=expert_locations.expert_id and expert_locations.location_id=locations.id and experts.id in(select expert_id from expert_locations where location_id=$locationId)";
+                $sql = "select * from experts, locations, expert_locations where experts.id=expert_locations.expert_id and expert_locations.location_id=locations.id and experts.id in(select expert_id from expert_locations where location_id=$locationId) group by experts.id";
             }
 
         } else if (isset($keyword) && strlen(trim($keyword))>0) {
-            $sql = "((select * from experts where first_name like '%keyword%' or last_name like '%$keyword%')";
+            $sql = "(select experts.id,first_name,last_name,title,highest_qualification,city,state,image_name from experts, locations, expert_locations where experts.id=expert_locations.expert_id
+                        and expert_locations.location_id=locations.id and first_name like '%$keyword%' or last_name like '%$keyword%')";
+
             $sql .= " union ";
-            $sql .= "(select * from experts where id in (select expert_id in expert_specialties where name like '%$keyword%')) group by experts.id";
+
+            $sql .= "(select experts.id,first_name,last_name,title,highest_qualification,city,state,image_name from experts, locations, expert_locations where experts.id=expert_locations.expert_id
+                        and expert_locations.location_id=locations.id and experts.id in (select expert_id from expert_specialties where name like '%$keyword%'))";
+        }
+        else if(isset($location)){
+            $sql = "select experts.id,first_name,last_name,title,highest_qualification,city,state,image_name from experts, locations, expert_locations where experts.id=expert_locations.expert_id
+            and expert_locations.location_id=locations.id and city like '%$location%' or state like '%$location%'";
         }
 
-        if(isset($sql))
-            $experts = DB::select(DB::raw($sql));
+        if(isset($sql)) {
+            $expertsArray = DB::select(DB::raw($sql));
 
-        if (isset($experts) && count($experts) > 0)
-            return View::make('expert.experts')->with('found', true)->with('experts', $experts);
+            if (isset($expertsArray) && count($expertsArray) > 0) {
+                $experts = array();
+                $expertsTemp = array();
+                foreach ($expertsArray as $itemObj) {
+
+                    $item = get_object_vars($itemObj);
+
+                    if (!isset($expertsTemp[$item['id']])) {
+                        $expertsTemp[$item['id']] = 'y';
+                        $experts[] = $item;
+                    }
+                }
+
+                if (isset($experts) && count($experts) > 0)
+                    return View::make('expert.experts')
+                        ->with('found', true)
+                        ->with('location', $location)
+                        ->with('search', $keyword)
+                        ->with('locationId', $locationId)
+                        ->with('experts', $experts);
+                else
+                    return View::make('expert.experts')
+                        ->with('found', false)
+                        ->with('location', '')
+                        ->with('search', '')
+                        ->with('locationId', '');
+            } else
+                return View::make('expert.experts')
+                    ->with('found', false)
+                    ->with('location', '')
+                    ->with('search', '')
+                    ->with('locationId', '');
+        }
         else
-            return View::make('expert.experts')->with('found', false);
+            return View::make('expert.experts')
+                ->with('found', false)
+                ->with('location', '')
+                ->with('search', '')
+                ->with('locationId', '');
     }
 
     public function expert($id)

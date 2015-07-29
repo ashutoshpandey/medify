@@ -435,12 +435,14 @@ class AdminController extends BaseController {
             $expert->last_name = Input::get('last_name');
             $expert->gender = Input::get('gender');
             $expert->country = 'India';
-            $expert->status = "active";
+            $expert->title = Input::get('title');
+            $expert->highest_qualification = Input::get('highest_qualification');
             $expert->about = Input::get('about');
             $expert->experience = Input::get('experience');
             $expert->contact_number = Input::get('contact_number');
             $expert->extension_number = Input::get('extension_number');
 
+            $expert->status = "active";
             $expert->created_at = date("Y-m-d h:i:s");
             $expert->updated_at = date("Y-m-d h:i:s");
 
@@ -558,6 +560,8 @@ class AdminController extends BaseController {
             $expert->experience = Input::get('experience');
             $expert->contact_number = Input::get('contact_number');
             $expert->extension_number = Input::get('extension_number');
+            $expert->title = Input::get('title');
+            $expert->highest_qualification = Input::get('highest_qualification');
 
             $expert->status = "active";
             $expert->updated_at = date("Y-m-d h:i:s");

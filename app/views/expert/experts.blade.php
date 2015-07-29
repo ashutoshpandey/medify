@@ -53,11 +53,9 @@
 
         @if($found)
 
-        @foreach($experts as $expertObj)
+        @foreach($experts as $expert)
 
             <?php
-                $expert = get_object_vars($expertObj);
-
                 if (isset( $expert['image_name'])) {
                     $expertPic = asset('public/uploads/experts/' . $expert['id'] . '/' .  $expert['image_name']);
                     $fileLocation = public_path() . '\\uploads\\experts\\' . $expert['id'] . '\\' .  $expert['image_name'];
@@ -75,8 +73,8 @@
                 </div>
                 <div class="expert_details">
                     <p class="name">{{$expert['first_name']}} {{$expert['last_name']}}</p>
-                    <p class="qualification">MD, MBBS</p>
-                    <p class="specialities">Heart Surgeon</p>
+                    <p class="qualification">{{$expert['highest_qualification']}}</p>
+                    <p class="specialities">{{$expert['title']}}</p>
                     <p class="fee">Rs 500/-</p>
                     <p class="rating">
                     </p>
@@ -105,7 +103,7 @@
 
 {{HTML::script(asset("/public/js/site/experts.js"))}}
 {{HTML::script(asset("/public/js/site/login.js"))}}
-
+{{HTML::script(asset("/public/js/site/search.js"))}}
 </body>
 </html>
 

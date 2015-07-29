@@ -77,9 +77,9 @@
                             <div class='clear'></div>
                         </div>
                         <div class='form-row'>
-                            <div class='form-label'>Extension Number</div>
+                            <div class='form-label'>Title</div>
                             <div class='form-data'>
-                                <input type='text' name='extension_number'/>
+                                <input type='text' name='title'/>
                             </div>
                             <div class='form-label'>Gender</div>
                             <div class='form-data'>
@@ -87,6 +87,17 @@
                                     <option>Male</option>
                                     <option>Female</option>
                                 </select>
+                            </div>
+                            <div class='clear'></div>
+                        </div>
+                        <div class='form-row'>
+                            <div class='form-label'>Highest Qualification</div>
+                            <div class='form-data'>
+                                <input type='text' name='highest_qualification'/>
+                            </div>
+                            <div class='form-label'>Extension Number</div>
+                            <div class='form-data'>
+                                <input type='text' name='extension_number'/>
                             </div>
                             <div class='clear'></div>
                         </div>

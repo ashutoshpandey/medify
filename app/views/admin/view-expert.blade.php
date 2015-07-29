@@ -77,9 +77,9 @@
                                 <div class='clear'></div>
                             </div>
                             <div class='form-row'>
-                                <div class='form-label'>Extension Number</div>
+                                <div class='form-label'>Title</div>
                                 <div class='form-data'>
-                                    <input type='text' name='extension_number' value="{{$expert->extension_number}}"/>
+                                    <input type='text' name='title' value="{{$expert->title}}"/>
                                 </div>
                                 <div class='form-label'>Gender</div>
                                 <div class='form-data'>
@@ -87,6 +87,17 @@
                                         <option>Male</option>
                                         <option>Female</option>
                                     </select>
+                                </div>
+                                <div class='clear'></div>
+                            </div>
+                            <div class='form-row'>
+                                <div class='form-label'>Highest Qualification</div>
+                                <div class='form-data'>
+                                    <input type='text' name='highest_qualification' value="{{$expert->highest_qualification}}"/>
+                                </div>
+                                <div class='form-label'>Extension Number</div>
+                                <div class='form-data'>
+                                    <input type='text' name='extension_number' value="{{$expert->extension_number}}"/>
                                 </div>
                                 <div class='clear'></div>
                             </div>
@@ -122,7 +133,7 @@
                                 <div class='form-label'>&nbsp;</div>
                                 <div class='form-data-full'>
                                     <input type='submit' value="Update Expert" class='half'/> <span
-                                        class='message'></span>
+                                            class='message'></span>
                                 </div>
                                 <div class='clear'></div>
                             </div>
@@ -408,6 +419,9 @@
 
 @include('includes/common_js_bottom')
 {{HTML::script(asset("/public/js/site/admin/view-expert.js"))}}
+<script>
+    $("select[name='gender']").val("{{$expert->gender}}");
+</script>
 <span style="display: none" rel='{{$expert->id}}' id='expert_id'>&nbsp;</span>
 </body>
 </html>

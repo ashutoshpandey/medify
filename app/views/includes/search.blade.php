@@ -2,7 +2,7 @@
     <form id="form-search">
         <div class="column three  location_search">
             <div class="row">
-                <input type="text" name="location" placeholder="Location" style="padding-left: 30px;"/>
+                <input type="text" name="location" placeholder="Location" style="padding-left: 30px;" value="{{$location}}"/>
 
                 <p class="location_icon"><span class="fa fa-map-marker"></span></p>
 
@@ -12,7 +12,7 @@
         </div>
         <div class="column four  expert_search">
             <div class="row">
-                <input type="text" name="search" placeholder="Search by Expert name, Speciality"/>
+                <input type="text" name="search" placeholder="Search by Expert name, Speciality" value="{{$search}}"/>
 
                 <div class="search_content">
                     <p><b>Rajan Kumar</b> in Heart surgery</p>
@@ -37,7 +37,6 @@
         <div class="column two">
             <button type="button" id="btn-search">Search</button>
         </div>
-        <input type="hidden" name="search-city"/>
-        <input type="hidden" name="search-keyword"/>
+        <input type="hidden" name="search-city" value="{{$locationId}}"/>
     </form>
 </div>
