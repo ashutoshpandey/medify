@@ -8,19 +8,13 @@
                         </span>
                 Dashboard</a>
         </li>
-        <li><a href="#">
+        <li><a href="{{$root}}/manage-expert-appointments">
                         <span>
                             <svg width="30px" height="30px" viewBox="0 0 484.951 484.951">
                                 <use xlink:href="#book-appointment"></use>
                             </svg>
                         </span>
-                Manage appointment</a>
-            <ul>
-                <li><a href="#">Online appointments</a></li>
-                <li><a href="#">Tele appointments</a></li>
-                <li><a href="#">Home Visits</a></li>
-                <li><a href="#">Written advice</a></li>
-            </ul>
+                Manage appointments</a>
         </li>
         <li><a href="#">
                         <span>

@@ -7,6 +7,20 @@ class ExpertController extends BaseController {
         $this->beforeFilter(function(){
             $id = Session::get('expert_id');
 
+            if(isset($id)){
+                $expert = Expert::find($id);
+
+                if(isset($expert)) {
+                    if (isset($expert->image_name))
+                        $expertImage = 'uploads/experts/' . $expert->id . '/' . $expert->image_name;
+                    else
+                        $expertImage = 'images/expert.jpg';
+
+                    View::share('expertImage', $expertImage);
+                    View::share('expert_name', $expert->first_name . " " . $expert->last_name);
+                }
+            }
+
             date_default_timezone_set("UTC");
 
             View::share('root', URL::to('/'));
@@ -30,16 +44,9 @@ class ExpertController extends BaseController {
             ->where('status','=','pending')
             ->where('appointment_date','>=', date('Y-m-d H:i:s'))->count();
 
-        if(isset($expert->image_name))
-            $expertImage = 'uploads/experts/' . $expert->id . '/' . $expert->image_name;
-        else
-            $expertImage = 'images/expert.jpg';
-
         return View::make('expert.dashboard')
                     ->with('appointment_count', $appointment_count)
-                    ->with('availability_count', $availability_count)
-                    ->with('expert_name', $expert->first_name . " " . $expert->last_name)
-                    ->with('expertImage', $expertImage);
+                    ->with('availability_count', $availability_count);
     }
 
     public function appointments(){
@@ -717,5 +724,15 @@ class ExpertController extends BaseController {
         }
         else
             return json_encode(array('message'=>'invalid'));
+    }
+
+    public function manageAppointments(){
+
+        $expertId = Session::get('expert_id');
+
+        if(!isset($expertId))
+            return Redirect::to('/');
+
+        return View::make('expert.manage-appointments');
     }
 }

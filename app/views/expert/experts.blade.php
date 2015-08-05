@@ -85,7 +85,7 @@
                         <span class="active"><i class="flaticon-lists13"></i></span>
                     </div>
                     <div class="booking">
-                        <a href="{{$root}}/expert/1"><span class="fa fa-eye"></span> View profile</a>
+                        <a href="{{$root}}/expert/{{$expert['id']}}"><span class="fa fa-eye"></span> View profile</a>
                         <a href="#"><span class="fa fa-calendar"></span> Book now</a>
                     </div>
                 </div>

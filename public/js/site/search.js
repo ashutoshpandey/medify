@@ -1,6 +1,21 @@
 $(function () {
 
     $("#btn-search").click(function(){
+
+        var location = $("input[name='location']").val();
+        var search = $("input[name='search']").val();
+
+        if(location.trim().length==0 && search.trim().length==0){
+            var color = $(this).css('background-color');
+            $(this).css('background-color', 'red');
+
+            setTimeout(function(){
+                $("#btn-search").css('background-color', color);
+            },2000);
+
+            return;
+        }
+
         $("#form-search").attr('method', 'post');
         $("#form-search").attr('action', root + '/experts');
         $("#form-search").submit();

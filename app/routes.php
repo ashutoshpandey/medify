@@ -66,6 +66,7 @@ Route::post('/update-expert', 'ExpertController@updateExpert');
 Route::post('/update-expert-picture', 'ExpertController@updatePicture');
 Route::post('/update-password', 'ExpertController@updatePassword');
 Route::post('/update-about', 'ExpertController@updateAbout');
+Route::get('/manage-expert-appointments', 'ExpertController@manageAppointments');
 
 Route::get('/expert-appointments/{id}/{start-date?}/{end-date?}', 'ExpertController@expertAppointments');
 Route::get('/cancel-expert-appointment/{id}', 'ExpertController@cancelAppointment');

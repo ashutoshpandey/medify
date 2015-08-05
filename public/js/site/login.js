@@ -13,6 +13,8 @@ function doLogin(){
 
 function doExpertLogin(){
 
+    $("#form-expert-login").find('.message').html('');
+
     if(isExpertLoginFormValid()){
 
         var data = $("#form-login").serialize();
@@ -25,11 +27,11 @@ function doExpertLogin(){
             success: function(result){
 
                 if(result.message.indexOf('invalid')>-1)
-                    $("#form-expert-login").find('.message').html('Invalid username or password');
+                    $("#form-login").find('.message').show().html('Invalid username or password');
                 else if(result.message.indexOf('correct')>-1)
                     window.location.replace(root + '/expert-dashboard');
                 else
-                    $("#form-expert-login").find('.message').html('Server returned error : ' + result.message);
+                    $("#form-expert-login").find('.message').show().html('Server returned error : ' + result.message);
             }
         });
     }
