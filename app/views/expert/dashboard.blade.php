@@ -191,7 +191,7 @@
         </div>
     </div>
 </div>
-@include('includes.footer')
+@include('includes.expert-admin-footer')
 
 {{HTML::script(asset("/public/js/tablesorter.js"))}}
 {{HTML::script(asset("/public/js/moment.min.js"))}}

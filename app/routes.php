@@ -68,7 +68,9 @@ Route::post('/update-password', 'ExpertController@updatePassword');
 Route::post('/update-about', 'ExpertController@updateAbout');
 Route::get('/manage-expert-appointments', 'ExpertController@manageAppointments');
 
-Route::get('/expert-appointments/{id}/{start-date?}/{end-date?}', 'ExpertController@expertAppointments');
+Route::get('/expert-list-appointments/{status}/{page}/{start-date?}/{end-date?}', 'ExpertController@listAppointments');
+
+Route::get('/expert-appointments/{id}/{status?}/{start-date?}/{end-date?}', 'ExpertController@dataExpertAppointments');
 Route::get('/cancel-expert-appointment/{id}', 'ExpertController@cancelAppointment');
 Route::get('/cancel-expert-available-appointment/{id}', 'ExpertController@cancelAvailableAppointment');
 

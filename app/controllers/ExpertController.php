@@ -59,6 +59,43 @@ class ExpertController extends BaseController {
         return View::make('expert.availabilities');
     }
 
+    function listAppointments($status, $page, $startDate=null, $endDate=null){
+
+        $expertId = Session::get('expert_id');
+        if(!isset($expertId))
+            return json_encode(array('message'=>'not logged'));
+
+        if(isset($expertId)){
+
+            if(isset($startDate) && isset($endDate)){
+
+                $startDate = date('Y-m-d', strtotime($startDate));
+                $endDate = date('Y-m-d', strtotime($endDate));
+
+                $appointments = Appointment::where('expert_id', '=', $expertId)
+                    ->where('status', '=', $status)
+                    ->where('start_date', '>=', $startDate)
+                    ->where('end_date', '<=', $endDate)->get();
+            }
+            else if(isset($startDate)){
+
+                $startDate = date('Y-m-d', strtotime($startDate));
+
+                $appointments = Appointment::where('expert_id', '=', $expertId)
+                    ->where('start_date', '>=', $startDate)->get();
+            }
+            else
+                $appointments = Appointment::where('expert_id', '=', $expertId)->get();
+
+            if(isset($appointments))
+                return json_encode(array('message'=>'found', 'appointments' => $appointments->toArray()));
+            else
+                return json_encode(array('message'=>'empty'));
+        }
+        else
+            return json_encode(array('message'=>'invalid'));
+    }
+
     public function appointment($id){
 
         $expertId = Session::get('expert_id');
@@ -533,7 +570,7 @@ class ExpertController extends BaseController {
         return $expert;
     }
 
-    function dataExpertAppointments($id, $startDate=null, $endDate=null){
+    function dataExpertAppointments($id, $status='active', $startDate=null, $endDate=null){
 
         if(isset($id)){
 
@@ -543,6 +580,7 @@ class ExpertController extends BaseController {
                 $endDate = date('Y-m-d', strtotime($endDate));
 
                 $appointments = Appointment::where('expert_id', '=', $id)
+                    ->where('status', '=', 'active')
                     ->where('start_date', '>=', $startDate)
                     ->where('end_date', '<=', $endDate)->get();
             }

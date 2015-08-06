@@ -29,7 +29,7 @@
 
 <div class="row column">
     @include('includes.expert.menu')
-    <div class="main_content">
+    <div class="main_content row">
         <div class="row">
 
             <div class="row">
@@ -47,62 +47,47 @@
                 </div>
             </div>
 
-            <div class="row appointment_list">
-                <table id="myTable" class="tablesorter">
-                    <caption>Upcoming appointments
-                        <div class="appointment_modes">
-                            <div class="selected_mode">
-                                <p>Filter by appointment</p>
-                                <span></span>
+            <div class="row">
+
+                <div class='tab-container'>
+                    <ul class='tabs'>
+                        <li><a href='#tab-list'>List</a></li>
+                        <li><a href='#tab-create'>Create</a></li>
+                    </ul>
+                    <div id='tab-list'>
+                        <div id='appointment-list' class='list-container'></div>
+                    </div>
+                    <div id='tab-create'>
+                        <div class='form-row'>
+                            <div class='form-label'>Date</div>
+                            <div class='form-data'>
+                                <input type='date' name='date'/>
                             </div>
-                            <div class="modes">
-                                <p>Online consultancy</p>
-
-                                <p>Online consultancy</p>
-
-                                <p>Online consultancy</p>
-
-                                <p>Online consultancy</p>
-                            </div>
+                            <div class='clear'></div>
                         </div>
-                    </caption>
-                    <thead>
-                    <tr>
-                        <th>Appointment ID</th>
-                        <th>Patient Name</th>
-                        <th>sex</th>
-                        <th>Age</th>
-                        <th>attachments</th>
-                        <th>Time scheduled</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>#52266</td>
-                        <td>Rajesh Sharma</td>
-                        <td>Male</td>
-                        <td>32</td>
-                        <td>report.jpg</td>
-                        <td>02:30PM</td>
-                    </tr>
-                    <tr>
-                        <td>#52266</td>
-                        <td>Virjesh Sharma</td>
-                        <td>Male</td>
-                        <td>32</td>
-                        <td>report.jpg</td>
-                        <td>02:30PM</td>
-                    </tr>
-                    <tr>
-                        <td>#52266</td>
-                        <td>Radha Sharma</td>
-                        <td>Female</td>
-                        <td>32</td>
-                        <td>report.jpg</td>
-                        <td>02:30PM</td>
-                    </tr>
-                    </tbody>
-                </table>
+                        <div class='form-row'>
+                            <div class='form-label'>Start Time</div>
+                            <div class='form-data'>
+                                <input type='time' name='startTime'/>
+                            </div>
+                            <div class='clear'></div>
+                        </div>
+                        <div class='form-row'>
+                            <div class='form-label'>End Time</div>
+                            <div class='form-data'>
+                                <input type='time' name='startTime'/>
+                            </div>
+                            <div class='clear'></div>
+                        </div>
+                        <div class='form-row'>
+                            <div class='form-label'>Gap</div>
+                            <div class='form-data'>
+                                <input type='time' name='startTime'/>
+                            </div>
+                            <div class='clear'></div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -118,12 +103,13 @@
         </div>
     </div>
 </div>
-@include('includes.footer')
+@include('includes.expert-admin-footer')
 
 {{HTML::script(asset("/public/js/tablesorter.js"))}}
 {{HTML::script(asset("/public/js/moment.min.js"))}}
 {{HTML::script(asset("/public/js/fullcalendar.min.js"))}}
-{{HTML::script(asset("/public/js/site/expert/dashboard.js"))}}
+{{HTML::script(asset("/public/js/site/tab.js"))}}
+{{HTML::script(asset("/public/js/site/expert/manage-appointments.js"))}}
 
 </body>
 </html>
